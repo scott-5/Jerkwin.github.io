@@ -2,7 +2,7 @@
  layout: post
  title: GROMACS QM/MM教程3：使用DFTB3进行QM/MM模拟
  categories:
- - 哲科文图
+ - 科
  tags:
  - gmx
 ---
