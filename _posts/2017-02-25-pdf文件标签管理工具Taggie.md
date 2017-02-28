@@ -40,7 +40,7 @@ __注意__ 若在工具栏右键时只出现`锁定/解锁所有命令栏`
 
 ## 使用方法
 
-下载64位Windows7适用的 [Taggie](/Prog/Taggie.zip). 压缩包中包含了Taggie程序及其运行所需的Everything和其他程序. 如果你还不了解Everything程序, 请先了解下[Everything: 速度最快的文件名搜索工具](http://xbeta.info/everything-search-tool.htm).
+下载 [Windows7 64位 Taggie](/Prog/Taggie.zip) 或 [Windows7 32位 Taggie](/Prog/Taggie.win32.zip). 压缩包中包含了Taggie程序及其运行所需的Everything和其他程序. 如果你还不了解Everything程序, 请先了解下[Everything: 速度最快的文件名搜索工具](http://xbeta.info/everything-search-tool.htm).
 
 解压后,
 
