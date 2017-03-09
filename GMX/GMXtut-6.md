@@ -46,7 +46,7 @@
 
 <p>下载待研究体系的<a href="/GMX/GMXtut-6_methane_water.gro">坐标文件</a>与<a href="/GMX/GMXtut-6_topol.top">拓扑文件</a>, 这些文件是David Mobley教程的一部分, 也是前面提到的论文中Michael Shirts使用的原始文件(稍加修改以兼容GROMACS的最近版本).</p>
 
-<p>体系包含一个单独的甲烷分子(坐标文件中的名称为<code>ALAB</code>, 作为甘氨酸的β碳原子), 处于596个TIP3P水分子的盒子中. 查看拓扑文件, 会发现如下内容:</p>
+<p>体系包含一个单独的甲烷分子(坐标文件中的名称为<code>ALAB</code>, 作为丙氨酸的β碳原子), 处于596个TIP3P水分子的盒子中. 查看拓扑文件, 会发现如下内容:</p>
 
 <pre><code>; Topology for methane in TIP3P
 
