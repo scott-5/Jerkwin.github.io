@@ -1,7 +1,6 @@
 ---
 title: 关于我
 layout: page
-comments: yes
 ---
 
 >有两件事物我愈是思考愈是神奇

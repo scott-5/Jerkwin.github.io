@@ -1,7 +1,6 @@
 ---
 title: 链接
 layout: page
-comments: yes
 ---
 
 下面是我关注或曾经关注的一些网站:
