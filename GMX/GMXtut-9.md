@@ -254,3 +254,8 @@ make install
 <li>Sitkoff D, Sharp KA, Honig B (1994) Accurate calculation of hydration free energies using macroscopic solvent models. <em>J Phys Chem</em> 97: 1978&#8211;1988.</li>
 <li>Shrake A, Rupley JA (1973) Environment and exposure to solvent of protein atoms-lysozyme and insulin. <em>J Mol Biol</em> 79: 351&#8211;371.</li>
 </ul>
+
+## 评论
+
+- 2015-10-28 20:40:56 `小康` g_MMPBSA 新版可以支持5.0啦~真开心
+- 2015-10-28 20:48:23 `Jerkwin` 谢谢告知, 我会更新下.

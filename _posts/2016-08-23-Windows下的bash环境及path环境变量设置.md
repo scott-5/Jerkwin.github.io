@@ -32,13 +32,21 @@
 
 最后也顺便说下Linux下的类似设置吧. 在Linux下, 只要编辑用户`home`下的`.bashrc`文件, 在里面添加类似下面的内容就可以了.
 
-<table class="highlighttable"><th colspan="2">bash</th><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
+<table class="highlighttable"><th colspan="2" style="text-align:left">bash</th><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
 2
 3</pre></div></td><td class="code"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #AA22FF">export</span> <span style="color: #B8860B">PATH</span><span style="color: #666666">=</span>$PATH:<span style="color: #BB6622; font-weight: bold">\</span>
 /添加/目录1:<span style="color: #BB6622; font-weight: bold">\</span>
 /添加/目录2
 </pre></div>
 </td></tr></table>
-
 前一个`$PATH`也是引用系统的`PATH`, 作用与Windows下的类似. 编辑完此文件后, `source ~/.bashrc`或退出重新登录下机器这些设置就可以起作用了.
 
+### 评论
+
+- 2016-08-26 22:29:32 `LeoooBian` 在我的使用经验来看，[Babun](http://babun.github.io/) 和 [ConEmu](https://conemu.github.io/) 是目前两个比较好的cygwin替代方案。其实使用虚拟机装一个Linux系统可能是更好的选择。
+
+- 2016-08-27 09:17:30 `Jerkwin` 谢谢提供信息. 不过第一个程序就是打包好的cygwin, 而第二个只是个执行命令的界面.
+
+- 2016-08-30 08:51:13 `LeoooBian` 主要是我感觉cygwin的安装和内部程序安装配置太反直觉了，打好包的程序对用户比较友好。用了几年的cygwin，去年开始用babun（和MobiXterm），今年就彻底放弃在windows下配置了，还是发挥系统的特长比较靠谱。
+
+- 2016-08-30 22:47:28 `Jerkwin` 是这样的. 不过我基本都是在windows下操作, 很少直接使用那些工具, 都是在脚本里调用一下, 那些工具只要可用就够了.

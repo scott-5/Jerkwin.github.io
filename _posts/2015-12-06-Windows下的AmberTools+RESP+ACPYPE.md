@@ -40,24 +40,37 @@
 
 再准备一个`setup.py`脚本
 
-<pre class="line-numbers" data-start="0"><code class="language-bash"># Language: python
-from distutils.core import setup
-import py2exe
+<table class="highlighttable"><th colspan="2" style="text-align:left">python</th><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #AA22FF; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">distutils.core</span> <span style="color: #AA22FF; font-weight: bold">import</span> setup
+<span style="color: #AA22FF; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">py2exe</span>
 
-options = { "py2exe": 
-	{ "optimize": 2,
-	  "compressed": 1,
-	  "bundle_files": 1 # 此选项只能用于32位版本的Windows
+options <span style="color: #666666">=</span> { <span style="color: #BB4444">&quot;py2exe&quot;</span>:
+	{ <span style="color: #BB4444">&quot;optimize&quot;</span>: <span style="color: #666666">2</span>,
+	  <span style="color: #BB4444">&quot;compressed&quot;</span>: <span style="color: #666666">1</span>,
+	  <span style="color: #BB4444">&quot;bundle_files&quot;</span>: <span style="color: #666666">1</span> <span style="color: #008800; font-style: italic"># 此选项只能用于32位版本的Windows</span>
 	}
 }
 
 setup(
-	options = options,
-	zipfile=None,
-	console=['acpype.py']
+	options <span style="color: #666666">=</span> options,
+	zipfile<span style="color: #666666">=</span><span style="color: #AA22FF">None</span>,
+	console<span style="color: #666666">=</span>[<span style="color: #BB4444">&#39;</span>acpype<span style="color: #666666">.</span>py<span style="color: #BB4444">&#39;</span>]
 )
-</code></pre>
-
+</pre></div>
+</td></tr></table>
 最后执行
 
 	python setup.py py2exe
@@ -67,3 +80,8 @@ setup(
 ## 整合发布
 
 将我们编译好的`resp.exe`, `acpype.exe`及其运行所需的文件全都复制到`chimera主目录/bin/amber14/bin`目录下, 再将`chimera主目录/bin/amber14`这个目录一起打包, 就做成了一个在Windows下可以直接使用的AmberTools程序包, 可用于处理小分子. 你如果需要这个工具包, 请点击[这里](/Prog/amber14.zip)下载. 我整合的这个工具包可用于Windows XP 32位和Windows 7 64位, 其他平台上为测试. 有关此工具包的具体使用方法请参考后续博文.
+
+## 评论
+
+- 2017-01-17 03:38:10 `jhli` 抢个沙发。。。
+- 2017-01-18 12:07:49 `Jerkwin` 这有啥好抢的. 随时都有的.

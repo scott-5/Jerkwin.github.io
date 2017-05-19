@@ -830,3 +830,10 @@ GROMACS内置的<code>rms</code>模块可用于计算RMSD, 使用下面的命令
 <p>如果你对改进这个教程有些建议, 如果你发现了错误, 或者你觉得有些地方不够清楚, 请给我发邮件<code>jalemkul@vt.edu</code>, 不要客气. 请注意: 这不是邀请你因为GROMACS的问题而给我发邮件. 我并不是作为一个私人家教或个人客服在为自己打广告. 那是<a href="http://lists.gromacs.org/mailman/listinfo/gmx-users">GROMACS用户列表</a>的事. 我可能会在那里帮助你, 但那只是作为对整个社区的服务, 而不只针对最终用户.</p>
 
 <p>模拟快乐!</p>
+
+### 评论
+
+- 2015-10-28 19:14:10 `小康` 让我们来分析温度变化情况, 再次使用energy模块:
+	gmx energy -f nvt.ed
+	这里漏掉了一点哈
+- 2015-10-28 20:48:55 `Jerkwin` 谢谢指出错误.

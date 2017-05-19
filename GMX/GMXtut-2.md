@@ -515,3 +515,11 @@ gmx mdrun -deffnm nvt
 <p>如果你对改进这个教程有些建议, 如果你发现了错误, 或者你觉得有些地方不够清楚, 请给我发邮件<code>jalemkul@vt.edu</code>, 不要客气. 请注意: 这不是邀请你因为GROMACS的问题而给我发邮件. 我并不是作为一个私人家教或个人客服在为自己打广告. 那是<a href="http://lists.gromacs.org/mailman/listinfo/gmx-users">GROMACS用户邮件列表</a>的事. 我可能会在那里帮助你, 但那只是作为对整个社区的服务, 而不只针对最终用户.</p>
 
 <p>祝你模拟愉快!</p>
+
+## 评论
+
+- 2016-03-14 16:13:04 `zzz` 第二步修改拓扑
+	原文是：That said, we cannot simply #include "lipid.itp" within our topology
+	翻译成了我们可以
+	麻烦改下吧
+- 2016-03-14 23:36:23 `Jerkwin` 谢谢. 已经修改. 如果发现其他问题, 欢迎指出.

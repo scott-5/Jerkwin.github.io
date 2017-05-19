@@ -1715,3 +1715,68 @@ lincs<span style="color: #666666">-</span>iter               <span style="color:
 lincs<span style="color: #666666">-</span>warnangle          <span style="color: #666666">=</span> <span style="color: #666666">30</span>
 </pre></div>
 </td></tr></table>
+
+## 评论
+
+- 2016-06-03 14:59:27 `franklinly0533` 您好，李老师，在《GROMACS教程：漏斗网蜘蛛毒素肽的溶剂化研究：Amber99SB-ILDN力场》中结果分析，1. ngmx查看轨迹，ngmx的初始启动对话框，ngmx查看蛋白质结构，这两个显示的结果已不能用ngmx命令了，我的电脑程序是5.1.2版本的。是不是可以改成：gmx nmtraj npt-nopr.trr -s npt-nopr.tpr
+	gmx nmtraj npt-nopr.trr -s npt-nopr.tpr
+	在以下的命令中，
+	2. g_energy抽取性质数据
+	3. g_confrms比较结构差异
+	4. g_covar计算平均结构
+	5. g_rms与g_rmsdist计算根均方偏差RMSD
+	6. g_rmsf计算根均方涨落RMSF和温度因子
+	7. g_gyrate计算回旋半径
+	8. g_sas计算溶剂可及表面积
+	9. do_dssp计算二级结构
+	10. g_hbond统计氢键
+	11. g_saltbr分析盐桥
+	12. g_cluster分析团簇
+	13. g_covar进行主成分分析
+	14. g_angle进行二面角主成分分
+	均已经在5.1.2版本中消失了。均应该改为：
+	2. gmx energy抽取性质数据
+	3. gmx confrms比较结构差异
+	4. gmx covar计算平均结构
+	5. gmx rms与gmx rmsdist计算根均方偏差RMSD
+	6. gmx rmsf计算根均方涨落RMSF和温度因子
+	7. gmx gyrate计算回旋半径
+	8. gmx sas计算溶剂可及表面积
+	9. gmx do_dssp计算二级结构
+	10.gmx hbond统计氢键
+	11. gmx saltbr分析盐桥
+	12. gmx cluster分析团簇
+	13. gmx covar进行主成分分析
+	14. gmx angle进行二面角主成分分
+	另外，3. gmx confrms比较结构差异，我运行后得到的fit.pdb，结果用vmd软件打开，结果很乱，不是显示的蛋白结构。
+
+- 2016-06-03 15:07:27 `franklinly0533` gmx do_dssp计算二级结构,gmx sas计算溶剂可及表面积。这两个程序运行了两遍，没有成功，还不知道哪里出现了问题，正在探究中。
+
+- 2016-06-03 15:15:01 `franklinly0533` gmx saltbr分析盐桥，我的电脑运行结果如下：
+		……（注：结果行太多了，省略了）
+		CG: CL4027-12422 Q: -1 Atoms: 12421
+		CG: CL4028-12423 Q: -1 Atoms: 12422
+		CG: CL4029-12424 Q: -1 Atoms: 12423
+		CG: CL4030-12425 Q: -1 Atoms: 12424
+		CG: CL4031-12426 Q: -1 Atoms: 12425
+		CG: CL4032-12427 Q: -1 Atoms: 12426
+		CG: CL4033-12428 Q: -1 Atoms: 12427
+		Reading frame 10 time 10.000 已杀死
+	这个说明是不是没有成功？
+
+- 2016-06-03 15:19:28 `franklinly0533` 12. gmx cluster分析团簇，这个我得到的结果如下：
+		Error in user input:
+		Invalid command-line options
+		In command-line option -dm
+		File 'rmsd-matrix.xpm' does not exist or is not accessible.
+		For more information and tips for troubleshooting, please check the GROMACS
+		website at http://www.gromacs.org/Documentation/Errors
+	命令行中的-dm 存在问题。rmsd-matrix.xpm不存在好像是由于前面有些步骤没有成功造成的哟。
+
+- 2016-06-03 21:30:43 `Jerkwin` 谢谢测试. 你能不能把你测试的结果发我一份Jerkwin@qq.com, 我好将教程更新到gmx 5.x?
+
+- 2016-10-06 11:29:35 `CYM` 用http://jerkwin.github.io/9999/11/01/GROMACS%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91/上提供的GROMACS 5.1.1双精度版时，发现在“第五步：向盒子中填充溶剂及离子并进行能量最小化”之后，fws.top文件会变成0字节，无法进行之后的第六步。本人电脑的操作系统是Windows 8.1。
+- 2016-10-06 13:34:00 `Jerkwin` Windows版本的gmx运行时由于权限问题可能导致无法自动更新top文件, 你需要自己手动将产生的一个名称中含有temp的临时文件复制到需要的top文件中, 直接将它重命名成需要的top文件也是可以的.
+
+- 2017-01-17 20:23:01 `whtu` LZ，pdb文件下不下来，请问在哪可以找到呢？谢谢。
+- 2017-01-18 21:57:28 `Jerkwin` 链接修复好了, 你再试试吧

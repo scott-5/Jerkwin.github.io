@@ -207,3 +207,20 @@ mdrun -v -deffnm nvt
 <li><a href="https://www.mail-archive.com/gromacs.org_gmx-users%40maillist.sys.kth.se/msg11108.html">help on Graphene Nano Sheets</a></li>
 <li><a href="http://machine-phase.blogspot.com/2009/04/single-wall-carbon-nanotubes-in-403.html">Single Wall Carbon Nanotubes in 4.0.3 GROMACS</a></li>
 </ol>
+
+## 评论
+
+- 2016-10-13 15:04:53 `李晨亮` 您好，按照您例子的过程，我计算了一下，但是为什么我编写的.n2t文件，在生成top文件时不识别，只是识别程序自带的atomname2type.n2t文件？谢谢
+- 2016-10-14 08:57:20 `Jerkwin` 你自己的文件放在 GROMACS主目录/share/top/oplsaa.ff/目录 下了么?
+- 2016-10-14 12:44:42 `李晨亮` 放在GROMACS主目录/share/top/oplsaa.ff/下了！
+- 2016-10-14 12:46:10 `李晨亮` 我用的是gromacs5.0.5版本，这跟版本有关系吗？
+- 2016-10-14 22:47:04 `Jerkwin` 我测试了, gmx4.6和5.1.2版本都没有问题. 没有使用过你的版本, 不清楚. 实在不行, 你可以将自己的内容添加到默认的n2t文件中.
+- 2016-10-17 11:37:18 `李晨亮` 我也试着将内容添加到默认的n2t文件中，但是读取力场时，也只是读取23行，而不读取我自己加进去的那三行！
+- 2016-10-17 23:05:22 `Jerkwin` 你加入下面的群吧, 我帮你看看
+- 2016-10-19 09:03:38 `雨加雪` 问题解决了，是我的n2t文件格式有点问题！谢谢
+	已经申请加群，等待批准！
+
+- 2016-12-23 22:01:41 `白杨` 老师，我在模拟石墨烯的时候遇到了您上面写出来的代码3错误信息。把石墨烯position restraint，C原子之间有键相连。提示说\two-body bonded interactions: 26.179 nm\，这个距离太大了，没法区域分解……为什么会出现这个问题？老师能否指点下我，好着急……
+- 2016-12-25 10:42:13 `Jerkwin` 我怀疑是你的top有问题, 或者你没有使用periodic‐molecules选项
+- 2016-12-27 11:16:58 `白杨` 老师，top我弄的很简单，[ moleculetypes ] [ bonds ]……确实没使用periodic-molecules选项，石墨烯边到box边界有一段距离，我试试老师说的periodic-molecules，谢谢老师
+- 2016-12-28 15:21:27 `Jerkwin` 如果有键相互作用的话, 盒子大小必须精确地与周期性匹配, 且使用periodic-molecules选项, 否则的话, 肯定是错误的

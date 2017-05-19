@@ -235,3 +235,11 @@ gmx wham -it tpr-files.dat -if pullf-files.dat -o -hist -unit kCal
 如果你对改进这个教程有些建议, 如果你发现了错误, 或者你觉得有些地方不够清楚, 请给我发邮件<jalemkul@vt.edu>, 不要客气. 请注意: 这不是邀请你因为GROMACS的问题而给我发邮件. 我并不是作为一个私人家教或个人客服在为自己打广告. 那是[GROMACS用户邮件列表](http://lists.gromacs.org/mailman/listinfo/gmx-users)的事. 我可能会在那里帮助你, 但那只是作为对整个社区的服务, 而不只针对最终用户.
 
 祝你模拟愉快!
+
+## 评论
+
+- 2016-08-09 17:30:11 `Truth_ZL` 非常感谢，教程翻译帮大忙了。有个小问题，第六步最后grompp命令是不是写错了，应该为-c npt0.gro并包含 -t npt0.cpt
+- 2016-08-09 19:51:27 `Jerkwin` 不应该是, conf*是从拉伸中抽取出来的, 要使用这种构型.
+
+- 2016-08-31 20:21:44 `邰梦` 求大神带我学Gromacs
+- 2016-09-01 01:25:21 `Jerkwin` 有问题就加入下面的群问吧,
