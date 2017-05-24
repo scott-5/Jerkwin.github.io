@@ -1,6 +1,6 @@
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
-url: http://jerkwin.github.io
+url: https://jerkwin.github.io
 author: Jerkwin
 highlighter: rouge
 safe: true
