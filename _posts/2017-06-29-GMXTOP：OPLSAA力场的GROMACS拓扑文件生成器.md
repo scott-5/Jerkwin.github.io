@@ -2,10 +2,9 @@
  layout: post
  title: GMXTOP：OPLSAA力场的GROMACS拓扑文件生成器
  categories:
- - 哲科文图
+ - 科
  tags:
  - gmx
- chem: true
 ---
 
 - 2017-06-29 21:46:49
