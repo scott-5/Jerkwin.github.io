@@ -279,6 +279,7 @@ table tr th {
 		</td></tr>
 		<tr><td>
 			<input type="box" name="Conc" onInput="setVal(this.name,this.id)" id="C_cm3"> molec/cm<sup>3</sup><br>
+			<input type="box" name="Conc" onInput="setVal(this.name,this.id)" id="C_nm3"> molec/nm<sup>3</sup><br>
 			<input type="box" name="Conc" onInput="setVal(this.name,this.id)" id="C_A3"> molec/&#197;<sup>3</sup><br>
 		</td></tr>
 		<tr><td>
@@ -2551,7 +2552,7 @@ P_Pa=1.; P_kPa=1E3; P_MPa=1E6; P_GPa=1E9
 P_dyncm=1E-1; P_bar=1E5; P_atm=101325
 P_mmH2O=1.004514556*gstd; P_mmHg=13.5951*gstd; P_Torr=P_mmHg
 
-C_M=1.; C_mM=1E-3; C_uM=1E-6; C_A3=1/Navg*1E27; C_cm3=1/Navg*1E3
+C_M=1.; C_mM=1E-3; C_uM=1E-6; C_A3=1/Navg*1E27; C_cm3=1/Navg*1E3; C_nm3=1/Navg*1E24
 
 R_gmL=1.; R_gL=1.E-3; R_amuA3=amu2kg*1E30*1E-3
 
@@ -2648,6 +2649,7 @@ function setTP(name, id) {
 		$('C_uM').disabled=$(id).checked
 		$('C_A3').disabled=$(id).checked
 		$('C_cm3').disabled=$(id).checked
+		$('C_nm3').disabled=$(id).checked
 		$('rdo_K').disabled=$(id).checked
 		$('rdo_Pa').disabled=$(id).checked
 		$('C_K').value=298.15
