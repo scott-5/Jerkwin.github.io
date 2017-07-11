@@ -8,9 +8,8 @@
  chem: true
 ---
 
-## 2015-12-10 21:03:38
-
-- 本文译自[All-atom automatic OPLS-AA topology generator](http://erg.biophys.msu.ru/wordpress/archives/32), 为TPPMKTOP的说明文档.
+- 2015-12-10 21:03:38 本文译自[All-atom automatic OPLS-AA topology generator](http://erg.biophys.msu.ru/wordpress/archives/32), 为TPPMKTOP的说明文档.
+- 2017-07-11 08:37:00 补充两个常见问题
 
 生成OPLS-AA力场的拓扑文件非常复杂, 因为此力场包含的原子类型非常多, 超过800种. 但即便使用如此多的原子类型, OPLS-AA力场仍不可能描述所有分子的化学结构. 因此, 当文献中给出了新化学片段的参数后, OPLS-AA力场的原子类型也会随之增加. TPPMKTOP是一个自动化的工具, 可用于生成OPLS-AA力场的拓扑文件. 它提供了免费的网络服务, 网址为<http://erg.biophys.msu.ru/tpp>. TPPMKTOP使用了MySQL数据库, 其中包含了有关原子类型指认的力场参数和信息. 这个数据库由我们研究组负责持续升级. TPPMKTOP是一个开源项目, 你可以联系<comconadin@gmail.com>以便获得最新版本.
 
@@ -18,9 +17,14 @@
 
 ![](/pic/GMX_tpp-1.png)
 
-<figure><script>var Mol=new ChemDoodle.MovieCanvas3D('Mol-1', 650,400);Mol.specs.set3DRepresentation('Ball and Stick');Mol.specs.projectionPerspective_3D = false;Mol.specs.backgroundColor='black';Mol.specs.crystals_unitCellLineWidth = 1.5;Mol.specs.proteins_ribbonCartoonize = true;
-Mol.addFrame([ChemDoodle.readXYZ(' 39\nMOL\nC -0.639 4.489 -1.288\nO -0.746 5.881 -1.595\nH -1.110 3.915 -2.059\nC 0.850 4.102 -1.198\nO 1.497 4.362 -2.447\nH 1.428 5.297 -2.654\nH 1.322 4.675 -0.428\nC 0.949 2.611 -0.865\nO 2.320 2.224 -0.747\nH 2.771 2.385 -1.579\nH 0.486 2.037 -1.641\nC 0.219 2.371 0.459\nH 0.688 2.937 1.236\nC -1.245 2.826 0.304\nO -1.290 4.225 -0.032\nH -1.714 2.259 -0.473\nC -1.991 2.596 1.631\nO -3.352 3.013 1.491\nC -4.045 2.799 2.724\nH -1.961 1.556 1.881\nH -1.522 3.163 2.407\nC -2.126 6.245 -1.683\nH -2.597 5.673 -2.454\nH -2.206 7.287 -1.912\nH -2.607 6.047 -0.748\nO 0.264 0.981 0.791\nC 1.626 0.567 0.927\nH 2.095 1.135 1.703\nH 1.660 -0.473 1.175\nH 2.142 0.730 0.003\nC -5.553 2.490 2.715\nO -3.422 2.864 3.815\nH -5.806 1.974 1.812\nC -6.348 3.806 2.794\nH -7.396 3.591 2.788\nH -6.106 4.421 1.953\nH -6.095 4.322 3.697\nO -5.878 1.668 3.840\nH -6.818 1.475 3.835\n')],[]);
-Mol.loadMolecule(Mol.frames[0].mols[0]);Mol.startAnimation();</script><br><figurecaption>Fig.1</figurecaption></figure>
+<figure><script>var Mol1=new ChemDoodle.TransformCanvas3D('Mol-1',642,396);Mol1.specs.shapes_color='#fff';Mol1.specs.backgroundColor='black';Mol1.specs.set3DRepresentation('Ball and Stick');Mol1.specs.projectionPerspective_3D=false;Mol1.specs.compass_display=true;
+/*//Mol1.specs.atoms_resolution_3D=15;
+//Mol1.specs.bonds_resolution_3D=15;
+//Mol1.specs.crystals_unitCellLineWidth=1.5;*/
+Mol1.nextFrame=function(delta){var matrix=[];ChemDoodle.lib.mat4.identity(matrix);var change=delta*Math.PI/15000;ChemDoodle.lib.mat4.rotate(matrix,change,[1,0,0]);ChemDoodle.lib.mat4.rotate(matrix,change,[0,1,0]);ChemDoodle.lib.mat4.rotate(matrix,change,[0,0,1]);ChemDoodle.lib.mat4.multiply(this.rotationMatrix, matrix)};
+Mol1.startAnimation=ChemDoodle._AnimatorCanvas.prototype.startAnimation;Mol1.stopAnimation=ChemDoodle._AnimatorCanvas.prototype.stopAnimation;Mol1.isRunning=ChemDoodle._AnimatorCanvas.prototype.isRunning;Mol1.dblclick=ChemDoodle.RotatorCanvas.prototype.dblclick;Mol1.timeout=5;Mol1.handle=null;
+var Fmol='39\nMOL\nC -0.639 4.489 -1.288\nO -0.746 5.881 -1.595\nH -1.110 3.915 -2.059\nC 0.850 4.102 -1.198\nO 1.497 4.362 -2.447\nH 1.428 5.297 -2.654\nH 1.322 4.675 -0.428\nC 0.949 2.611 -0.865\nO 2.320 2.224 -0.747\nH 2.771 2.385 -1.579\nH 0.486 2.037 -1.641\nC 0.219 2.371 0.459\nH 0.688 2.937 1.236\nC -1.245 2.826 0.304\nO -1.290 4.225 -0.032\nH -1.714 2.259 -0.473\nC -1.991 2.596 1.631\nO -3.352 3.013 1.491\nC -4.045 2.799 2.724\nH -1.961 1.556 1.881\nH -1.522 3.163 2.407\nC -2.126 6.245 -1.683\nH -2.597 5.673 -2.454\nH -2.206 7.287 -1.912\nH -2.607 6.047 -0.748\nO 0.264 0.981 0.791\nC 1.626 0.567 0.927\nH 2.095 1.135 1.703\nH 1.660 -0.473 1.175\nH 2.142 0.730 0.003\nC -5.553 2.490 2.715\nO -3.422 2.864 3.815\nH -5.806 1.974 1.812\nC -6.348 3.806 2.794\nH -7.396 3.591 2.788\nH -6.106 4.421 1.953\nH -6.095 4.322 3.697\nO -5.878 1.668 3.840\nH -6.818 1.475 3.835\n';
+Mol1.loadMolecule(ChemDoodle.readXYZ(Fmol));Mol1.startAnimation();Mol1.stopAnimation();function setProj1(yesPers){Mol1.specs.projectionPerspective_3D=yesPers;Mol1.setupScene();Mol1.repaint()}function setModel1(model){Mol1.specs.set3DRepresentation(model);Mol1.setupScene();Mol1.repaint()}function setSpeed1(){Mol1.timeout=500-document.getElementById('spd1').value;Mol1.loadMolecule(ChemDoodle.readXYZ(Fmol));Mol1.startAnimation()}</script><br><span class='meta'>视图: <input type='radio' name='group2' onclick='setProj1(true)'>投影 <input type='radio' name='group2' onclick='setProj1(false)' checked=''>正交&nbsp;&nbsp;&nbsp;&nbsp;速度: <input type='range' id='spd1' min='1' max='500' onchange='setSpeed1()'/><br>模型: <input type='radio' name='model' onclick='setModel1(&#39;Ball and Stick&#39;)' checked=''>球棍 <input type='radio' name='model' onclick='setModel1(&#39;van der Waals Spheres&#39;)'>范德华球 <input type='radio' name='model' onclick='setModel1(&#39;Stick&#39;)'>棍状 <input type='radio' name='model' onclick='setModel1(&#39;Wireframe&#39;)'>线框 <input type='radio' name='model' onclick='setModel1(&#39;Line&#39;)'>线型&nbsp;&nbsp; <input type='checkbox' onclick='Mol1.specs.atoms_displayLabels_3D=this.checked;Mol1.repaint()'>名称<br>左键: 转动&nbsp;&nbsp; 滚轮: 缩放&nbsp;&nbsp; 双击: 自动旋转开关&nbsp;&nbsp; Alt+左键: 移动</span><br><figurecaption>Fig.1</figurecaption></figure>
 
 其PDB文件可在[这里](/Prog/TPP.pdb)下载.
 
@@ -30,6 +34,8 @@ Mol.loadMolecule(Mol.frames[0].mols[0]);Mol.startAnimation();</script><br><figur
 
 其中, `file.pdb`为你上传的PDB文件, `OPLS-AA`为力场名称. 上面的命令执行成功后程序会给出3个输出文件: `file.itp`为可单独使用的拓扑文件, `file.rtp`为可用于`pdb2gmx`的拓扑文件, `lack.itp`文件中定义了缺失的力场参数. 此外, 还会给出所有的输出文件, 日志文件和控制台输出. 让我们以上面的分子为例来说明生成拓扑的细节.
 
+## 处理步骤
+
 ### 第一步: 程序输出内部统计的结果
 
 	Input file format: Protein Data Bank.
@@ -38,9 +44,8 @@ Mol.loadMolecule(Mol.frames[0].mols[0]);Mol.startAnimation();</script><br><figur
 	Total statistics:
 	 865 atoms, 314 bonds, 988 angles,
 	 1269 dihedrals, 0 nonbonded parameters.
- 
-在控制台输出中, TPPMKTOP会打印出服务器数据库的统计信息, 这些值对应于所选力场在数据库中的总的原子类型数, 键合相互作用参数的数目.
 
+在控制台输出中, TPPMKTOP会打印出服务器数据库的统计信息, 这些值对应于所选力场在数据库中的总的原子类型数, 键合相互作用参数的数目.
 
 ### 第二步: 读入并处理输入的化学结构
 
@@ -158,4 +163,66 @@ TPPMKTOP会试着将数据库中的每一个模式与分子的化学结构进行
 	 19 opls_465 1 LIG C 13 0.510 12.011000 ; AA C: esters - for R on C=O, use #280-#282
 	 20 opls_469 1 LIG H 12 0.030 1.008000 ; methoxy Hs in ester
 	...
+## 常见问题
 
+### 引用扩充的力场文件
+
+PPMKTOP扩展了OPLSAA的原子类型, 因此, 有时其给出的拓扑文件中会包含有自定义的原子类型, 如果直接使用的话, `grompp`时找不到所需的原子类型, 导致出错. 解决方法是下载[TPPMKTOP扩充的OPLSAA力场](https://bitbucket.org/comcon1/oplsaa-erg_ff/get/22632ba8b7c7.zip). 下载解压后将其放于类似`C:\GMX\GMX5.1.4\share\gromacs\top`的目录下, 并将文件夹更名为`oplsaa-erg.ff`, 在拓扑文件中`#include "oplsaa-erg.ff/forcefield.itp"`就可以引用新的力场文件了.
+
+### 异常二面角参数的错误
+
+对于OPLSAA力场的`C:\GMX\GMX5.1.4\share\gromacs\top\oplsaa.ff\ffbonded.itp`文件, 无论是GROMACS自带的, 还是TPPMKTOP扩充后的, 都存在错误. 错误出现在这个文件的`[ dihedraltypes ]`段. 原始内容如下
+
+	[ dihedraltypes ]
+	; Improper OPLS dihedrals to keep groups planar.
+	; (OPLS doesnt use impropers for chiral atoms).
+	; Since these functions are periodic of the form 1-cos(2*x), they are actually
+	; implemented as proper dihedrals [1+cos(2*x+180)] for the moment,
+	; to keep things compatible.
+	; The defines are used in ffoplsaa.rtp or directly in your .top file.
+
+	; O?-C -X -Y improper torsion. C can be C_2 or C_3 too.
+	#define improper_O_C_X_Y        180.0     43.93200   2
+
+	; X-NO-ON-NO improper torsion.
+	#define improper_X_NO_ON_NO     180.0     43.93200   2
+
+	; N2-X-N2-N2 improper torsion.
+	#define improper_N2_X_N2_N2     180.0     43.93200   2
+
+	; Z -N?-X -Y improper torsion
+	#define improper_Z_N_X_Y        180.0      4.18400   2
+
+	; Z -CM-X -Y improper torsion. CM can be C= too.
+	#define improper_Z_CM_X_Y       180.0     62.76000   2
+
+	; Z -CA-X -Y improper torsion. CA is any ring carbon (CA,CB,CN,CV,CW,CR,CK,CQ,CS,C*)
+	#define improper_Z_CA_X_Y       180.0      4.60240   2
+
+这里定义了一些异常二面角类型的参数, 但参数顺序与GROMACS不符, 因此如果用到这些二面角参数, `grompp`时就会出错, 给出`invalid dihedral type 180`的错误. 改正方法也很简单, 将上面的`#define`部分中的参数顺序调整与GROMACS需要的顺序一致, 也就是将最后一个表征类型的数字`2`转移放到平衡角度值`180.0`前面, 修改后如下:
+
+	[ dihedraltypes ]
+	; Improper OPLS dihedrals to keep groups planar.
+	; (OPLS doesnt use impropers for chiral atoms).
+	; Since these functions are periodic of the form 1-cos(2*x), they are actually
+	; implemented as proper dihedrals [1+cos(2*x+180)] for the moment,
+	; to keep things compatible.
+	; The defines are used in ffoplsaa.rtp or directly in your .top file.
+
+	; O?-C -X -Y improper torsion. C can be C_2 or C_3 too.
+	#define improper_O_C_X_Y      2  180.0     43.93200
+
+	; X-NO-ON-NO improper torsion.
+	#define improper_X_NO_ON_NO   2  180.0     43.93200
+
+	; N2-X-N2-N2 improper torsion.
+	#define improper_N2_X_N2_N2   2  180.0     43.93200
+
+	; Z -N?-X -Y improper torsion
+	#define improper_Z_N_X_Y      2  180.0      4.18400
+
+	; Z -CM-X -Y improper torsion. CM can be C= too.
+	#define improper_Z_CM_X_Y     2  180.0     62.76000
+
+	; Z -CA-X -Y improper torsion. CA is any ring carbon (CA,CB,CN,CV,CW,CR,CK,CQ,CS,C*)
+	#define improper_Z_CA_X_Y     2  180.0      4.60240
