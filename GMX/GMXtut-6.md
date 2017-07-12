@@ -5,6 +5,7 @@
  - 科
  tags:
  - gmx
+ mathjax: true
 ---
 
 * toc
