@@ -6,7 +6,7 @@
  tags:
  - gmx
  - martini
- mathjax: true
+ math: true
 ---
 
 - 发布: 2016-11-03 15:38:27; 翻译: 李欢; 校对: 郝阳; 统稿: 李继存

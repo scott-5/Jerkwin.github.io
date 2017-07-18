@@ -7,7 +7,7 @@
  - gmx
  - vmd
  - 氢键
- mathjax: true
+ math: true
 ---
 
 - 2016-12-31 17:14:51 感谢 吴思晋 提供材料

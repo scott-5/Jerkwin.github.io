@@ -5,7 +5,7 @@
  - 科
  tags:
  - 数理
- mathjax: true
+ math: true
 ---
 
 ## 2014-07-17 15:10:54
