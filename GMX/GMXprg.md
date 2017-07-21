@@ -7055,7 +7055,7 @@ __注意__, 此程序不会对结构进行叠合.
   <th rowspan="1" colspan="1" style="text-align:center;">说明</th>
 </tr>
 <tr>
-  <td rowspan="1" colspan="1" style="text-align:left;"><code>-cp [&lt;.gro/.g96/...>]</code></td>
+  <td rowspan="1" colspan="1" style="text-align:left;"><code>-f [&lt;.gro/.g96/...>]</code></td>
   <td rowspan="1" colspan="1" style="text-align:right;">protein.gro</td>
   <td rowspan="1" colspan="1" style="text-align:left;">输入, 可选</td>
   <td rowspan="1" colspan="1" style="text-align:left;">结构文件: gro g96 pdb brk ent esp tpr tpb tpa</td>
