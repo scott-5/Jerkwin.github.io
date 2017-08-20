@@ -203,15 +203,6 @@ table tr th {
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="amu"> 原子质量(amu)<br>
 		</td></tr>
 		<tr><td>
-			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="invm"> 波数(m<sup>-1</sup>)<br>
-			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="invcm"> 厘米波数(cm<sup>-1</sup>)<br>
-		</td></tr>
-		<tr><td>
-			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Eum"> 微米(&mu;m)<br>
-			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Enm"> 纳米(nm)<br>
-			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Eang"> 埃(&#197;)<br>
-		</td></tr>
-		<tr><td>
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="eV"> 电子伏(eV)<br>
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="MeV"> 兆电子伏(MeV)<br>
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="GeV"> 吉电子伏(GeV)<br>
@@ -219,11 +210,29 @@ table tr th {
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="PeV"> 拍电子伏(PeV)<br>
 		</td></tr>
 		<tr><td>
+			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Eum"> 微米(&mu;m)<br>
+			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Enm"> 纳米(nm)<br>
+			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Eang"> 埃(&#197;)<br>
+		</td></tr>
+		<tr><td>
+			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="invm"> 波数(m<sup>-1</sup>)<br>
+			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="invcm"> 厘米波数(cm<sup>-1</sup>)<br>
+		</td></tr>
+		<tr><td>
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Hz"> 赫兹(Hz)<br>
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="MHz"> 兆赫兹(MHz)<br>
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="GHz"> 吉赫兹(GHz)<br>
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="THz"> 太赫兹(THz)<br>
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="PHz"> 拍赫兹(PHz)<br>
+		</td></tr>
+		<tr><td>
+			<input type="box" name="Energy" onInput="setVal(this.name,this.id)" id="Es">周期   秒(s)<br>
+			<input type="box" name="Energy" onInput="setVal(this.name,this.id)" id="Ems">周期 毫秒(ms)<br>
+			<input type="box" name="Energy" onInput="setVal(this.name,this.id)" id="Eus">周期 微秒(&mu;s)<br>
+			<input type="box" name="Energy" onInput="setVal(this.name,this.id)" id="Ens">周期 纳秒(ns)<br>
+			<input type="box" name="Energy" onInput="setVal(this.name,this.id)" id="Eps">周期 皮秒(ps)<br>
+			<input type="box" name="Energy" onInput="setVal(this.name,this.id)" id="Efs">周期 飞秒(fs)<br>
+			<input type="box" name="Energy" onInput="setVal(this.name,this.id)" id="Eas">周期 阿秒(as)<br>
 		</td></tr>
 		</table>
 
@@ -2541,6 +2550,7 @@ Hatr2Ee2nm=nm/bhr
 m2Eum=1.E6;   m2Enm=1.E9; m2Eang=1.E10
 eV2MeV=1.E-6; eV2GeV=1.E-9; eV2TeV=1.E-12; eV2PeV=1.E-15
 Hz2MHz=1.E-6; Hz2GHz=1.E-9; Hz2THz=1.E-12; Hz2PHz=1.E-15
+Hz2Es=T_s; Hz2Ems=T_ms; Hz2Eus=T_us; Hz2Ens=T_ns; Hz2Eps=T_ps; Hz2Efs=T_fs; Hz2Eas=T_as
 
 F_N=1.0; F_dyn=1E-5; F_mN=1E-3; F_uN=1E-6; F_nN=1E-9; F_pN=1E-12
 F_au=auf; F_auA=Hatr2J/L_ang
@@ -2683,7 +2693,10 @@ function setVal(name, id) {
 		'MeV':'eV', 'GeV':'eV', 'TeV':'eV', 'PeV':'eV',
 		'MHz':'Hz', 'GHz':'Hz', 'PHz':'Hz', 'THz':'Hz',
 		'Eum':'Rinvm', 'Enm':'Rinvm', 'Eang':'Rinvm',
-		'Ee2Bhr':'Hatr', 'Ee2A':'Hatr', 'Ee2nm':'Hatr'}
+		'Ee2Bhr':'Hatr', 'Ee2A':'Hatr', 'Ee2nm':'Hatr',
+		'Es': 'RinvHz', 'Ems': 'RinvHz', 'Eus': 'RinvHz',
+		'Ens': 'RinvHz', 'Eps': 'RinvHz', 'Efs': 'RinvHz',
+		'Eas': 'RinvHz'}
 
 	unit=document.getElementsByName(name)
 
@@ -2710,8 +2723,9 @@ function setVal(name, id) {
 		val=eval($(id).value)
 		txt=drvUnit[id]
 		if(txt) {
-			if(txt!='Rinvm') val=eval(val+'/'+txt+'2'+id)
-			else             { val=eval(1/val+'*m2'+id); txt='invm' }
+			if(txt=='Rinvm') { val=eval(1/val+'*m2'+id); txt='invm' }
+			else if(txt=='RinvHz') { val=eval(1/val+'/Hz2'+id); txt='Hz' }
+			else val=eval(val+'/'+txt+'2'+id)
 
 			$(txt).value=fmt(val)
 			id2=id
@@ -2730,12 +2744,16 @@ function setVal(name, id) {
 			txt=drvUnit[tmp]
 			if(txt) {
 				console.log(txt, tmp)
-				if(txt!='Rinvm') {
-					val=$(txt).value
-					if(unit[i].id!=id2) unit[i].value=fmt(eval(val+'*'+txt+'2'+tmp))
-				} else {
+				if(txt=='Rinvm') {
 					val=1/$('invm').value
 					if(unit[i].id!=id2) unit[i].value=fmt(eval(val+'*m2'+tmp))
+				}
+				else if(txt=='RinvHz') {
+					val=1/$('Hz').value
+					if(unit[i].id!=id2) unit[i].value=fmt(eval(val+'/Hz2'+tmp))
+				} else {
+					val=$(txt).value
+					if(unit[i].id!=id2) unit[i].value=fmt(eval(val+'*'+txt+'2'+tmp))
 				}
 			}
 		}
