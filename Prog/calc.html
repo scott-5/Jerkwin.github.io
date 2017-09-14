@@ -362,21 +362,16 @@ table tr th {
 		</table>
 
 		<br><input type="button" value="统计" onClick="getRMSE()" style="width:100px; height:30px" />
+		输出数值格式<input type="box" id="fmt" value='9.3' style="width:100px; height:30px"><br>
 		数据个数: <span id='datNum'></span> 数据维数: <span id='datDim'></span><br><br>
 
 		<table style="display: block;">
-			<tr><th>平均值</th><th>A向量</th><th>B向量</th></tr>
-			<tr><td>各分量</td> <td id='avgA'></td><td id='avgB'></td></tr>
-			<tr><td>所有分量</td><td id='avgAtot'></td><td id='avgBtot'></td></tr>
-			<tr><td>长度</td><td id='avgAamp'></td><td id='avgBamp'></td></tr>
+			<tr><th>平均值</th><th>A向量</th><th>B向量</th><th>AB RMSE(n)</th><th>AB RMSE(n-1)</th></tr>
+			<tr><td>各分量</td> <td id='avgA'></td><td id='avgB'></td><td id='RMSE'></td><td id='RMSE1'></td></tr>
+			<tr><td>所有分量</td><td id='avgAtot'></td><td id='avgBtot'></td><td id='RMSEtot'></td><td id='RMSE1tot'></td></tr>
+			<tr><td>长度</td><td id='avgAamp'></td><td id='avgBamp'></td><td id='RMSEamp'></td><td id='RMSE1amp'></td></tr>
 		</table>
 		<br>
-		<table style="display: block;">
-			<tr><th>AB RMSE</th><th>RMSE(n)</th><th>RMSE(n-1)</th></tr>
-			<tr><td>各分量</td> <td id='RMSE'></td><td id='RMSE1'></td></tr>
-			<tr><td>所有分量</td><td id='RMSEtot'></td><td id='RMSE1tot'></td></tr>
-			<tr><td>长度</td><td id='RMSEamp'></td><td id='RMSE1amp'></td></tr>
-		</table>
 		<img src="RMSE.png">
 	</div>
 
@@ -2766,6 +2761,20 @@ function fmt(txt) {
 	return txt
 }
 
+function printf() {
+	var map = {
+		s: function(str, fmt) { var n=str.length; return n>fmt ? str : str+Array(fmt-n+1).join(' ')},
+		f: function(str, fmt) { fmt=fmt.split('.'); str=parseFloat(str).toFixed(fmt[1]);
+			var m=fmt[0], n=str.length; return n>m ? str : Array(m-n+1).join(' ')+str
+		}
+	}
+	var args = Array.prototype.slice.call(arguments).slice();
+	return args.shift().toString().replace(/%(-*\d*\.*\d*)([sf])/g, function(_, fmt, type){
+		if(!args.length) throw new Error('Too few elements')
+		return map[type](args.shift().toString(), fmt);
+	});
+}
+
 Array.prototype.sum = function () {
 	for(var t=0,i=this.length; i--; t+=parseFloat(this[i])); return t;
 }
@@ -2818,13 +2827,14 @@ function getRMSE() {
 	var avgBamp=ampB.sum()/parseFloat(Ndat)
 	j=Ndim; while(j--) avgB[j] /= parseFloat(Ndat)
 
+	digit='%'+$('fmt').value+'f'
 	$('avgA').innerHTML=avgA.join('<br>')
-	$('avgAtot').innerHTML=avgA.sum()/parseFloat(Ndim)
-	$('avgAamp').innerHTML=avgAamp
+	$('avgAtot').innerHTML=printf(digit, avgA.sum()/parseFloat(Ndim))
+	$('avgAamp').innerHTML=printf(digit, avgAamp)
 
 	$('avgB').innerHTML=avgB.join('<br>')
-	$('avgBtot').innerHTML=avgB.sum()/parseFloat(Ndim)
-	$('avgBamp').innerHTML=avgBamp
+	$('avgBtot').innerHTML=printf(digit,avgB.sum()/parseFloat(Ndim))
+	$('avgBamp').innerHTML=printf(digit,avgBamp)
 
 	j=Ndim; while(j--) varAB[j]=0
 	i=Ndat; while(i--) {
@@ -2837,13 +2847,13 @@ function getRMSE() {
 	j=Ndim; while(j--) RMSE[j]=Math.sqrt(varAB[j]/parseFloat(Ndat-1))
 	$('RMSE1').innerHTML=RMSE.join("<br>")
 
-	$('RMSEtot').innerHTML=Math.sqrt(varAB.sum()/parseFloat(Ndat*Ndim))
-	$('RMSE1tot').innerHTML=Math.sqrt(varAB.sum()/parseFloat((Ndat-1)*Ndim))
+	$('RMSEtot').innerHTML=printf(digit,Math.sqrt(varAB.sum()/parseFloat(Ndat*Ndim)))
+	$('RMSE1tot').innerHTML=printf(digit,Math.sqrt(varAB.sum()/parseFloat((Ndat-1)*Ndim)))
 
 	tmp=0
 	i=Ndat; while(i--) tmp += Math.pow(ampA[i]-ampB[i],2)
 
-	$('RMSEamp').innerHTML=Math.sqrt(tmp/parseFloat(Ndat))
-	$('RMSE1amp').innerHTML=Math.sqrt(tmp/parseFloat(Ndat-1))
+	$('RMSEamp').innerHTML=printf(digit,Math.sqrt(tmp/parseFloat(Ndat)))
+	$('RMSE1amp').innerHTML=printf(digit,Math.sqrt(tmp/parseFloat(Ndat-1)))
 }
 </script>
