@@ -2858,7 +2858,7 @@ function getRMSE() {
 
 	tmp=0
 	i=Ndat; while(i--) tmp += Math.pow(ampA[i]-ampB[i],2)
-
+//
 	$('RMSEamp').innerHTML=printf(digit,Math.sqrt(tmp/parseFloat(Ndat)))
 	$('RMSE1amp').innerHTML=printf(digit,Math.sqrt(tmp/parseFloat(Ndat-1)))
 }
