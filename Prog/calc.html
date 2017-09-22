@@ -366,7 +366,7 @@ table tr th {
 		数据个数: <span id='datNum'></span> 数据维数: <span id='datDim'></span><br><br>
 
 		<table style="display: block;">
-			<tr><th>平均值</th><th>A向量</th><th>B向量</th><th>AB RMSE(n)</th><th>AB RMSE(n-1)</th></tr>
+			<tr><th>总和 | 平均值</th><th>A向量</th><th>B向量</th><th>AB RMSE(n)</th><th>AB RMSE(n-1)</th></tr>
 			<tr><td>各分量</td> <td id='avgA'></td><td id='avgB'></td><td id='RMSE'></td><td id='RMSE1'></td></tr>
 			<tr><td>所有分量</td><td id='avgAtot'></td><td id='avgBtot'></td><td id='RMSEtot'></td><td id='RMSE1tot'></td></tr>
 			<tr><td>长度</td><td id='avgAamp'></td><td id='avgBamp'></td><td id='RMSEamp'></td><td id='RMSE1amp'></td></tr>
@@ -2828,13 +2828,19 @@ function getRMSE() {
 	j=Ndim; while(j--) avgB[j] /= parseFloat(Ndat)
 
 	digit='%'+$('fmt').value+'f'
-	$('avgA').innerHTML=avgA.join('<br>')
-	$('avgAtot').innerHTML=printf(digit, avgA.sum()/parseFloat(Ndim))
-	$('avgAamp').innerHTML=printf(digit, avgAamp)
 
-	$('avgB').innerHTML=avgB.join('<br>')
-	$('avgBtot').innerHTML=printf(digit,avgB.sum()/parseFloat(Ndim))
-	$('avgBamp').innerHTML=printf(digit,avgBamp)
+	txt=''
+	for(j=0; j<Ndim; j++) txt += printf(digit,avgA[j]*parseFloat(Ndat))+' | '+printf(digit,avgA[j])+'<br>'
+	$('avgA').innerHTML= txt
+	$('avgAtot').innerHTML=printf(digit, avgA.sum()*Ndat)+' | '+printf(digit, avgA.sum()/parseFloat(Ndim))
+	$('avgAamp').innerHTML=printf(digit,avgAamp*Ndat)+' | '+printf(digit, avgAamp)
+
+	txt=''
+	for(j=0; j<Ndim; j++) txt += printf(digit,avgB[j]*parseFloat(Ndat))+' | '+printf(digit,avgB[j])+'<br>'
+	$('avgB').innerHTML= txt
+
+	$('avgBtot').innerHTML=printf(digit, avgB.sum()*Ndat)+' | '+printf(digit, avgB.sum()/parseFloat(Ndim))
+	$('avgBamp').innerHTML=printf(digit,avgBamp*Ndat)+' | '+printf(digit,avgBamp)
 
 	j=Ndim; while(j--) varAB[j]=0
 	i=Ndat; while(i--) {
