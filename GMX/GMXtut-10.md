@@ -309,7 +309,7 @@ website at http://www.gromacs.org/Documentation/Errors
 
 <p>这样我们得到 <span class="math">\(u=3\)</span>, 总的节点数为96, 划分为81个PP节点, 15个PME节点, 这可能是得到最高运行性能的分配策略. 相应的运行命令为:</p>
 
-<pre><code>mdrun_mpi -maxh $MAXH -deffnm $tpr -dlb auto -dd 9 9 1 -npme 18
+<pre><code>mdrun_mpi -maxh $MAXH -deffnm $tpr -dlb auto -dd 9 9 1 -npme 15
 </code></pre>
 
 <div class="footnotes">
