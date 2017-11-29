@@ -1,4 +1,4 @@
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+k<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
 *{margin:0; padding:0}
@@ -17,25 +17,24 @@
 <div id='right'><canvas id="molcanvas"></canvas></div>
 <div id='center'>
 	<input type='button' class="Button" id="LabelButton" onclick="showLabels()" value="Labels"><br>
-	<input class="button" type='button' onclick="hideH()" value="Hide H"><br><br>
-	<input class="Button" type='button' onclick="resetView()" value="Reset View"><br><br>
+	<input type='button' class="button" onclick="hideH()" value="Hide H"><br><br>
+	<input type='button' class="button" onclick="resetView()" value="Reset View"><br><br>
 	<input type='button' class="Button" id="rotateX" onclick="RotateMolecule('x')" value="Rot X"><br>
 	<input type='button' class="Button" id="rotateY" onclick="RotateMolecule('y')" value="Rot Y"><br>
 	<input type='button' class="Button" id="rotateZ" onclick="RotateMolecule('z')" value="Rot Z"><br><br>
 	<input type='button' value='Assign Atom Type' onclick='showType("SEL")'><br><br>
-	Load .mol File<br>
-	<input type="file" id="molfile" title="Browse to load a file located on your computer."><br><br>
+	Load File<br>
+	<input type="file" id="molfile" accept=".pdb, .mol, .xyz, .inp" title="Browse to load a file located on your computer."><br><br>
 	<input type='button' id="genTop" value='Create Topology File' onclick='genTop()'><br><br>
 	<input type='button' value='Save Topology File' onclick='saveTop()'/>
 </div>
-
-<span>&nbsp;<br></span>
-<span id='formula' style='float:left; width:20%'></span>
-<textarea id='information' rows='1' cols="80" style='float:right; width:80%'></textarea><br><br>
+<hr>
+<!--span id='formula' style='float:left; width:20%'></span-->
+<textarea id='information' rows='1' cols="80" style='float:center; width:100%'></textarea><hr>
 <span style='float:left; width:18%'><strong>OPLSAA Atom Types</strong></span>
 <span style='float:right; width:80%'><strong>GROMACS Topology File</strong></span><br>
-<textarea id='atp2' rows='10' cols='80' style='float:left; width:18%'></textarea>
-<textarea id='top'  rows='10' cols='80' style='float:right; width:80%'></textarea>
+<textarea id='atp2' rows='12' cols='80' style='float:left; width:18%'></textarea>
+<textarea id='top'  rows='12' cols='80' style='float:right; width:80%'></textarea>
 
 <div id='divType'></div>
 
