@@ -1,12 +1,14 @@
 ---
  layout: post
- title: Amber教程B4：使用antechamber和GAFF模拟药物分子
+ title: Amber基础教程B4：使用antechamber和GAFF模拟药物分子
  categories:
  - 科
  tags:
  - amber
  chem: true
+ math: true
 ---
+
 
 - 原始文档: Ross Walker and Sishi Tang, [TUTORIAL B4: Simulating a pharmaceutical compound using antechamber and the Generalized Amber Force Field](http://ambermd.org/tutorials/basic/tutorial4b/index.htm)
 - 2018-01-03 15:52:14 翻译: 李睿; 修订: 李继存
@@ -572,3 +574,4 @@ HIV逆转录酶是异质二聚体, 由p51和p66两个亚基组成. 它是个很�
 祝各位模拟顺利~~o(*￣︶￣*)o.
 
 谢谢大家!
+
