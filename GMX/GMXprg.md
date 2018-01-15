@@ -3718,11 +3718,7 @@ __对双层体系需要注意的几点__
 
 ### 补充说明
 
-<del>可以使用`gmx distance`提取两个原子间的距离随时间的变化, 需要一个索引文件, 其写法是, 在里面加入两个组, 内容分别是这两个原子序号, 再运行
-
-	gmx distance -f file.xtc -s file.tpr -n index.ndx
-
-会提示选择组, 分别选择那两个组即可. 计算结果输出在`dist.xvg`文件中, 其中第二列是距离, 后面三列是距离的x/y/z分量.</del>
+<del>可以使用`gmx distance`提取两个原子间的距离随时间的变化, 需要一个索引文件, 其写法是, 在里面加入两个组, 内容分别是这两个原子序号, 再运行`gmx distance -f file.xtc -s file.tpr -n index.ndx`会提示选择组, 分别选择那两个组即可. 计算结果输出在`dist.xvg`文件中, 其中第二列是距离, 后面三列是距离的x/y/z分量.</del>
 
 上述为旧版本说明, 新版本使用方法见[GROMACS计算距离的方法及注意点
 ](https://jerkwin.github.io/2018/01/14/GROMACS%E8%AE%A1%E7%AE%97%E8%B7%9D%E7%A6%BB%E7%9A%84%E6%96%B9%E6%B3%95%E5%8F%8A%E6%B3%A8%E6%84%8F%E7%82%B9/)
