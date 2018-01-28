@@ -8,7 +8,7 @@
  math: true
 ---
 
-- 原始文档: [A](http://ambermd.org/tutorials/advanced/tutorial3/index.htm)
+- 原始文档: [AMBER ADVANCED TUTORIAL 3: MM-PBSA](http://ambermd.org/tutorials/advanced/tutorial3/index.htm)
 - Perl Version By Ross Walker & Thomas Steinbrecher
 - Python Version By Dwight McGee, Bill Miller III, & Jason Swails
 - 2018-01-28 06:39:37 翻译: 袁媛; 修订: 李继存
@@ -19,7 +19,7 @@
 
 # AMBER高级教程A3: MM-PBSA
 
-- 原始文档: [A](http://ambermd.org/tutorials/advanced/tutorial3/index.htm)
+- 原始文档: [AMBER ADVANCED TUTORIAL 3: MM-PBSA](http://ambermd.org/tutorials/advanced/tutorial3/index.htm)
 - Perl Version By Ross Walker & Thomas Steinbrecher
 - Python Version By Dwight McGee, Bill Miller III, & Jason Swails
 - 2018-01-28 06:39:37 翻译: 袁媛; 修订: 李继存
