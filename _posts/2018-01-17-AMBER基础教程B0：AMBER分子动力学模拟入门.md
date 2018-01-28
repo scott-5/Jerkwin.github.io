@@ -5,6 +5,7 @@
  - 科
  tags:
  - gmx
+ - amber
 ---
 
 - 原始文档: Benjamin D. Madej & Ross Walker, [An Introduction to Molecular Dynamics Simulations using AMBER](http://ambermd.org/tutorials/basic/tutorial0/index.htm)
