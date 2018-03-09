@@ -320,34 +320,86 @@ table tr th {
 		</table>
 
 		<table id="TabVDW">
-		<tr><td>原子 1</td><td>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_sgm1" value='1'> &sigma;<sub>1</sub>(sigma, 硬球半径)<br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_eps1" value='1'> &epsilon;<sub>1</sub>(epsilon, 势阱深度)<br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_re1" value='1.122462048'> Re<sub>1</sub>(平衡距离)<br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C61" value='4'> C<sub>6</sub><sup>(1)</sup><br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C121" value='4'> C<sub>12</sub><sup>(1)</sup><br>
-		</td></tr>
-		<tr><td>原子 2</td><td>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_sgm2" value='1'> &sigma;<sub>2</sub>(sigma, 硬球半径)<br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_eps2" value='0.25'> &epsilon;<sub>2</sub>(epsilon, 势阱深度)<br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_re2" value='1.122462048'> Re<sub>2</sub>(平衡距离)<br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C62" value='1'> C<sub>6</sub><sup>(2)</sup><br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C122" value='1'> C<sub>12</sub><sup>(1)</sup><br>
-		</td></tr>
-		<tr><td>几何平均值</td><td>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_sgmg" value='1'> &sigma;<sub>12</sub>(sigma, 硬球半径)<br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_epsg" value='0.5'> &epsilon;<sub>12</sub>(epsilon, 势阱深度)<br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_reg" value='1.122462048'> Re<sub>12</sub>(平衡距离)<br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C6g" value='2'> C<sub>6</sub><sup>(12)</sup><br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C12g" value='2'> C<sub>12</sub><sup>(12)</sup><br>
-		</td></tr>
-		<tr><td>算术平均值</td><td>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_sgma" value='1'> &sigma;<sub>12</sub>(sigma, 硬球半径)<br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_epsa" value='0.5'> &epsilon;<sub>12</sub>(epsilon, 势阱深度)<br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_rea" value='1.122462048'> Re<sub>12</sub>(平衡距离)<br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C6a" value='2'> C<sub>6</sub><sup>(12)</sup><br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C12a" value='2'> C<sub>12</sub><sup>(12)</sup><br>
-		</td></tr>
+		<tr>
+		<td>原子 1</td><td>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_sgm1" value='1'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_eps1" value='1'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_re1" value='1.122462048'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C61" value='4'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C121" value='4'><br>
+		</td><td>
+			&sigma;(硬球半径)<br>
+			&epsilon;(势阱深度)<br>
+			Re=2<sup>1/6</sup>&sigma;(平衡距离)<br>
+			C<sub>6</sub>=4&epsilon;&sigma;<sup>6</sup><br>
+			C<sub>12</sub>=4&epsilon;&sigma;<sup>12</sup><br>
+		</td>
+		<td>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_sgm2" value='1'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_eps2" value='0.25'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_re2" value='1.122462048'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C62" value='1'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C122" value='1'><br>
+		</td>
+		<td>原子 2</td>
+		</tr>
+		<tr><td>LB组合规则<br>(Lorentz-Berthelot)</td>
+		<td>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_sgmLB" value='1'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_epsLB" value='0.5'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_reLB" value='1.122462048'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C6LB" value='2'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C12LB" value='2'><br>
+		</td><td>
+			&sigma;=(&sigma;<sub>1</sub>+&sigma;<sub>2</sub>)/2 (算术平均值)<br>
+			&epsilon;=sqrt(&epsilon;<sub>1</sub>*&epsilon;<sub>2</sub>) (几何平均值)<br>
+			Re=2<sup>1/6</sup>&sigma;<br>
+			C<sub>6</sub>=4&epsilon;&sigma;<sup>6</sup><br>
+			C<sub>12</sub>=4&epsilon;&sigma;<sup>12</sup><br>
+		</td>
+		</tr>
+		<tr><td>OPLS-AA组合规则<br>(几何平均值)</td><td>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_sgmg" value='1'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_epsg" value='0.5'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_reg" value='1.122462048'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C6g" value='2'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C12g" value='2'><br>
+		</td><td>
+			&sigma;=sqrt(&sigma;<sub>1</sub>*&sigma;<sub>2</sub>) (几何平均值)<br>
+			&epsilon;=sqrt(&epsilon;<sub>1</sub>*&epsilon;<sub>2</sub>) (几何平均值)<br>
+			Re=2<sup>1/6</sup>&sigma;<br>
+			C<sub>6</sub>=4&epsilon;&sigma;<sup>6</sup><br>
+			C<sub>12</sub>=4&epsilon;&sigma;<sup>12</sup><br>
+		</td>
+		</tr>
+		<tr><td>算术平均规则<br>(算术平均值)</td><td>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_sgma" value='1'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_epsa" value='0.5'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_rea" value='1.122462048'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C6a" value='2'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C12a" value='2'><br>
+		</td><td>
+			&sigma;=(&sigma;<sub>1</sub>+&sigma;<sub>2</sub>)/2 (算术平均值)<br>
+			&epsilon;=(&epsilon;<sub>1</sub>+&epsilon;<sub>2</sub>)/2 (算术平均值)<br>
+			Re=2<sup>1/6</sup>&sigma;<br>
+			C<sub>6</sub>=4&epsilon;&sigma;<sup>6</sup><br>
+			C<sub>12</sub>=4&epsilon;&sigma;<sup>12</sup><br>
+		</td>
+		</tr>
+		<tr><td>C6/C12组合规则<br>(C系数几何平均值)</td><td>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_sgmCg" value='1'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_epsCg" value='0.5'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_reCg" value='1.122462048'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C6Cg" value='2'><br>
+			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C12Cg" value='2'><br>
+		</td><td>
+			&sigma;=(C<sub>12</sub>/C<sub>6</sub>)<sup>1/6</sup><br>
+			&epsilon;=C<sub>6</sub><sup>2</sup>/(4*C<sub>12</sub>)<br>
+			Re=2<sup>1/6</sup>&sigma;<br>
+			C<sub>6</sub>=sqrt(C<sub>6</sub><sup>(1)</sup>*C<sub>6</sub><sup>(2)</sup>)<br>
+			C<sub>12</sub>=sqrt(C<sub>12</sub><sup>(1)</sup>*C<sub>12</sub><sup>(2)</sup>)<br>
+		</td>
+		</tr>
 		</table>
 	</div>
 
@@ -2567,16 +2619,17 @@ function setUnit(id) {
 	$('Tab'+id).style.display='block'
 }
 
-$('V_sgmg').disabled=true
-$('V_epsg').disabled=true
-$('V_reg' ).disabled=true
-$('V_C6g' ).disabled=true
-$('V_C12g').disabled=true
-$('V_sgma').disabled=true
-$('V_epsa').disabled=true
-$('V_rea' ).disabled=true
-$('V_C6a' ).disabled=true
-$('V_C12a').disabled=true
+$('V_sgmg').disabled=true; $('V_sgma').disabled=true
+$('V_epsg').disabled=true; $('V_epsa').disabled=true
+$('V_reg' ).disabled=true; $('V_rea' ).disabled=true
+$('V_C6g' ).disabled=true; $('V_C6a' ).disabled=true
+$('V_C12g').disabled=true; $('V_C12a').disabled=true
+
+$('V_sgmLB').disabled=true; $('V_sgmCg').disabled=true
+$('V_epsLB').disabled=true; $('V_epsCg').disabled=true
+$('V_reLB' ).disabled=true; $('V_reCg' ).disabled=true
+$('V_C6LB' ).disabled=true; $('V_C6Cg' ).disabled=true
+$('V_C12LB').disabled=true; $('V_C12Cg').disabled=true
 
 function setVDW(name, id) {
 	var f=Math.pow(2, 1./6.)
@@ -2629,17 +2682,23 @@ function setVDW(name, id) {
 		V_re2=f*V_sgm2
 	}
 
-	V_sgmg=Math.sqrt(V_sgm1*V_sgm2)
-	V_epsg=Math.sqrt(V_eps1*V_eps2)
-	V_reg =Math.sqrt(V_re1*V_re2)
-	V_C6g =Math.sqrt(V_C61*V_C62)
-	V_C12g=Math.sqrt(V_C121*V_C122)
+	V_sgmg=Math.sqrt(V_sgm1*V_sgm2); V_sgma=0.5*(V_sgm1+V_sgm2)
+	V_epsg=Math.sqrt(V_eps1*V_eps2); V_epsa=0.5*(V_eps1+V_eps2)
+	V_reg =Math.sqrt(V_re1*V_re2)  ; V_rea =0.5*(V_re1+V_re2)
+	V_C6g =Math.sqrt(V_C61*V_C62)  ; V_C6a =0.5*(V_C61+V_C62)
+	V_C12g=Math.sqrt(V_C121*V_C122); V_C12a=0.5*(V_C121+V_C122)
 
-	V_sgma=0.5*(V_sgm1+V_sgm2)
-	V_epsa=0.5*(V_eps1+V_eps2)
-	V_rea =0.5*(V_re1+V_re2)
-	V_C6a =0.5*(V_C61+V_C62)
-	V_C12a=0.5*(V_C121+V_C122)
+	V_sgmLB=0.5*(V_sgm1+V_sgm2)
+	V_epsLB=Math.sqrt(V_eps1*V_eps2)
+	V_reLB =f*V_sgmLB
+	V_C6LB =4*V_epsLB*Math.pow(V_sgmLB, 6)
+	V_C12LB=4*V_epsLB*Math.pow(V_sgmLB, 12)
+
+	V_C6Cg =Math.sqrt(V_C61*V_C62)  ;
+	V_C12Cg=Math.sqrt(V_C121*V_C122);
+	V_sgmCg=Math.pow(V_C12Cg/V_C6Cg, 1./6.);
+	V_epsCg=V_C6Cg*V_C6Cg/(4*V_C12Cg);
+	V_reCg =f*V_sgmCg  ;
 
 	unit=document.getElementsByName(name)
 	for(i=0; i<unit.length; i++) {
