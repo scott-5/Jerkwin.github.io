@@ -1,6 +1,6 @@
 ---
  layout: post
- title: AMBER CPPTRAJ教程C1: RMSD分析
+ title: AMBER CPPTRAJ教程C1：RMSD分析
  categories:
  - 科
  tags:
