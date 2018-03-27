@@ -1,6 +1,6 @@
 ---
  layout: post
- title: AMNBER高级教程A24：使用FEW(Free Energy Workflow)工具计算自由能
+ title: AMBER高级教程A24：使用FEW(Free Energy Workflow)工具计算自由能
  categories:
  - 科
  tags:
