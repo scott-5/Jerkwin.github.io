@@ -7,11 +7,12 @@
  - amber
 ---
 
+* toc
+{:toc}
+
 - Nadine Homeyer and Holger Gohlke, [原始文档](http://ambermd.org/tutorials/advanced/tutorial24/)
 - 2018-03-26 21:44:05 翻译: 周盛福
 
-* toc
-{:toc}
 
 __请注意__: 此处介绍的FEW工具可以在AmberTools 14或更高版本中获取, 并可与AmberTools和AMBER 14或更高版本一起使用. AmberTools和AMBER 14可以按照[AMBER手册](http://ambermd.org/doc12/Amber14.pdf)中的安装指导进行安装. 在安装过程中会自动修复BUG并获取更新补丁.
 
