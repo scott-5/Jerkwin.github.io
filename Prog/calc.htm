@@ -67,7 +67,7 @@ input[type="box"] {
 
 input[type="box"]:focus { background: #BBB; }
 
-table {display: none;}
+table {display: none; font: bold .6em Consolas;}
 table { border-collapse: collapse; }
 table tr { border-top: 2px solid #ccc; }
 table tr:nth-child(2n) { background-color: #f8f8f8; }
@@ -79,6 +79,7 @@ table tr th {
    border: 2px solid #aaa;
    padding: 1em 2em; }
 </style>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{processEscapes:true,inlineMath:[['$','$'],["\\(","\\)"]],skipTags:['script','noscript','style','textarea','pre','code']}});MathJax.Hub.Config({TeX:{extensions:["cancel.js","enclose.js","AMScd.js","mhchem.js"],Macros:{a:"\\alpha",b:"\\beta",c:"\\chi",d:"\\delta",e:"\\epsilon",f:"\\phi",g:"\\gamma",h:"\\eta",i:"\\iota",j:"\\varphi",k:"\\kappa",l:"\\lambda",m:"\\mu",n:"\\nu",o:"\\omicron",p:"\\pi",q:"\\theta",r:"\\rho",s:"\\sigma",t:"\\tau",u:"\\upsilon",v:"\\varpi",w:"\\omega",x:"\\xi",y:"\\psi",z:"\\zeta",D:"\\Delta",F:"\\Phi",G:"\\Gamma",J:"\\vartheta",L:"\\Lambda",P:"\\Pi",Q:"\\Theta",S:"\\Sigma",U:"\\Upsilon",V:"\\varsigma",W:"\\Omega",X:"\\Xi",Y:"\\Psi",ve:"\\varepsilon",vk:"\\varkappa",vq:"\\vartheta",vp:"\\varpi",vr:"\\varrho",vs:"\\varsigma",vf:"\\varphi",alg:"\\begin{align}",ealg:"\\end{align}",bmat:"\\begin{bmatrix}",Bmat:"\\begin{Bmatrix}",pmat:"\\begin{pmatrix}",Pmat:"\\begin{Pmatrix}",vmat:"\\begin{vmatrix}",Vmat:"\\begin{Vmatrix}",ebmat:"\\end{bmatrix}",eBmat:"\\end{Bmatrix}",epmat:"\\end{pmatrix}",ePmat:"\\end{Pmatrix}",evmat:"\\end{vmatrix}",eVmat:"\\end{Vmatrix}",AA:"\\unicode{x212B}",Sum:"\\sum\\limits",abs:['\\lvert #1\\rvert',1],rmd:['\\mathop{\\mathrm{d}#1}',1],bi:['\\boldsymbol{#1}',1],obar:['0\\!\\!\\!\\raise{.05em}{-}'],opar:['\\frac{\\partial #1}{\\partial #2}',2],oppar:['\\frac{\\partial^2 #1}{\\partial #2^2}',2]}}});MathJax.Hub.Queue(function(){all=MathJax.Hub.getAllJax();for(i=0;i<all.length;i+=1){all[i].SourceElement().parentNode.className+=' has-jax'}});</script>
 
 <div class="tab-wrapper">
 
@@ -88,15 +89,15 @@ table tr th {
 	<input type="radio" name="tab-radio" class="tab-radio" id="tab-radio-2" checked>
 	<label for="tab-radio-2" class="tab-handler tab-handler-2">单位换算</label>
 	<div class="tab-content">
-		<input type="radio" onClick="setUnit(this.id)" name="unit" id="Len">长度&nbsp;&nbsp;
-		<input type="radio" onClick="setUnit(this.id)" name="unit" id="Mas">质量&nbsp;&nbsp;
-		<input type="radio" onClick="setUnit(this.id)" name="unit" id="Tim">时间&nbsp;&nbsp;
-		<input type="radio" onClick="setUnit(this.id)" name="unit" id="Eng">能量&nbsp;&nbsp;
-		<input type="radio" onClick="setUnit(this.id)" name="unit" id="Frc">力  &nbsp;&nbsp;<br>
-		<input type="radio" onClick="setUnit(this.id)" name="unit" id="Prs">压强&nbsp;&nbsp;
-		<input type="radio" onClick="setUnit(this.id)" name="unit" id="Con">浓度&nbsp;&nbsp;
-		<input type="radio" onClick="setUnit(this.id)" name="unit" id="Rho">密度&nbsp;&nbsp;
-		<input type="radio" onClick="setUnit(this.id)" name="unit" id="VDW">VDW参数<br>
+		<input type="radio" onclick="setUnit(this.id)" name="unit" id="Len">长度&nbsp;&nbsp;
+		<input type="radio" onclick="setUnit(this.id)" name="unit" id="Mas">质量&nbsp;&nbsp;
+		<input type="radio" onclick="setUnit(this.id)" name="unit" id="Tim">时间&nbsp;&nbsp;
+		<input type="radio" onclick="setUnit(this.id)" name="unit" id="Eng">能量&nbsp;&nbsp;
+		<input type="radio" onclick="setUnit(this.id)" name="unit" id="Frc">力  &nbsp;&nbsp;<br>
+		<input type="radio" onclick="setUnit(this.id)" name="unit" id="Prs">压强&nbsp;&nbsp;
+		<input type="radio" onclick="setUnit(this.id)" name="unit" id="Con">浓度&nbsp;&nbsp;
+		<input type="radio" onclick="setUnit(this.id)" name="unit" id="Rho">密度&nbsp;&nbsp;
+		<input type="radio" onclick="setUnit(this.id)" name="unit" id="VDW">VDW参数<br>
 		所用换算系数来源于CODATA-2014, 具体数值见【理化常数】
 
 		<table id="TabLen">
@@ -408,23 +409,31 @@ table tr th {
 
 	<div class="tab-content tab-content-3">
 		<table style="display: block;">
-		<tr><th>A向量</th><th>B向量</th></tr>
-		<tr><td><textarea id="datA" style="width:200px; height:300px;"></textarea></td>
-			<td><textarea id="datB" style="width:200px; height:300px;"></textarea></td></tr>
-		</table>
+		<tr><th>A数据集</th><th>B数据集</th></tr>
+		<tr><td><textarea id="datA" style="width: 515px; height: 266px; margin: 0px;"></textarea></td>
+			<td><textarea id="datB" style="width: 633px; height: 327px; margin: 0px;"></textarea></td></tr>
+		</tbody></table>
 
-		<br><input type="button" value="统计" onClick="getRMSE()" style="width:100px; height:30px" />
-		输出数值格式<input type="box" id="fmt" value='9.3' style="width:100px; height:30px"><br>
-		数据个数: <span id='datNum'></span> 数据维数: <span id='datDim'></span><br><br>
+		<br><input type="button" value="统计" onclick="getRMSE()" style="width:100px; height:30px">
+		数值换算因子<input type="box" id="fac" value="1" style="width:300px; height:30px">
+		输出格式<input type="box" id="fmt" value="9.3" style="width:100px; height:30px"><br>
+		数据个数: <span id="datNum"></span> 数据维数: <span id="datDim"></span><br><br>
 
 		<table style="display: block;">
-			<tr><th>总和 | 平均值</th><th>A向量</th><th>B向量</th><th>AB RMSE(n)</th><th>AB RMSE(n-1)</th></tr>
-			<tr><td>各分量</td> <td id='avgA'></td><td id='avgB'></td><td id='RMSE'></td><td id='RMSE1'></td></tr>
-			<tr><td>所有分量</td><td id='avgAtot'></td><td id='avgBtot'></td><td id='RMSEtot'></td><td id='RMSE1tot'></td></tr>
-			<tr><td>长度</td><td id='avgAamp'></td><td id='avgBamp'></td><td id='RMSEamp'></td><td id='RMSE1amp'></td></tr>
+			<tbody><tr><th>数据点</th><th>加和<br>$$\text{SUM}=\Sum_{j=1}^{N_{dim} } a_{i,j}$$</th><th>平均值<br>$$\text{AVG}={\text{SUM} \over N_{dim} }$$</th><th>平方和<br>$\text{SSQ}=\Sum_{j=1}^{N_{dim} } a_{i,j}^2$</th><th>长度<br>$$\text{LEN}=\sqrt{\text{SSQ} }$$</th><th>方差<br>$$\text{VAR}={\text{SSQ} \over N_{dim} }-\text{AVG}^2$$</th><th>标准偏差<br>$$\text{RMSD}=\sqrt{\text{VAR} \over N_{dim} -1}$$</th><th>标准误差<br>$$\text{RMSD}=\sqrt{\text{VAR} \over N_{dim} }$$</th></tr>
+
+			<tr><td>A</td><td id="sumA"></td><td id="avgA"></td><td id="ssqA"></td><td id="magA"></td><td id="varA"></td><td id="rmsdA"></td><td id="rmseA"></td></tr>
+			<!--tr><td>A长度</td><td id="summagA"></td><td id="avgmagA"></td><td id="magmagA"></td><td id="ssqmagA"></td><td id="varmagA"></td><td id="rmsdmagA"></td></tr-->
+
+			<tr><td>B</td><td id="sumB"></td><td id="avgB"></td><td id="ssqB"></td><td id="magB"></td><td id="varB"></td><td id="rmsdB"></td><td id="rmseB"></td></tr>
+			<!--tr><td>B长度</td><td id="summagB"></td><td id="avgmagB"></td><td id="magmagB"></td><td id="ssqmagB"></td><td id="varmagB"></td><td id="rmsdmagB"></td></tr-->
+
+			<!--tr><th>数据</th><th>加和<br>$$\text{SUM}=\Sum_{j=1}^{N_{dim} }(a_{i,j}-b_{i,j})$$</th><th>平均值<br>$$\text{AVG}={\text{SUM} \over N_{dim} }$$</th><th>平方和<br>$\text{SSQ}=\Sum_{j=1}^{N_{dim} } (a_{i,j}-b_{i,j})^2$</th><th>长度<br>$$\text{LEN}=\sqrt{\text{SSQ} }$$</th><th>方差<br>$$\text{VAR}={\text{SSQ} \over N_{dim} }$$</th><th>标准偏差<br>$$\text{RMSD}=\sqrt{\text{VAR} \over N_{dim} -1}$$</th><th>标准误差<br>$$\text{RMSD}=\sqrt{\text{VAR} \over N_{dim} }$$</th></tr-->
+
+			<tr><td>A-B</td><td id="sumC"></td><td id="avgC"></td><td id="ssqC"></td><td id="magC"></td><td id="varC"></td><td id="rmsdC"></td><td id="rmseC"></td></tr>
+			<!--tr><td>A-B长度</td><td id="summagC"></td><td id="avgmagC"></td><td id="ssqmagC"></td><td id="magmagC"></td><td id="varmagC"></td><td id="rmsemagC"></td></tr-->
+
 		</table>
-		<br>
-		<img src="RMSE.png">
 	</div>
 
 	<input type="radio" name="tab-radio" class="tab-radio" id="tab-radio-4">
@@ -2824,7 +2833,7 @@ function printf() {
 	var map = {
 		s: function(str, fmt) { var n=str.length; return n>fmt ? str : str+Array(fmt-n+1).join(' ')},
 		f: function(str, fmt) { fmt=fmt.split('.'); str=parseFloat(str).toFixed(fmt[1]);
-			var m=fmt[0], n=str.length; return n>m ? str : Array(m-n+1).join(' ')+str
+			var m=fmt[0], n=str.length; return n>m ? str : Array(m-n+1).join('&nbsp;')+str
 		}
 	}
 	var args = Array.prototype.slice.call(arguments).slice();
@@ -2837,88 +2846,124 @@ function printf() {
 Array.prototype.sum = function () {
 	for(var t=0,i=this.length; i--; t+=parseFloat(this[i])); return t;
 }
+Array.prototype.ssq = function () {
+	for(var t=0,i=this.length; i--; t+=parseFloat(this[i])*parseFloat(this[i])); return t;
+}
+Array.prototype.avg  = function () { return this.sum()/this.length }
+Array.prototype.mag  = function () { return Math.sqrt(this.ssq())  }
+Array.prototype.var  = function () { return this.ssq()/this.length - Math.pow(this.avg(), 2)  }
+Array.prototype.rmse = function () { return Math.sqrt(this.var()/this.length)  }
+Array.prototype.rmsd = function () { return Math.sqrt(this.var()/(this.length-1))  }
 
 function getRMSE() {
-	var i, j, tmp
+	var i, j, tmp, txt, Ndat=0, Ndim=0, NdatA, NdimA=0, NdatB, NdimB=0,
+		datA=[], sumA=[], avgA=[], magA=[], ssqA=[], varA=[], rmsdA=[],
+		datB=[], sumB=[], avgB=[], magB=[], ssqB=[], varB=[], rmsdB=[],
+		datC=[], sumC=[], avgC=[], magC=[], ssqC=[], varC=[], rmseC=[],
+		factor=parseFloat($('fac').value), digit='%'+$('fmt').value+'f'
 
-	var txt=$('datA').value.replace(/^\s*\n*/,"").replace(/\s*\n*$/,"").replace(/\s+[\n|$]/g,"\n").split('\n')
+	txt=$('datA').value.replace(/^\s*\n*/,"").replace(/\s*\n*$/,"").replace(/\s+[\n|$]/g,"\n")
+	if(txt.length>0) { txt=txt.split('\n'); NdimA=txt[0].split(/\s+/).length }
 
-	var Ndat=txt.length, Ndim=txt[0].split(/\s+/).length
-
-	$('datNum').innerHTML=Ndat
-	$('datDim').innerHTML=Ndim
-
-	var datA=[], datB=[], avgA=[], avgB=[], ampA=[], ampB=[], varAB=[], RMSE=[]
-
-	j=Ndim; while(j--) avgA[j]=0
-	for(i=0; i<Ndat; i++) {
+	NdatA=txt.length
+	for(i=0; i<NdatA; i++) {
 		datA[i]=txt[i].replace(/^\s+/,"").split(/\s+/)
-		ampA[i]=0
-		for(j=0; j<Ndim; j++) {
-			ampA[i] += datA[i][j]*datA[i][j]
-			avgA[j] += parseFloat(datA[i][j])
-		}
-		ampA[i]=Math.sqrt(ampA[i])
+		j=datA[i].length; while(j--) datA[i][j] *= factor
+		sumA[i] = datA[i].sum()
+		avgA[i] = datA[i].avg()
+		magA[i] = datA[i].mag()
+		ssqA[i] = datA[i].ssq()
+		varA[i] = datA[i].var()
+		rmsdA[i] = datA[i].rmsd()
+		rmseA[i] = datA[i].rmse()
 	}
-	var avgAamp=ampA.sum()/parseFloat(Ndat)
-	j=Ndim; while(j--) avgA[j] /= parseFloat(Ndat)
+	txt=''; for(i=0;i<NdatA;i++) txt+=printf(digit,sumA[i])+'<br>'; $('sumA').innerHTML=txt+'总计: '+printf(digit,sumA.sum())+'<br>平均: '+printf(digit,sumA.sum()/NdatA)
+	txt=''; for(i=0;i<NdatA;i++) txt+=printf(digit,avgA[i])+'<br>'; $('avgA').innerHTML=txt+'总计: '+printf(digit,avgA.sum())+'<br>平均: '+printf(digit,avgA.sum()/NdatA)
+	txt=''; for(i=0;i<NdatA;i++) txt+=printf(digit,magA[i])+'<br>'; $('magA').innerHTML=txt+'总计: '+printf(digit,magA.sum())+'<br>平均: '+printf(digit,magA.sum()/NdatA)
+	txt=''; for(i=0;i<NdatA;i++) txt+=printf(digit,ssqA[i])+'<br>'; $('ssqA').innerHTML=txt+'总计: '+printf(digit,ssqA.sum())+'<br>平均: '+printf(digit,ssqA.sum()/NdatA)
+	txt=''; for(i=0;i<NdatA;i++) txt+=printf(digit,varA[i])+'<br>'; $('varA').innerHTML=txt +'<br><br>'
+	txt=''; for(i=0;i<NdatA;i++) txt+=printf(digit,rmsdA[i])+'<br>';$('rmsdA').innerHTML=txt+'<br><br>'
+	txt=''; for(i=0;i<NdatA;i++) txt+=printf(digit,rmseA[i])+'<br>';$('rmseA').innerHTML=txt+'<br><br>'
 
-	txt=$('datB').value.replace(/^\s*\n*/,"").replace(/\s*\n*$/,"").replace(/\s+[\n|$]/g,"\n").split('\n')
+	//$('summagA').innerHTML='' ; $('summagB').innerHTML='' ; $('summagC').innerHTML=''
+	//$('avgmagA').innerHTML='' ; $('avgmagB').innerHTML='' ; $('avgmagC').innerHTML=''
+	//$('magmagA').innerHTML='' ; $('magmagB').innerHTML='' ; $('magmagC').innerHTML=''
+	//$('ssqmagA').innerHTML='' ; $('ssqmagB').innerHTML='' ; $('ssqmagC').innerHTML=''
+	//$('varmagA').innerHTML='' ; $('varmagB').innerHTML='' ; $('varmagC').innerHTML=''
+	//$('rmsdmagA').innerHTML=''; $('rmsdmagB').innerHTML=''; $('rmsemagC').innerHTML=''
+	//if(NdatA>0) {
+	//	NdimA=datA[0].length
+	//	$('summagA').innerHTML=printf(digit, magA.sum())
+	//	$('avgmagA').innerHTML=printf(digit, magA.avg())
+	//	$('magmagA').innerHTML=printf(digit, magA.mag())
+	//	$('ssqmagA').innerHTML=printf(digit, magA.ssq())
+	//	$('varmagA').innerHTML=printf(digit, magA.var())
+	//	$('rmsdmagA').innerHTML=printf(digit, magA.rmsd())
+	//}
 
-	if(txt.length==Ndat) {
-		for(i=0; i<Ndat; i++) datB[i]=txt[i].replace(/^\s+/,"").split(/\s+/)
-	} else {
-		for(i=0; i<Ndat; i++) {
-			datB[i]=[]
-			for(j=0; j<Ndim; j++) datB[i][j]=avgA[j]
-		}
+	txt=$('datB').value.replace(/^\s*\n*/,"").replace(/\s*\n*$/,"").replace(/\s+[\n|$]/g,"\n")
+	if(txt.length>0) { txt=txt.split('\n'); NdimB=txt[0].split(/\s+/).length }
+
+	NdatB=txt.length
+	for(i=0; i<NdatB; i++) {
+		datB[i]=txt[i].replace(/^\s+/,"").split(/\s+/)
+		j=datB[i].length; while(j--) datB[i][j] *= factor
+		sumB[i] = datB[i].sum()
+		avgB[i] = datB[i].avg()
+		magB[i] = datB[i].mag()
+		ssqB[i] = datB[i].ssq()
+		varB[i] = datB[i].var()
+		rmsdB[i] = datB[i].rmsd()
+		rmseB[i] = datB[i].rmse()
 	}
+	txt=''; for(i=0;i<NdatB;i++) txt+=printf(digit,sumB[i])+'<br>'; $('sumB').innerHTML=txt+'总计: '+printf(digit,sumB.sum())+'<br>平均: '+printf(digit,sumB.sum()/NdatB)
+	txt=''; for(i=0;i<NdatB;i++) txt+=printf(digit,avgB[i])+'<br>'; $('avgB').innerHTML=txt+'总计: '+printf(digit,avgB.sum())+'<br>平均: '+printf(digit,avgB.sum()/NdatB)
+	txt=''; for(i=0;i<NdatB;i++) txt+=printf(digit,magB[i])+'<br>'; $('magB').innerHTML=txt+'总计: '+printf(digit,magB.sum())+'<br>平均: '+printf(digit,magB.sum()/NdatB)
+	txt=''; for(i=0;i<NdatB;i++) txt+=printf(digit,ssqB[i])+'<br>'; $('ssqB').innerHTML=txt+'总计: '+printf(digit,ssqB.sum())+'<br>平均: '+printf(digit,ssqB.sum()/NdatB)
+	txt=''; for(i=0;i<NdatB;i++) txt+=printf(digit,varB[i])+'<br>'; $('varB').innerHTML=txt +'<br><br>'
+	txt=''; for(i=0;i<NdatB;i++) txt+=printf(digit,rmsdB[i])+'<br>';$('rmsdB').innerHTML=txt+'<br><br>'
+	txt=''; for(i=0;i<NdatB;i++) txt+=printf(digit,rmseB[i])+'<br>';$('rmseB').innerHTML=txt+'<br><br>'
 
-	j=Ndim; while(j--) avgB[j]=0
+	//if(NdatB>0) {
+	//	NdimB=datB[0].length
+	//	$('summagB').innerHTML=printf(digit, magB.sum())
+	//	$('avgmagB').innerHTML=printf(digit, magB.avg())
+	//	$('magmagB').innerHTML=printf(digit, magB.mag())
+	//	$('ssqmagB').innerHTML=printf(digit, magB.ssq())
+	//	$('varmagB').innerHTML=printf(digit, magB.var())
+	//	$('rmsdmagB').innerHTML=printf(digit, magB.rmsd())
+	//}
+
+	Ndat=Math.min(NdatA, NdatB); $('datNum').innerHTML='A: '+NdatA+' B: '+NdatB+' A-B: '+Ndat
+	Ndim=Math.min(NdimA, NdimB); $('datDim').innerHTML='A: '+NdimA+' B: '+NdimB+' A-B: '+Ndim
+
 	for(i=0; i<Ndat; i++) {
-		ampB[i]=0
-		for(j=0; j<Ndim; j++) {
-			ampB[i] += datB[i][j]*datB[i][j]
-			avgB[j] += parseFloat(datB[i][j])
-		}
-		ampB[i]=Math.sqrt(ampB[i])
-	}
-	var avgBamp=ampB.sum()/parseFloat(Ndat)
-	j=Ndim; while(j--) avgB[j] /= parseFloat(Ndat)
-
-	digit='%'+$('fmt').value+'f'
-
-	txt=''
-	for(j=0; j<Ndim; j++) txt += printf(digit,avgA[j]*parseFloat(Ndat))+' | '+printf(digit,avgA[j])+'<br>'
-	$('avgA').innerHTML= txt
-	$('avgAtot').innerHTML=printf(digit, avgA.sum()*Ndat)+' | '+printf(digit, avgA.sum()/parseFloat(Ndim))
-	$('avgAamp').innerHTML=printf(digit,avgAamp*Ndat)+' | '+printf(digit, avgAamp)
-
-	txt=''
-	for(j=0; j<Ndim; j++) txt += printf(digit,avgB[j]*parseFloat(Ndat))+' | '+printf(digit,avgB[j])+'<br>'
-	$('avgB').innerHTML= txt
-
-	$('avgBtot').innerHTML=printf(digit, avgB.sum()*Ndat)+' | '+printf(digit, avgB.sum()/parseFloat(Ndim))
-	$('avgBamp').innerHTML=printf(digit,avgBamp*Ndat)+' | '+printf(digit,avgBamp)
-
-	j=Ndim; while(j--) varAB[j]=0
-	i=Ndat; while(i--) {
-		j=Ndim; while(j--) varAB[j] += Math.pow(datA[i][j]-datB[i][j],2)
+		datC[i]=[]
+		for(j=0; j<Ndim; j++) datC[i][j]=parseFloat(datA[i][j])-parseFloat(datB[i][j])
+		sumC[i] = datC[i].sum()
+		avgC[i] = datC[i].avg()
+		magC[i] = datC[i].mag()
+		ssqC[i] = datC[i].ssq()
+		varC[i] = datC[i].var()
+		rmsdC[i] = datC[i].rmsd()
+		rmseC[i] = datC[i].rmse()
 	}
 
-	j=Ndim; while(j--) RMSE[j]=Math.sqrt(varAB[j]/parseFloat(Ndat))
-	$('RMSE').innerHTML=RMSE.join("<br>")
+	txt=''; for(i=0;i<Ndat;i++) txt+=printf(digit,sumC[i])+'<br>'; $('sumC').innerHTML=txt+'总计: '+printf(digit,sumC.sum())+'<br>平均: '+printf(digit,sumC.sum()/Ndat)
+	txt=''; for(i=0;i<Ndat;i++) txt+=printf(digit,avgC[i])+'<br>'; $('avgC').innerHTML=txt+'总计: '+printf(digit,avgC.sum())+'<br>平均: '+printf(digit,avgC.sum()/Ndat)
+	txt=''; for(i=0;i<Ndat;i++) txt+=printf(digit,magC[i])+'<br>'; $('magC').innerHTML=txt+'总计: '+printf(digit,magC.sum())+'<br>平均: '+printf(digit,magC.sum()/Ndat)
+	txt=''; for(i=0;i<Ndat;i++) txt+=printf(digit,ssqC[i])+'<br>'; $('ssqC').innerHTML=txt+'总计: '+printf(digit,ssqC.sum())+'<br>平均: '+printf(digit,ssqC.sum()/Ndat)
+	txt=''; for(i=0;i<Ndat;i++) txt+=printf(digit,varC[i])+'<br>'; $('varC').innerHTML=txt +'<br><br>'
+	txt=''; for(i=0;i<Ndat;i++) txt+=printf(digit,rmseC[i])+'<br>';$('rmsdC').innerHTML=txt+'<br><br>'
+	txt=''; for(i=0;i<Ndat;i++) txt+=printf(digit,rmseC[i])+'<br>';$('rmseC').innerHTML=txt+'<br><br>'
 
-	j=Ndim; while(j--) RMSE[j]=Math.sqrt(varAB[j]/parseFloat(Ndat-1))
-	$('RMSE1').innerHTML=RMSE.join("<br>")
-
-	$('RMSEtot').innerHTML=printf(digit,Math.sqrt(varAB.sum()/parseFloat(Ndat*Ndim)))
-	$('RMSE1tot').innerHTML=printf(digit,Math.sqrt(varAB.sum()/parseFloat((Ndat-1)*Ndim)))
-
-	tmp=0
-	i=Ndat; while(i--) tmp += Math.pow(ampA[i]-ampB[i],2)
-//
-	$('RMSEamp').innerHTML=printf(digit,Math.sqrt(tmp/parseFloat(Ndat)))
-	$('RMSE1amp').innerHTML=printf(digit,Math.sqrt(tmp/parseFloat(Ndat-1)))
+	//if(Ndat>0) {
+	//	$('summagC').innerHTML=printf(digit, magC.sum())
+	//	$('avgmagC').innerHTML=printf(digit, magC.avg())
+	//	$('magmagC').innerHTML=printf(digit, magC.mag())
+	//	$('ssqmagC').innerHTML=printf(digit, magC.ssq())
+	//	$('varmagC').innerHTML=printf(digit, magC.var())
+	//	$('rmsemagC').innerHTML=printf(digit, magC.rmse())
+	//}
 }
 </script>
