@@ -1,6 +1,6 @@
 ---
  layout: post
- title: AMBER高级教程A2：耦合势的QM/MM((量子力学/分子动力学)模拟
+ title: AMBER高级教程A2：耦合势的QM/MM(量子力学/分子动力学)模拟
  categories:
  - 科
  tags:
