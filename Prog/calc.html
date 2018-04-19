@@ -2877,13 +2877,13 @@ function getRMSE() {
 		rmsdA[i] = datA[i].rmsd()
 		rmseA[i] = datA[i].rmse()
 	}
-	txt=''; for(i=0;i<NdatA;i++) txt+=printf(digit,sumA[i])+'<br>'; $('sumA').innerHTML=txt+'总计: '+printf(digit,sumA.sum())+'<br>平均: '+printf(digit,sumA.sum()/NdatA)
-	txt=''; for(i=0;i<NdatA;i++) txt+=printf(digit,avgA[i])+'<br>'; $('avgA').innerHTML=txt+'总计: '+printf(digit,avgA.sum())+'<br>平均: '+printf(digit,avgA.sum()/NdatA)
-	txt=''; for(i=0;i<NdatA;i++) txt+=printf(digit,magA[i])+'<br>'; $('magA').innerHTML=txt+'总计: '+printf(digit,magA.sum())+'<br>平均: '+printf(digit,magA.sum()/NdatA)
-	txt=''; for(i=0;i<NdatA;i++) txt+=printf(digit,ssqA[i])+'<br>'; $('ssqA').innerHTML=txt+'总计: '+printf(digit,ssqA.sum())+'<br>平均: '+printf(digit,ssqA.sum()/NdatA)
-	txt=''; for(i=0;i<NdatA;i++) txt+=printf(digit,varA[i])+'<br>'; $('varA').innerHTML=txt +'<br><br>'
-	txt=''; for(i=0;i<NdatA;i++) txt+=printf(digit,rmsdA[i])+'<br>';$('rmsdA').innerHTML=txt+'<br><br>'
-	txt=''; for(i=0;i<NdatA;i++) txt+=printf(digit,rmseA[i])+'<br>';$('rmseA').innerHTML=txt+'<br><br>'
+	txt='<details>'; for(i=0;i<NdatA;i++) txt+=printf(digit,sumA[i])+'<br>'; $('sumA').innerHTML=txt+'</details>总计: '+printf(digit,sumA.sum())+'<br>平均: '+printf(digit,sumA.sum()/NdatA)
+	txt='<details>'; for(i=0;i<NdatA;i++) txt+=printf(digit,avgA[i])+'<br>'; $('avgA').innerHTML=txt+'</details>总计: '+printf(digit,avgA.sum())+'<br>平均: '+printf(digit,avgA.sum()/NdatA)
+	txt='<details>'; for(i=0;i<NdatA;i++) txt+=printf(digit,magA[i])+'<br>'; $('magA').innerHTML=txt+'</details>总计: '+printf(digit,magA.sum())+'<br>平均: '+printf(digit,magA.sum()/NdatA)
+	txt='<details>'; for(i=0;i<NdatA;i++) txt+=printf(digit,ssqA[i])+'<br>'; $('ssqA').innerHTML=txt+'</details>总计: '+printf(digit,ssqA.sum())+'<br>平均: '+printf(digit,ssqA.sum()/NdatA)
+	txt='<details>'; for(i=0;i<NdatA;i++) txt+=printf(digit,varA[i])+'<br>'; $('varA').innerHTML=txt +'<br><br>'
+	txt='<details>'; for(i=0;i<NdatA;i++) txt+=printf(digit,rmsdA[i])+'<br>';$('rmsdA').innerHTML=txt+'<br><br>'
+	txt='<details>'; for(i=0;i<NdatA;i++) txt+=printf(digit,rmseA[i])+'<br>';$('rmseA').innerHTML=txt+'<br><br>'
 
 	//$('summagA').innerHTML='' ; $('summagB').innerHTML='' ; $('summagC').innerHTML=''
 	//$('avgmagA').innerHTML='' ; $('avgmagB').innerHTML='' ; $('avgmagC').innerHTML=''
@@ -2916,13 +2916,13 @@ function getRMSE() {
 		rmsdB[i] = datB[i].rmsd()
 		rmseB[i] = datB[i].rmse()
 	}
-	txt=''; for(i=0;i<NdatB;i++) txt+=printf(digit,sumB[i])+'<br>'; $('sumB').innerHTML=txt+'总计: '+printf(digit,sumB.sum())+'<br>平均: '+printf(digit,sumB.sum()/NdatB)
-	txt=''; for(i=0;i<NdatB;i++) txt+=printf(digit,avgB[i])+'<br>'; $('avgB').innerHTML=txt+'总计: '+printf(digit,avgB.sum())+'<br>平均: '+printf(digit,avgB.sum()/NdatB)
-	txt=''; for(i=0;i<NdatB;i++) txt+=printf(digit,magB[i])+'<br>'; $('magB').innerHTML=txt+'总计: '+printf(digit,magB.sum())+'<br>平均: '+printf(digit,magB.sum()/NdatB)
-	txt=''; for(i=0;i<NdatB;i++) txt+=printf(digit,ssqB[i])+'<br>'; $('ssqB').innerHTML=txt+'总计: '+printf(digit,ssqB.sum())+'<br>平均: '+printf(digit,ssqB.sum()/NdatB)
-	txt=''; for(i=0;i<NdatB;i++) txt+=printf(digit,varB[i])+'<br>'; $('varB').innerHTML=txt +'<br><br>'
-	txt=''; for(i=0;i<NdatB;i++) txt+=printf(digit,rmsdB[i])+'<br>';$('rmsdB').innerHTML=txt+'<br><br>'
-	txt=''; for(i=0;i<NdatB;i++) txt+=printf(digit,rmseB[i])+'<br>';$('rmseB').innerHTML=txt+'<br><br>'
+	txt='<details>'; for(i=0;i<NdatB;i++) txt+=printf(digit,sumB[i])+'<br>'; $('sumB').innerHTML=txt+'</details>总计: '+printf(digit,sumB.sum())+'<br>平均: '+printf(digit,sumB.sum()/NdatB)
+	txt='<details>'; for(i=0;i<NdatB;i++) txt+=printf(digit,avgB[i])+'<br>'; $('avgB').innerHTML=txt+'</details>总计: '+printf(digit,avgB.sum())+'<br>平均: '+printf(digit,avgB.sum()/NdatB)
+	txt='<details>'; for(i=0;i<NdatB;i++) txt+=printf(digit,magB[i])+'<br>'; $('magB').innerHTML=txt+'</details>总计: '+printf(digit,magB.sum())+'<br>平均: '+printf(digit,magB.sum()/NdatB)
+	txt='<details>'; for(i=0;i<NdatB;i++) txt+=printf(digit,ssqB[i])+'<br>'; $('ssqB').innerHTML=txt+'</details>总计: '+printf(digit,ssqB.sum())+'<br>平均: '+printf(digit,ssqB.sum()/NdatB)
+	txt='<details>'; for(i=0;i<NdatB;i++) txt+=printf(digit,varB[i])+'<br>'; $('varB').innerHTML=txt +'<br><br>'
+	txt='<details>'; for(i=0;i<NdatB;i++) txt+=printf(digit,rmsdB[i])+'<br>';$('rmsdB').innerHTML=txt+'<br><br>'
+	txt='<details>'; for(i=0;i<NdatB;i++) txt+=printf(digit,rmseB[i])+'<br>';$('rmseB').innerHTML=txt+'<br><br>'
 
 	//if(NdatB>0) {
 	//	NdimB=datB[0].length
@@ -2949,13 +2949,13 @@ function getRMSE() {
 		rmseC[i] = datC[i].rmse()
 	}
 
-	txt=''; for(i=0;i<Ndat;i++) txt+=printf(digit,sumC[i])+'<br>'; $('sumC').innerHTML=txt+'总计: '+printf(digit,sumC.sum())+'<br>平均: '+printf(digit,sumC.sum()/Ndat)
-	txt=''; for(i=0;i<Ndat;i++) txt+=printf(digit,avgC[i])+'<br>'; $('avgC').innerHTML=txt+'总计: '+printf(digit,avgC.sum())+'<br>平均: '+printf(digit,avgC.sum()/Ndat)
-	txt=''; for(i=0;i<Ndat;i++) txt+=printf(digit,magC[i])+'<br>'; $('magC').innerHTML=txt+'总计: '+printf(digit,magC.sum())+'<br>平均: '+printf(digit,magC.sum()/Ndat)
-	txt=''; for(i=0;i<Ndat;i++) txt+=printf(digit,ssqC[i])+'<br>'; $('ssqC').innerHTML=txt+'总计: '+printf(digit,ssqC.sum())+'<br>平均: '+printf(digit,ssqC.sum()/Ndat)
-	txt=''; for(i=0;i<Ndat;i++) txt+=printf(digit,varC[i])+'<br>'; $('varC').innerHTML=txt +'<br><br>'
-	txt=''; for(i=0;i<Ndat;i++) txt+=printf(digit,rmseC[i])+'<br>';$('rmsdC').innerHTML=txt+'<br><br>'
-	txt=''; for(i=0;i<Ndat;i++) txt+=printf(digit,rmseC[i])+'<br>';$('rmseC').innerHTML=txt+'<br><br>'
+	txt='<details>'; for(i=0;i<Ndat;i++) txt+=printf(digit,sumC[i])+'<br>'; $('sumC').innerHTML=txt+'</details>总计: '+printf(digit,sumC.sum())+'<br>平均: '+printf(digit,sumC.sum()/Ndat)
+	txt='<details>'; for(i=0;i<Ndat;i++) txt+=printf(digit,avgC[i])+'<br>'; $('avgC').innerHTML=txt+'</details>总计: '+printf(digit,avgC.sum())+'<br>平均: '+printf(digit,avgC.sum()/Ndat)
+	txt='<details>'; for(i=0;i<Ndat;i++) txt+=printf(digit,magC[i])+'<br>'; $('magC').innerHTML=txt+'</details>总计: '+printf(digit,magC.sum())+'<br>平均: '+printf(digit,magC.sum()/Ndat)
+	txt='<details>'; for(i=0;i<Ndat;i++) txt+=printf(digit,ssqC[i])+'<br>'; $('ssqC').innerHTML=txt+'</details>总计: '+printf(digit,ssqC.sum())+'<br>平均: '+printf(digit,ssqC.sum()/Ndat)
+	txt='<details>'; for(i=0;i<Ndat;i++) txt+=printf(digit,varC[i])+'<br>'; $('varC').innerHTML=txt +'<br><br>'
+	txt='<details>'; for(i=0;i<Ndat;i++) txt+=printf(digit,rmseC[i])+'<br>';$('rmsdC').innerHTML=txt+'<br><br>'
+	txt='<details>'; for(i=0;i<Ndat;i++) txt+=printf(digit,rmseC[i])+'<br>';$('rmseC').innerHTML=txt+'<br><br>'
 
 	//if(Ndat>0) {
 	//	$('summagC').innerHTML=printf(digit, magC.sum())
