@@ -173,7 +173,7 @@ PPMKTOP扩展了OPLSAA的原子类型, 因此, 有时其给出的拓扑文件中
 
 ### 异常二面角参数的错误
 
-对于OPLSAA力场的`C:\GMX\GMX5.1.4\share\gromacs\top\oplsaa.ff\ffbonded.itp`文件, 无论是GROMACS自带的, 还是TPPMKTOP扩充后的, 都存在错误. 错误出现在这个文件的`[ dihedraltypes ]`段. 原始内容如下
+对于OPLSAA力场的`C:\GMX\GMX5.1.4\share\gromacs\top\oplsaa.ff\ffbonded.itp`文件, 无论是GROMACS自带的, 还是TPPMKTOP扩充后的, 都存在异常二面角参数对应的`[ dihedraltypes ]`段. 原始内容如下
 
 	[ dihedraltypes ]
 	; Improper OPLS dihedrals to keep groups planar.
@@ -201,7 +201,7 @@ PPMKTOP扩展了OPLSAA的原子类型, 因此, 有时其给出的拓扑文件中
 	; Z -CA-X -Y improper torsion. CA is any ring carbon (CA,CB,CN,CV,CW,CR,CK,CQ,CS,C*)
 	#define improper_Z_CA_X_Y       180.0      4.60240   2
 
-这里定义了一些异常二面角类型的势能参数, 但缺少函数类型参数, 因此如果在拓扑文件中直接使用`1 2 3 4 improper_O_C_X_Y`这样的形式来定义异常二面角, `grompp`时就会出错, 给出`invalid dihedral type 180`的错误. 根据[GROMACS手册异常二面角](http://jerkwin.github.io/GMX/GMXman-4/#4212-%E5%BC%82%E5%B8%B8%E4%BA%8C%E9%9D%A2%E8%A7%92)的说明, 这些异常二面角的函数类型应该为`4`(也可以使用`1`, 二者没有区别), 所有只要在拓扑文件中所有类似`i j k l improper_O_C_X_Y`的地方增加函数类型, 改为`i j k l 4 improper_O_C_X_Y`或`i j k l 1 improper_O_C_X_Y`即可. 不建议直接修改原始的力场文件, 因为这些参数定义会用于氨基酸的二面角, 修改原始力场文件后会导致`pdb2gmx`生成的蛋白拓扑文件错误.
+这里定义了一些异常二面角类型的势能参数, 但没有给出函数类型参数, 因此如果在拓扑文件中直接使用`1 2 3 4 improper_O_C_X_Y`这样的形式来定义异常二面角, `grompp`时就会出错, 给出`invalid dihedral type 180`的错误. 根据[GROMACS手册异常二面角](http://jerkwin.github.io/GMX/GMXman-4/#4212-%E5%BC%82%E5%B8%B8%E4%BA%8C%E9%9D%A2%E8%A7%92)的说明, 这些异常二面角的函数类型应该为`4`(也可以使用`1`, 二者没有区别), 所有只要在拓扑文件中所有类似`i j k l improper_O_C_X_Y`的地方增加函数类型, 改为`i j k l 4 improper_O_C_X_Y`或`i j k l 1 improper_O_C_X_Y`即可. 不建议直接修改原始的力场文件, 因为这些参数定义会用于氨基酸的二面角, 修改原始力场文件后会导致`pdb2gmx`生成的蛋白拓扑文件错误.
 
 以前的做法`grompp`虽然可以成功, 但生成的拓扑文件是错误的.
 
