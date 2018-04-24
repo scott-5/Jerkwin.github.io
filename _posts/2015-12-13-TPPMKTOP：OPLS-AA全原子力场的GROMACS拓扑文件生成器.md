@@ -10,6 +10,7 @@
 
 - 2015-12-10 21:03:38 本文译自[All-atom automatic OPLS-AA topology generator](http://erg.biophys.msu.ru/wordpress/archives/32), 为TPPMKTOP的说明文档.
 - 2017-07-11 08:37:00 补充两个常见问题
+- 2018-04-24 13:43:39 修正错误
 
 生成OPLS-AA力场的拓扑文件非常复杂, 因为此力场包含的原子类型非常多, 超过800种. 但即便使用如此多的原子类型, OPLS-AA力场仍不可能描述所有分子的化学结构. 因此, 当文献中给出了新化学片段的参数后, OPLS-AA力场的原子类型也会随之增加. TPPMKTOP是一个自动化的工具, 可用于生成OPLS-AA力场的拓扑文件. 它提供了免费的网络服务, 网址为<http://erg.biophys.msu.ru/tpp>. TPPMKTOP使用了MySQL数据库, 其中包含了有关原子类型指认的力场参数和信息. 这个数据库由我们研究组负责持续升级. TPPMKTOP是一个开源项目, 你可以联系<comconadin@gmail.com>以便获得最新版本.
 
@@ -200,30 +201,9 @@ PPMKTOP扩展了OPLSAA的原子类型, 因此, 有时其给出的拓扑文件中
 	; Z -CA-X -Y improper torsion. CA is any ring carbon (CA,CB,CN,CV,CW,CR,CK,CQ,CS,C*)
 	#define improper_Z_CA_X_Y       180.0      4.60240   2
 
-这里定义了一些异常二面角类型的参数, 但参数顺序与GROMACS不符, 因此如果用到这些二面角参数, `grompp`时就会出错, 给出`invalid dihedral type 180`的错误. 改正方法也很简单, 将上面的`#define`部分中的参数顺序调整与GROMACS需要的顺序一致, 也就是将最后一个表征类型的数字`2`转移放到平衡角度值`180.0`前面, 修改后如下:
+这里定义了一些异常二面角类型的势能参数, 但缺少函数类型参数, 因此如果在拓扑文件中直接使用`1 2 3 4 improper_O_C_X_Y`这样的形式来定义异常二面角, `grompp`时就会出错, 给出`invalid dihedral type 180`的错误. 根据[GROMACS手册异常二面角](http://jerkwin.github.io/GMX/GMXman-4/#4212-%E5%BC%82%E5%B8%B8%E4%BA%8C%E9%9D%A2%E8%A7%92)的说明, 这些异常二面角的函数类型应该为`4`(也可以使用`1`, 二者没有区别), 所有只要在拓扑文件中所有类似`i j k l improper_O_C_X_Y`的地方增加函数类型, 改为`i j k l 4 improper_O_C_X_Y`或`i j k l 1 improper_O_C_X_Y`即可. 不建议直接修改原始的力场文件, 因为这些参数定义会用于氨基酸的二面角, 修改原始力场文件后会导致`pdb2gmx`生成的蛋白拓扑文件错误.
 
-	[ dihedraltypes ]
-	; Improper OPLS dihedrals to keep groups planar.
-	; (OPLS doesnt use impropers for chiral atoms).
-	; Since these functions are periodic of the form 1-cos(2*x), they are actually
-	; implemented as proper dihedrals [1+cos(2*x+180)] for the moment,
-	; to keep things compatible.
-	; The defines are used in ffoplsaa.rtp or directly in your .top file.
+以前的做法`grompp`虽然可以成功, 但生成的拓扑文件是错误的.
 
-	; O?-C -X -Y improper torsion. C can be C_2 or C_3 too.
-	#define improper_O_C_X_Y      2  180.0     43.93200
+<del>改正方法也很简单, 将上面的`#define`部分中的参数顺序调整与GROMACS需要的顺序一致, 也就是将最后一个表征类型的数字`2`转移放到平衡角度值`180.0`前面</del>
 
-	; X-NO-ON-NO improper torsion.
-	#define improper_X_NO_ON_NO   2  180.0     43.93200
-
-	; N2-X-N2-N2 improper torsion.
-	#define improper_N2_X_N2_N2   2  180.0     43.93200
-
-	; Z -N?-X -Y improper torsion
-	#define improper_Z_N_X_Y      2  180.0      4.18400
-
-	; Z -CM-X -Y improper torsion. CM can be C= too.
-	#define improper_Z_CM_X_Y     2  180.0     62.76000
-
-	; Z -CA-X -Y improper torsion. CA is any ring carbon (CA,CB,CN,CV,CW,CR,CK,CQ,CS,C*)
-	#define improper_Z_CA_X_Y     2  180.0      4.60240
