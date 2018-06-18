@@ -2860,7 +2860,7 @@ function getRMSE() {
 		datA=[], sumA=[], avgA=[], magA=[], ssqA=[], varA=[], rmsdA=[],
 		datB=[], sumB=[], avgB=[], magB=[], ssqB=[], varB=[], rmsdB=[],
 		datC=[], sumC=[], avgC=[], magC=[], ssqC=[], varC=[], rmseC=[],
-		factor=parseFloat($('fac').value), digit='%'+$('fmt').value+'f'
+		factor=parseFloat(eval($('fac').value)), digit='%'+$('fmt').value+'f'
 
 	txt=$('datA').value.replace(/^\s*\n*/,"").replace(/\s*\n*$/,"").replace(/\s+[\n|$]/g,"\n")
 	if(txt.length>0) { txt=txt.split('\n'); NdimA=txt[0].split(/\s+/).length }
