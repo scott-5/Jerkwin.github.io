@@ -98,8 +98,9 @@ table tr th {
 		<input type="radio" onclick="setUnit(this.id)" name="unit" id="Con">浓度&nbsp;&nbsp;
 		<input type="radio" onclick="setUnit(this.id)" name="unit" id="Rho">密度&nbsp;&nbsp;
 		<input type="radio" onclick="setUnit(this.id)" name="unit" id="VDW">VDW参数<br>
-		所用换算系数来源于CODATA-2014, 具体数值见【理化常数】
-
+		<span style='font: .6em Consolas;'>
+		所用换算系数来源于CODATA-2014, 具体数值见【理化常数】<br>
+		支持下列js函数: pow sqrt exp log; abs ceil floor; min max round random; sin cos tan; asin acos atan atan2</span>
 		<table id="TabLen">
 		<tr><td>
 			<input type="box" name="Length" onInput="setVal(this.name,this.id)" id="L_m"> 米(m)<br>
@@ -2640,20 +2641,28 @@ $('V_reLB' ).disabled=true; $('V_reCg' ).disabled=true
 $('V_C6LB' ).disabled=true; $('V_C6Cg' ).disabled=true
 $('V_C12LB').disabled=true; $('V_C12Cg').disabled=true
 
+function mathEval(str) {
+	var fun="abs acos asin atan atan2 ceil cos exp floor log max min pow random round sin sqrt tan toSource valueOf"
+	fun=fun.split(/\s+/)
+	for(var i=0, n=fun.length; i<n; i++)
+		str=str.replace(new RegExp(fun[i],'g'), 'Math.'+fun[i])
+	return eval(str)
+}
+
 function setVDW(name, id) {
 	var f=Math.pow(2, 1./6.)
-	val=eval($(id).value)
+	val=mathEval($(id).value)
 
 	if(id=='V_sgm1' || id=='V_re1' || id=='V_eps1') {
-		if(id=='V_sgm1') { V_sgm1=val; V_re1=f*V_sgm1; V_eps1=eval($('V_eps1').value) }
-		if(id=='V_re1')  { V_re1=val;  V_sgm1=val/f;   V_eps1=eval($('V_eps1').value) }
-		if(id=='V_eps1') { V_eps1=val; V_sgm1=eval($('V_sgm1').value); V_re1=f*V_sgm1 }
+		if(id=='V_sgm1') { V_sgm1=val; V_re1=f*V_sgm1; V_eps1=mathEval($('V_eps1').value) }
+		if(id=='V_re1')  { V_re1=val;  V_sgm1=val/f;   V_eps1=mathEval($('V_eps1').value) }
+		if(id=='V_eps1') { V_eps1=val; V_sgm1=mathEval($('V_sgm1').value); V_re1=f*V_sgm1 }
 
 		V_C61=4*V_eps1*Math.pow(V_sgm1, 6)
 		V_C121=4*V_eps1*Math.pow(V_sgm1, 12)
 	} else if(id=='V_C61' || id=='V_C121') {
-		if(id=='V_C61')  { V_C61=val;  V_C121=eval($('V_C121').value) }
-		if(id=='V_C121') { V_C121=val; V_C61=eval($('V_C61').value) }
+		if(id=='V_C61')  { V_C61=val;  V_C121=mathEval($('V_C121').value) }
+		if(id=='V_C121') { V_C121=val; V_C61=mathEval($('V_C61').value) }
 
 		V_sgm1=Math.pow(V_C121/V_C61, 1./6.)
 		V_eps1=0.25*V_C61*V_C61/V_C121
@@ -2661,15 +2670,15 @@ function setVDW(name, id) {
 	}
 
 	if(id=='V_sgm2' || id=='V_re2' || id=='V_eps2') {
-		if(id=='V_sgm2') { V_sgm2=val; V_re2=f*V_sgm2; V_eps2=eval($('V_eps2').value) }
-		if(id=='V_re2')  { V_re2=val;  V_sgm2=val/f;   V_eps2=eval($('V_eps2').value) }
-		if(id=='V_eps2') { V_eps2=val; V_sgm2=eval($('V_sgm2').value); V_re2=f*V_sgm2 }
+		if(id=='V_sgm2') { V_sgm2=val; V_re2=f*V_sgm2; V_eps2=mathEval($('V_eps2').value) }
+		if(id=='V_re2')  { V_re2=val;  V_sgm2=val/f;   V_eps2=mathEval($('V_eps2').value) }
+		if(id=='V_eps2') { V_eps2=val; V_sgm2=mathEval($('V_sgm2').value); V_re2=f*V_sgm2 }
 
 		V_C62=4*V_eps2*Math.pow(V_sgm2, 6)
 		V_C122=4*V_eps2*Math.pow(V_sgm2, 12)
 	} else if(id=='V_C62' || id=='V_C122') {
-		if(id=='V_C62')  { V_C62=val;  V_C122=eval($('V_C122').value) }
-		if(id=='V_C122') { V_C122=val; V_C62=eval($('V_C62').value) }
+		if(id=='V_C62')  { V_C62=val;  V_C122=mathEval($('V_C122').value) }
+		if(id=='V_C122') { V_C122=val; V_C62=mathEval($('V_C62').value) }
 
 		V_sgm2=Math.pow(V_C122/V_C62, 1./6.)
 		V_eps2=0.25*V_C62*V_C62/V_C122
@@ -2677,17 +2686,17 @@ function setVDW(name, id) {
 	}
 
 	if(id.slice(-1)=='2') {
-		V_sgm1=eval($('V_sgm1').value)
-		V_eps1=eval($('V_eps1').value)
-		V_C61=eval($('V_C61').value)
-		V_C121=eval($('V_C121').value)
+		V_sgm1=mathEval($('V_sgm1').value)
+		V_eps1=mathEval($('V_eps1').value)
+		V_C61=mathEval($('V_C61').value)
+		V_C121=mathEval($('V_C121').value)
 		V_re1=f*V_sgm1
 	}
 	if(id.slice(-1)=='1') {
-		V_sgm2=eval($('V_sgm2').value)
-		V_eps2=eval($('V_eps2').value)
-		V_C62 =eval($('V_C62').value)
-		V_C122=eval($('V_C122').value)
+		V_sgm2=mathEval($('V_sgm2').value)
+		V_eps2=mathEval($('V_eps2').value)
+		V_C62 =mathEval($('V_C62').value)
+		V_C122=mathEval($('V_C122').value)
 		V_re2=f*V_sgm2
 	}
 
@@ -2711,7 +2720,7 @@ function setVDW(name, id) {
 
 	unit=document.getElementsByName(name)
 	for(i=0; i<unit.length; i++) {
-		if(unit[i].id!=id) unit[i].value=fmt(eval(unit[i].id))
+		if(unit[i].id!=id) unit[i].value=fmt(mathEval(unit[i].id))
 	}
 }
 
@@ -2728,7 +2737,7 @@ function setTP(name, id) {
 		$('C_K').value=298.15
 		$('C_Pa').value=101325
 	}
-	var Temp=eval($('C_K').value), Pres=eval($('C_Pa').value)
+	var Temp=mathEval($('C_K').value), Pres=mathEval($('C_Pa').value)
 	$('C_M').value=fmt(Pres*1E-3/(Rgas*Temp))
 	setVal('Conc', 'C_M')
 }
@@ -2743,7 +2752,7 @@ function setMC(name, id) {
 		$('R_amu').value=18
 		$('R_M').value=55.56
 	}
-	var C=eval($('R_M').value), M=eval($('R_amu').value)
+	var C=mathEval($('R_M').value), M=mathEval($('R_amu').value)
 	$('R_gmL').value=fmt(M*C*1E-3)
 	setVal('Rho', 'R_gmL')
 }
@@ -2764,31 +2773,31 @@ function setVal(name, id) {
 	unit=document.getElementsByName(name)
 
 	if(name!='Energy') {
-		val=eval($(id).value+'*'+id); // 转换为基本单位
+		val=mathEval($(id).value+'*'+id); // 转换为基本单位
 		for(i=0; i<unit.length; i++) {
 			if(unit[i].id!=id) {
 				if(unit[i].id!='C_K' && unit[i].id!='C_Pa'
 					&& unit[i].id!='R_amu' && unit[i].id!='R_M') {
-					unit[i].value=fmt(eval(val+'/'+unit[i].id)) // 反转换
+					unit[i].value=fmt(mathEval(val+'/'+unit[i].id)) // 反转换
 				} else {
 					if(!$('chk_TP').checked) {
-						if(unit[i].id=='C_K'  && !$('rdo_K').checked)  $('C_K').value=fmt(eval($('C_Pa').value)*1E-3/(val*Rgas))
-						if(unit[i].id=='C_Pa' && !$('rdo_Pa').checked) $('C_Pa').value=fmt(val*Rgas*eval($('C_K').value)*1E3)
+						if(unit[i].id=='C_K'  && !$('rdo_K').checked)  $('C_K').value=fmt(mathEval($('C_Pa').value)*1E-3/(val*Rgas))
+						if(unit[i].id=='C_Pa' && !$('rdo_Pa').checked) $('C_Pa').value=fmt(val*Rgas*mathEval($('C_K').value)*1E3)
 					}
 					if(!$('chk_MC').checked) {
-						if(unit[i].id=='R_amu' && !$('rdo_amu').checked) $('R_amu').value=fmt(val/eval($('R_M').value))
-						if(unit[i].id=='R_M'   && !$('rdo_M').checked) $('R_M').value=fmt(val*1E3/eval($('R_amu').value))
+						if(unit[i].id=='R_amu' && !$('rdo_amu').checked) $('R_amu').value=fmt(val/mathEval($('R_M').value))
+						if(unit[i].id=='R_M'   && !$('rdo_M').checked) $('R_M').value=fmt(val*1E3/mathEval($('R_amu').value))
 					}
 				}
 			}
 		}
 	} else {
-		val=eval($(id).value)
+		val=mathEval($(id).value)
 		txt=drvUnit[id]
 		if(txt) {
-			if(txt=='Rinvm') { val=eval(1/val+'*m2'+id); txt='invm' }
-			else if(txt=='RinvHz') { val=eval(1/val+'/Hz2'+id); txt='Hz' }
-			else val=eval(val+'/'+txt+'2'+id)
+			if(txt=='Rinvm') { val=mathEval(1/val+'*m2'+id); txt='invm' }
+			else if(txt=='RinvHz') { val=mathEval(1/val+'/Hz2'+id); txt='Hz' }
+			else val=mathEval(val+'/'+txt+'2'+id)
 
 			$(txt).value=fmt(val)
 			id2=id
@@ -2798,7 +2807,7 @@ function setVal(name, id) {
 		for(i=0; i<unit.length; i++) {
 			tmp=id+'2'+unit[i].id
 			if(window[tmp] != undefined && unit[i].id!=id2) {
-				unit[i].value=fmt(eval(val+'*'+tmp))
+				unit[i].value=fmt(mathEval(val+'*'+tmp))
 			}
 		}
 
@@ -2809,14 +2818,14 @@ function setVal(name, id) {
 				console.log(txt, tmp)
 				if(txt=='Rinvm') {
 					val=1/$('invm').value
-					if(unit[i].id!=id2) unit[i].value=fmt(eval(val+'*m2'+tmp))
+					if(unit[i].id!=id2) unit[i].value=fmt(mathEval(val+'*m2'+tmp))
 				}
 				else if(txt=='RinvHz') {
 					val=1/$('Hz').value
-					if(unit[i].id!=id2) unit[i].value=fmt(eval(val+'/Hz2'+tmp))
+					if(unit[i].id!=id2) unit[i].value=fmt(mathEval(val+'/Hz2'+tmp))
 				} else {
 					val=$(txt).value
-					if(unit[i].id!=id2) unit[i].value=fmt(eval(val+'*'+txt+'2'+tmp))
+					if(unit[i].id!=id2) unit[i].value=fmt(mathEval(val+'*'+txt+'2'+tmp))
 				}
 			}
 		}
@@ -2860,7 +2869,7 @@ function getRMSE() {
 		datA=[], sumA=[], avgA=[], magA=[], ssqA=[], varA=[], rmsdA=[],
 		datB=[], sumB=[], avgB=[], magB=[], ssqB=[], varB=[], rmsdB=[],
 		datC=[], sumC=[], avgC=[], magC=[], ssqC=[], varC=[], rmseC=[],
-		factor=parseFloat(eval($('fac').value)), digit='%'+$('fmt').value+'f'
+		factor=parseFloat(mathEval($('fac').value)), digit='%'+$('fmt').value+'f'
 
 	txt=$('datA').value.replace(/^\s*\n*/,"").replace(/\s*\n*$/,"").replace(/\s+[\n|$]/g,"\n")
 	if(txt.length>0) { txt=txt.split('\n'); NdimA=txt[0].split(/\s+/).length }
