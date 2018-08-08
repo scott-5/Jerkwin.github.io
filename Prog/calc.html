@@ -421,7 +421,7 @@ table tr th {
 		数据个数: <span id="datNum"></span> 数据维数: <span id="datDim"></span><br><br>
 
 		<table style="display: block;">
-			<tbody><tr><th>数据点</th><th>加和<br>$$\text{SUM}=\Sum_{j=1}^{N_{dim} } a_{i,j}$$</th><th>平均值<br>$$\text{AVG}={\text{SUM} \over N_{dim} }$$</th><th>平方和<br>$\text{SSQ}=\Sum_{j=1}^{N_{dim} } a_{i,j}^2$</th><th>长度<br>$$\text{LEN}=\sqrt{\text{SSQ} }$$</th><th>方差<br>$$\text{VAR}={\text{SSQ} \over N_{dim} }-\text{AVG}^2$$</th><th>总体标准偏差<br>$$\text{RMSD}=\sqrt{\text{VAR} }$$</th><th>样本标准偏差<br>$$\text{RMSE}={\sqrt{N_{dim} } \over \sqrt{N_{dim}-1 } }\text{RMSD}$$</th></tr>
+			<tbody><tr><th>数据点</th><th>加和<br>$$\text{SUM}=\Sum_{j=1}^{N_{dim} } a_{i,j}$$</th><th>平均值<br>$$\text{AVG}={\text{SUM} \over N_{dim} }$$</th><th>平方和<br>$\text{SSQ}=\Sum_{j=1}^{N_{dim} } a_{i,j}^2$</th><th>长度<br>$$\text{LEN}=\sqrt{\text{SSQ} }$$</th><th>方差<br>$$\text{VAR}=\s^2={\text{SSQ} \over N_{dim} }-\text{AVG}^2$$</th><th>总体标准偏差<br>$$\text{RMSD}=\s=\sqrt{\text{VAR} }$$</th><th>样本标准偏差<br>$$\text{RMSE}=s={\sqrt{N_{dim} } \over \sqrt{N_{dim}-1 } }\text{RMSD}$$</th></tr>
 
 			<tr><td>A</td><td id="sumA"></td><td id="avgA"></td><td id="ssqA"></td><td id="magA"></td><td id="varA"></td><td id="rmsdA"></td><td id="rmseA"></td></tr>
 			<!--tr><td>A长度</td><td id="summagA"></td><td id="avgmagA"></td><td id="magmagA"></td><td id="ssqmagA"></td><td id="varmagA"></td><td id="rmsdmagA"></td></tr-->
@@ -2862,7 +2862,7 @@ Array.prototype.avg  = function () { return this.sum()/this.length }
 Array.prototype.mag  = function () { return Math.sqrt(this.ssq())  }
 Array.prototype.var  = function () { return this.ssq()/this.length - Math.pow(this.avg(), 2)  }
 Array.prototype.rmsd = function () { return Math.sqrt(this.var()) }
-Array.prototype.rmse = function () { return Math.sqrt(this.var()*(this.length-1)/this.length) }
+Array.prototype.rmse = function () { return Math.sqrt(this.var()*this.length/(this.length-1)) }
 
 function getRMSE() {
 	var i, j, tmp, txt, Ndat=0, Ndim=0, NdatA, NdimA=0, NdatB, NdimB=0,
