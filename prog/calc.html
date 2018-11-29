@@ -360,18 +360,18 @@ table tr th {
 			C<sub>12</sub>=4&epsilon;&sigma;<sup>12</sup><br>
 		</td>
 		</tr>
-		<tr><td>OPLS-AA组合规则<br>(几何平均值)</td><td>
+		<tr><td>OPLS-AA组合规则<br>(几何平均值)<br><br><br>C6/C12组合规则<br>(C系数几何平均值)</td><td>
 			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_sgmg" value='1'><br>
 			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_epsg" value='0.5'><br>
 			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_reg" value='1.122462048'><br>
 			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C6g" value='2'><br>
 			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C12g" value='2'><br>
 		</td><td>
-			&sigma;=sqrt(&sigma;<sub>1</sub>*&sigma;<sub>2</sub>) (几何平均值)<br>
-			&epsilon;=sqrt(&epsilon;<sub>1</sub>*&epsilon;<sub>2</sub>) (几何平均值)<br>
+			&sigma;=sqrt(&sigma;<sub>1</sub>*&sigma;<sub>2</sub>)=(C<sub>12</sub>/C<sub>6</sub>)<sup>1/6</sup> (几何平均值)<br>
+			&epsilon;=sqrt(&epsilon;<sub>1</sub>*&epsilon;<sub>2</sub>)=C<sub>6</sub><sup>2</sup>/(4*C<sub>12</sub>) (几何平均值)<br>
 			Re=2<sup>1/6</sup>&sigma;<br>
-			C<sub>6</sub>=4&epsilon;&sigma;<sup>6</sup><br>
-			C<sub>12</sub>=4&epsilon;&sigma;<sup>12</sup><br>
+			C<sub>6</sub>=4&epsilon;&sigma;<sup>6</sup>=sqrt(C<sub>6</sub><sup>(1)</sup>*C<sub>6</sub><sup>(2)</sup>)<br>
+			C<sub>12</sub>=4&epsilon;&sigma;<sup>12</sup>=sqrt(C<sub>12</sub><sup>(1)</sup>*C<sub>12</sub><sup>(2)</sup>)<br>
 		</td>
 		</tr>
 		<tr><td>算术平均规则<br>(算术平均值)</td><td>
@@ -386,20 +386,6 @@ table tr th {
 			Re=2<sup>1/6</sup>&sigma;<br>
 			C<sub>6</sub>=4&epsilon;&sigma;<sup>6</sup><br>
 			C<sub>12</sub>=4&epsilon;&sigma;<sup>12</sup><br>
-		</td>
-		</tr>
-		<tr><td>C6/C12组合规则<br>(C系数几何平均值)</td><td>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_sgmCg" value='1'><br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_epsCg" value='0.5'><br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_reCg" value='1.122462048'><br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C6Cg" value='2'><br>
-			<input type="box" name="VDW" onInput="setVDW(this.name,this.id)" id="V_C12Cg" value='2'><br>
-		</td><td>
-			&sigma;=(C<sub>12</sub>/C<sub>6</sub>)<sup>1/6</sup><br>
-			&epsilon;=C<sub>6</sub><sup>2</sup>/(4*C<sub>12</sub>)<br>
-			Re=2<sup>1/6</sup>&sigma;<br>
-			C<sub>6</sub>=sqrt(C<sub>6</sub><sup>(1)</sup>*C<sub>6</sub><sup>(2)</sup>)<br>
-			C<sub>12</sub>=sqrt(C<sub>12</sub><sup>(1)</sup>*C<sub>12</sub><sup>(2)</sup>)<br>
 		</td>
 		</tr>
 		</table>
@@ -2635,11 +2621,11 @@ $('V_reg' ).disabled=true; $('V_rea' ).disabled=true
 $('V_C6g' ).disabled=true; $('V_C6a' ).disabled=true
 $('V_C12g').disabled=true; $('V_C12a').disabled=true
 
-$('V_sgmLB').disabled=true; $('V_sgmCg').disabled=true
-$('V_epsLB').disabled=true; $('V_epsCg').disabled=true
-$('V_reLB' ).disabled=true; $('V_reCg' ).disabled=true
-$('V_C6LB' ).disabled=true; $('V_C6Cg' ).disabled=true
-$('V_C12LB').disabled=true; $('V_C12Cg').disabled=true
+$('V_sgmLB').disabled=true
+$('V_epsLB').disabled=true
+$('V_reLB' ).disabled=true
+$('V_C6LB' ).disabled=true
+$('V_C12LB').disabled=true
 
 function mathEval(str) {
 	var fun="abs acos asin atan atan2 ceil cos exp floor log max min pow random round sin sqrt tan toSource valueOf"
@@ -2711,12 +2697,6 @@ function setVDW(name, id) {
 	V_reLB =f*V_sgmLB
 	V_C6LB =4*V_epsLB*Math.pow(V_sgmLB, 6)
 	V_C12LB=4*V_epsLB*Math.pow(V_sgmLB, 12)
-
-	V_C6Cg =Math.sqrt(V_C61*V_C62)  ;
-	V_C12Cg=Math.sqrt(V_C121*V_C122);
-	V_sgmCg=Math.pow(V_C12Cg/V_C6Cg, 1./6.);
-	V_epsCg=V_C6Cg*V_C6Cg/(4*V_C12Cg);
-	V_reCg =f*V_sgmCg  ;
 
 	unit=document.getElementsByName(name)
 	for(i=0; i<unit.length; i++) {
