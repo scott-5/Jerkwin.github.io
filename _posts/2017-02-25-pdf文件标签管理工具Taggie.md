@@ -20,7 +20,7 @@ Taggie暂时只支持pdf文件, 且需配合Everything, Chrome, PDF-XChangeViewe
 
 - 默认pdf查看器: PDF-XChangeViewer 2.5, 暂不支持其他pdf软件. 除编辑功能外, PDF-XChangeViewer基本能满足所有需要, 且程序小巧, 启动速度快.
 
-点击[这里](/Prog/PDF-XChangeViewer.zip)下载PDF-XChangeViewer. 解压后, 需要将其菜单项`复制完整文件名称`对应的快捷键设为`Alt+n`. 因为Taggie需要借助于此快捷键获取已打开pdf文件的完整路径, 否则无法定位打开的pdf文件. 具体方法如下:
+点击[这里](/prog/PDF-XChangeViewer.zip)下载PDF-XChangeViewer. 解压后, 需要将其菜单项`复制完整文件名称`对应的快捷键设为`Alt+n`. 因为Taggie需要借助于此快捷键获取已打开pdf文件的完整路径, 否则无法定位打开的pdf文件. 具体方法如下:
 
 在工具栏点击鼠标右键打开`自定义`.
 
@@ -40,7 +40,7 @@ __注意__ 若在工具栏右键时只出现`锁定/解锁所有命令栏`
 
 ## 使用方法
 
-下载 [Windows7 64位 Taggie](/Prog/Taggie.zip) 或 [Windows7 32位 Taggie](/Prog/Taggie.win32.zip). 压缩包中包含了Taggie程序及其运行所需的Everything和其他程序. 如果你还不了解Everything程序, 请先了解下[Everything: 速度最快的文件名搜索工具](http://xbeta.info/everything-search-tool.htm).
+下载 [Windows7 64位 Taggie](/prog/Taggie.zip) 或 [Windows7 32位 Taggie](/prog/Taggie.win32.zip). 压缩包中包含了Taggie程序及其运行所需的Everything和其他程序. 如果你还不了解Everything程序, 请先了解下[Everything: 速度最快的文件名搜索工具](http://xbeta.info/everything-search-tool.htm).
 
 解压后,
 

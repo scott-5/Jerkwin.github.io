@@ -28,7 +28,7 @@
 
 下面我们模拟TIP3P水中的一个甲烷CH4分子, 以计算CH4第一溶剂化层中水分子的平均滞留时间为例, 来对分析过程进行具体地说明.
 
-下载[示例文件](/Prog/CH4W_sel.zip), 解压后得4个文件, `conf.gro`, `grompp.mdp`, `index.ndx`, `topol.top`. 值得注意的是, `index.ndx`文件使用`gmx make_ndx`添加了每种原子的索引号, 这是为了便于后面的分析.
+下载[示例文件](/prog/CH4W_sel.zip), 解压后得4个文件, `conf.gro`, `grompp.mdp`, `index.ndx`, `topol.top`. 值得注意的是, `index.ndx`文件使用`gmx make_ndx`添加了每种原子的索引号, 这是为了便于后面的分析.
 
 体系中包含一个CH4分子(OPLS-AA力场)和241个TIP3P水分子
 

@@ -10,13 +10,13 @@
 
 - 2015-12-08 22:16:10 初稿
 - 2016-03-28 20:18:18 补注: 不同版本ACPYPE生成的二面角函数类型
-- 下载本文用到的[文件](/Prog/GAFF.zip)
+- 下载本文用到的[文件](/prog/GAFF.zip)
 
 使用AMBER的GAFF力场处理有机小分子有很大的优势, 可惜的是GROMACS没有自带GAFF力场, 所以需要组合使用各种软件组合来实现. 这里我们使用的是AmberTools和ACPYPE.
 
 要想使用AmberTools和ACPYPE创建小分子的GAFF力场, 需要先安装这两个工具. 但Windows下AmberTools的安装并不容易. 在这里我提供一个已经编译好的AmberTools+ACPYPE, 它来自Chimera中所带的amber14, 并增加了我自己编译好的RESP程序与ACPYPE程序, 因为Chimera中并没有包含这两个程序. 具体的整合过程请参看[Windows下的AmberTools+RESP+ACPYPE](http://jerkwin.github.io/2015/12/06/Windows%E4%B8%8B%E7%9A%84AmberTools+RESP+ACPYPE/).
 
-点击[这里](/Prog/amber14.zip)下载AmberTools+ACPYPE, 下载后解压到某一目录(路径中不要包含中文字符), 然后新建环境变量`AMBERHOME`并将其设置为amber14的路径即可.
+点击[这里](/prog/amber14.zip)下载AmberTools+ACPYPE, 下载后解压到某一目录(路径中不要包含中文字符), 然后新建环境变量`AMBERHOME`并将其设置为amber14的路径即可.
 
 ![](/pic/GMX_amberhome.png)
 

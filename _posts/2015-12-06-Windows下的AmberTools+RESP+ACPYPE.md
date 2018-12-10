@@ -79,7 +79,7 @@ setup(
 
 ## 整合发布
 
-将我们编译好的`resp.exe`, `acpype.exe`及其运行所需的文件全都复制到`chimera主目录/bin/amber14/bin`目录下, 再将`chimera主目录/bin/amber14`这个目录一起打包, 就做成了一个在Windows下可以直接使用的AmberTools程序包, 可用于处理小分子. 你如果需要这个工具包, 请点击[这里](/Prog/amber14.zip)下载. 我整合的这个工具包可用于Windows XP 32位和Windows 7 64位, 其他平台上为测试. 有关此工具包的具体使用方法请参考后续博文.
+将我们编译好的`resp.exe`, `acpype.exe`及其运行所需的文件全都复制到`chimera主目录/bin/amber14/bin`目录下, 再将`chimera主目录/bin/amber14`这个目录一起打包, 就做成了一个在Windows下可以直接使用的AmberTools程序包, 可用于处理小分子. 你如果需要这个工具包, 请点击[这里](/prog/amber14.zip)下载. 我整合的这个工具包可用于Windows XP 32位和Windows 7 64位, 其他平台上为测试. 有关此工具包的具体使用方法请参考后续博文.
 
 ## 评论
 

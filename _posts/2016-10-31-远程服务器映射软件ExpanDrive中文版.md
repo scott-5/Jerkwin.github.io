@@ -14,7 +14,7 @@
 
 ### 安装
 
-1. 点击[ExpanDrive](http://jerkwin.github.io/Prog/ExpanDrive1.8.4.zip)下载安装程序压缩包并解压
+1. 点击[ExpanDrive](http://jerkwin.github.io/prog/ExpanDrive1.8.4.zip)下载安装程序压缩包并解压
 2. 运行`1.ExpanDrive_安装文件.exe`进行安装. 默认会安装在C盘根目录下, 最好不要修改, 否则可能导致下面的破解失败
 3. 运行`2.ExpanDrive_破解补丁.exe`进行破解. 随意输入注册名, 点击`PATCH`即可完成破解. 注意`PATCH`的位置
 	![](/pic/2016/expandrive_patch.png)

@@ -19,7 +19,7 @@ GMXTOP是个在线工具, 运行在浏览器中, 不依赖于任何其他环境.
 
 ## 使用说明
 
-打开GMXTOP网页 <https://Jerkwin.github.io/Prog/gmxtop.html>. 建议使用Chrome, 因为我没有测试其他浏览器. 界面尚未美化, 看起来有点简陋.
+打开GMXTOP网页 <https://Jerkwin.github.io/prog/gmxtop.html>. 建议使用Chrome, 因为我没有测试其他浏览器. 界面尚未美化, 看起来有点简陋.
 
 ### 分子构型格式
 
