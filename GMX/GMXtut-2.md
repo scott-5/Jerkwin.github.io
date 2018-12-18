@@ -132,7 +132,7 @@ LC2    6    14.0270      0.000     A  5.94700e-03 1.79000e-05 ;CH2, OPLS
 <li><a href="http://lists.gromacs.org/pipermail/gromacs.org_gmx-users/2006-September/023761.html">A method to scale Coulombic 1&#8211;4 interactions seperately</a></li>
 </ul>
 
-<p>关于力场理论以及组合规则的更多信息, 请查看此<a href="GMXtut-2_lipidCombinationRules.pdf">文档</a>. 感谢Chris Neale提供这一链接.</p>
+<p>关于力场理论以及组合规则的更多信息, 请查看此<a href=" https://jerkwin.github.io/GMX/GMXtut-2_lipidCombinationRules.pdf">文档</a>. 感谢Chris Neale提供这一链接.</p>
 
 <p>无论选择哪种设置, 你都必须说明你的模型是合理的. 本教程给出的特定参数组合, 在我这里是可行的, 根据其他一些用户的报告也是可行的. 毕竟, 是你要让听众(即审稿人)相信, 你知道自己在做什么, 你的模型是有效的.</p>
 
