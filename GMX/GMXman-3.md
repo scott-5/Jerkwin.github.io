@@ -1378,13 +1378,13 @@ G^B(p,T)-G^A(p,T) &= \int_0^1  \left< \opar H \l \right>_{NpT;\l} \rmd \l \tag{3
 
 ## 3.18 隐式溶剂模型
 
-<p>隐式溶剂模型提供了一种表示溶剂分子静电效应的有效方式, 同时在分子动力学模拟中避免了大量计算, 这些计算涉及对周围水分子进行精确的, 溶剂化的描述. 相比于显式溶剂模型, 隐式溶剂模型有以下几个优点: 不需要对溶质周围的水分子进行平衡; 不存在粘度, 蛋白质能够更快地探索构型空间.</p>
+<p>隐式溶剂模型提供了一种表现溶剂分子静电效应的有效方式, 同时避免了分子动力学模拟中的大量计算, 这些计算涉及对周围水分子进行精确的, 溶剂化的描述. 与显式溶剂模型相比, 隐式溶剂模型有以下几个优点: 不需要对溶质周围的水分子进行平衡; 不存在粘度, 蛋白质能够更快地探索构象空间.</p>
 
 <p>GROMACS中的隐式溶剂计算利用广义Born公式, Born半径的计算可使用Still[70], HCT[71]和OBC[72]模型.</p>
 
-<p>溶剂化自由能 <span class="math">\(G_\text{solv}\)</span> 是三项的加和, 溶剂-溶剂空穴项(<span class="math">\(G_\text{cav}\)</span>), 溶剂-溶质范德华项(<span class="math">\(G_\text{vdw}\)</span>), 还有溶剂-溶质静电极化项(<span class="math">\(G_\text{pol}\)</span>).</p>
+<p>溶剂化自由能 <span class="math">\(G_\text{solv}\)</span> 是三项的加和, 溶剂-溶剂空穴项(<span class="math">\(G_\text{cav}\)</span>), 溶质-溶剂范德华项(<span class="math">\(G_\text{vdw}\)</span>), 还有溶质-溶剂静电极化项(<span class="math">\(G_\text{pol}\)</span>).</p>
 
-<p><span class="math">\(G_\text{cav}\)</span> 和 <span class="math">\(G_\text{vdw}\)</span> 的总和对应于移除所有电荷的分子的(未极化)溶剂化自由能, 通常称作 <span class="math">\(G_\text{np}\)</span>, 等于总的溶剂可及表面积乘上表面张力. 因此溶剂化自由能的总表达式可写为:</p>
+<p><span class="math">\(G_\text{cav}\)</span> 和 <span class="math">\(G_\text{vdw}\)</span> 的总和对应于移除所有电荷的分子所具有的(未极化)溶剂化自由能, 通常称作 <span class="math">\(G_\text{np}\)</span>, 等于总的溶剂可及表面积乘上表面张力. 因此溶剂化自由能的总表达式可写为:</p>
 
 <p><span class="math">\[G_\text{solv}=G_\text{np}+G_\text{pol}     \tag{3.148}\]</span></p>
 
@@ -1396,7 +1396,7 @@ G^B(p,T)-G^A(p,T) &= \int_0^1  \left< \opar H \l \right>_{NpT;\l} \rmd \l \tag{3
 
 <p><span class="math">\[c_i={1\over \sqrt{b_i} }      \tag{3.150}\]</span></p>
 
-<p>这样当计算每项相互作用时, 可通过简单变换得到新变量 <span class="math">\(x\)</span>:</p>
+<p>这样当计算每项相互作用时, 可以引入新变量 <span class="math">\(x\)</span>的简单变换:</p>
 
 <p><span class="math">\[x={r_{ij} \over \sqrt{b_i b_j} }=r_{ij} c_i c_j     \tag{3.151}\]</span></p>
 
@@ -1404,7 +1404,7 @@ G^B(p,T)-G^A(p,T) &= \int_0^1  \left< \opar H \l \right>_{NpT;\l} \rmd \l \tag{3
 
 <p><span class="math">\[G_\text{pol}=\left(1-{1\over\e}\right)\Sum_{i=1}^n \Sum_{j \lt i}^n {q_i q_j \over \sqrt{b_i b_j} } \x(x)=\left(1-{1\over\e}\right)\Sum_{i=1}^n q_i c_i \Sum_{j \lt i}^n q_j c_j \x(x) \tag{3.152}\]</span></p>
 
-<p>方程3.148的非极化部分(<span class="math">\(G_\text{np}\)</span>)直接根据每个原子的Born半径计算, 计算时使用了Schaefer等人的简单ACE类型近似[74], 包含了对所有原子的一个简单循环. 这只需要一个额外的溶剂化参数, 与原子类型无关, 但三种Born半径模型之间有稍微的差别.</p>
+<p>方程3.148的非极化部分(<span class="math">\(G_\text{np}\)</span>)直接根据每个原子的Born半径计算, 计算时使用了Schaefer等人提出的简单ACE类型近似[74], 并包含了对所有原子的一个简单循环. 这只需要一个额外的溶剂化参数, 与原子类型无关, 但三种Born半径模型之间有稍微的差别.</p>
 
 <div class="footnotes">
 <hr />
