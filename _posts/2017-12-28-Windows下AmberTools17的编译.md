@@ -2,7 +2,7 @@
  layout: post
  title: Windows下AmberTools17的编译
  categories:
- - 哲科文图
+ - 科
  tags:
  - amber
 ---
