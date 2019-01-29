@@ -1376,7 +1376,7 @@ QM水平的组</p>
 <li><p><code>no</code><br/>
 不使用隐式溶剂</p></li>
 <li><p><code>GBSA</code><br/>
-使用基于广义Born公式的隐式溶剂进行模拟. 共有三种不同的方法可用以计算Born半径: Still, HCT和OBC, 模拟时所用的方法可在<code>gb-algorithm</code>行中指定. 非极性溶剂化可通过<code>sa-algorithm</code>指定.</p></li>
+使用基于广义Born公式的隐式溶剂进行模拟. 共有三种不同的方法可用以计算Born半径: Still, HCT和OBC, 模拟时所用的方法可在<code>gb-algorithm</code>行中指定. 非极性溶剂化可通过<code>sa-algorithm</code>选项指定.</p></li>
 </ul>
 
 <p><code>gb-algorithm</code>:</p>
@@ -1394,7 +1394,7 @@ QM水平的组</p>
 (重新)计算Born半径的频率. 对于大多数实际模拟, 设置大于1的值会破坏能量守恒并导致轨迹不稳定.</p>
 
 <p><code>rgbradii</code>: (1.0) [nm]<br/>
-计算Born半径的截断值. 目前必须等于<code>rlist</code></p>
+计算Born半径的截断值. 目前必须与<code>rlist</code>相等</p>
 
 <p><code>gb-epsilon-solvent</code>: (80)<br/>
 隐式溶剂的介电常数</p>
@@ -1403,21 +1403,21 @@ QM水平的组</p>
 隐式溶剂模型的盐浓度, 目前并未使用</p>
 
 <p><code>gb-obc-alpha</code> (1); <code>gb-obc-beta</code> (0.8); <code>gb-obc-gamma</code> (4.85);<br/>
-OBC模型的缩放因子. 默认值为OBC(II). OBC(I)的值分别为0.8, 0和2.91.</p>
+OBC模型的缩放因子. 默认值为OBC(II)的值. OBC(I)的值分别为0.8, 0和2.91.</p>
 
 <p><code>gb-dielectric-offset</code>: (0.009) [nm]<br/>
-计算Born半径时介电偏移的距离, 为每个原子的中心与相应原子极化能量中心之间的偏移</p>
+计算Born半径时介电偏移的距离, 它是每个原子的中心与相应原子极化能量中心之间的偏移</p>
 
 <p><code>sa-algorithm</code></p>
 
 <ul class="incremental">
 <li><p><code>Ace-approximation</code><br/>
-使用Ace类型的近似(默认)</p></li>
+使用Ace类型的近似</p></li>
 <li><p><code>None</code><br/>
 不计算非极性溶剂化. 对GBSA只计算极性部分</p></li>
 </ul>
 
-<p><code>sa-surface-tension</code>: [kJ mol<sup>-1</sup> nm<sup>-2</sup>]<br/>
+<p><code>sa-surface-tension</code>: (-1) [kJ mol<sup>-1</sup> nm<sup>-2</sup>]<br/>
 SA算法中表面张力的默认值. 默认值为&#8211;1. 注意, 如果不改变此默认值, <code>grompp</code>将会使用与选择的半径算法相应的值覆盖默认值(Still: 0.0049 kcal/mol/&#197;<sup>2</sup>, HCT/OBC: 0.0054 kcal/mol/&#197;<sup>2</sup>). 将此值设置为0, 并使用SA算法意味着不计算非极性部分.</p>
 
 ### 7.3.28 自适应分辨率模拟
