@@ -1,4 +1,6 @@
-﻿<script>
+﻿<h1 id='str'></h1>
+<body onload='getJ(0)'>
+<script>
 var $=function(id){return document.getElementById(id)}
 function getJ(mode) {
 	var url=window.location.href, pos=url.indexOf("=");
@@ -9,15 +11,12 @@ function getJ(mode) {
 	idx=idx.toUpperCase()
 	idx=idx.split("■")
 	n=idx.length
-
 	while(n--) {
 		if(idx[n].indexOf(str)==0) {
-			$('str').value=idx[n]
+			$('str').innerHTML=idx[n].replace(/.*\|/, '')
 			break
 		}
 	}
 }
 </script>
 
-<body onload='getJ(0)'>
-<span id='str'></span>
