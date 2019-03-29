@@ -23,6 +23,7 @@ function getKey(mode) {
 	$('youdict'   ).href='https://www.youdict.com/w/'+key
 	$('jukuu'     ).href='http://www.jukuu.com/search.php?q='+key
 	$('zzu'       ).href='http://www16.zzu.edu.cn/zzjdicts/gone3.dll?T1='+key
+	$('zzuFrame'  ).src='http://www16.zzu.edu.cn/zzjdicts/gone3.dll?T1='+key
 	return key;
 }
 </script>
@@ -35,8 +36,9 @@ function getKey(mode) {
 
 <body onload='getKey(0)'>
 
-<input type="text" id="result" onInput='getKey(1)'>
+<input type="text" id="result" onInput='getKey(1)'><br>
 
+<div style="float:left;width:20%;">
 <ul class="incremental">
 <li><a id='cibo'      target='_blank' href="http://www.cibo.cn/search.php?dictkeyword=mol">词博 科技英语词典</a></li>
 <li><a id='dictall'   target='_blank' href="http://www.dictall.com/dictall/result.jsp?cd=UTF-8&keyword=mol">词都 专业词汇</a></li>
@@ -50,5 +52,9 @@ function getKey(mode) {
 <li><a id='youdao'    target='_blank' href="http://dict.youdao.com/search?q=mol">有道词典</a></li>
 <li><a id='bing'      target='_blank' href="https://cn.bing.com/dict/search?q=mol&amp;FORM=BDVSP6&amp;mkt=zh-cn">必应词典
 </ul>
+</div>
 
+<div style="float:right; width:80%;">
+<iframe id="zzuFrame" style="width:70%;height:100%" src="http://www16.zzu.edu.cn/zzjdicts/gone3.dll?T1=mole"></iframe>
+</div>
 </div>
