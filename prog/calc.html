@@ -156,7 +156,7 @@ table tr th {
 		<table id="TabTim">
 		<tr><td>
 			<input type="box" name="Time" onInput="setVal(this.name,this.id)" id="T_s"> 秒(s)<br>
-			<input type="box" name="Time" onInput="setVal(this.name,this.id)" id="T_min"> 分(min)<br>
+			<input type="box" name="Time" onInput="setVal(this.name,this.id)" id="T_minu"> 分(min)<br>
 			<input type="box" name="Time" onInput="setVal(this.name,this.id)" id="T_h"> 时(h)<br>
 			<input type="box" name="Time" onInput="setVal(this.name,this.id)" id="T_d"> 日(d)<br>
 		</td></tr>
@@ -173,8 +173,8 @@ table tr th {
 		<tr><td>
 			<input type="box" name="Time" onInput="setVal(this.name,this.id)" id="T_m"> 月(m, 30 d)<br>
 			<input type="box" name="Time" onInput="setVal(this.name,this.id)" id="T_a"> 年(a, 365 d)<br>
-			<input type="box" name="Time" onInput="setVal(this.name,this.id)" id="T_am"> 平均月<br>
-			<input type="box" name="Time" onInput="setVal(this.name,this.id)" id="T_aa"> 平均年<br>
+			<input type="box" name="Time" onInput="setVal(this.name,this.id)" id="T_am"> 平均月(29.53 d)<br>
+			<input type="box" name="Time" onInput="setVal(this.name,this.id)" id="T_aa"> 平均年(365.2422 d)<br>
 		</td></tr>
 		</table>
 
@@ -2575,7 +2575,7 @@ M_emas=emas; M_pmas=pmas; M_amu=amu2kg
 M_eV=eV2kg; M_MeV=eV2kg*1E6; M_GeV=eV2kg*1E9; M_TeV=eV2kg*1E12
 M_ton=1E3; M_car=2E-4; M_onc=.028352; M_pd=.453632
 
-T_s=1.; T_min=60; T_h=3600; T_d=86400
+T_s=1.; T_minu=60; T_h=3600; T_d=86400
 T_ms=1E-3; T_us=1E-6; T_ns=1E-9; T_ps=1E-12; T_fs=1E-15; T_as=1E-18
 T_au=aut; T_m=30*T_d; T_a=365*T_d; T_am=29.53*T_d; T_aa=365.2422*T_d
 
@@ -2631,7 +2631,7 @@ function mathEval(str) {
 	var fun="abs acos asin atan atan2 ceil cos exp floor log max min pow random round sin sqrt tan toSource valueOf"
 	fun=fun.split(/\s+/)
 	for(var i=0, n=fun.length; i<n; i++)
-		str=str.replace(new RegExp(fun[i],'g'), 'Math.'+fun[i])
+		str=str.replace(new RegExp(fun[i]+'\\(','g'), 'Math.'+fun[i]+'\(')
 	return eval(str)
 }
 
@@ -2795,7 +2795,6 @@ function setVal(name, id) {
 			tmp=unit[i].id
 			txt=drvUnit[tmp]
 			if(txt) {
-				console.log(txt, tmp)
 				if(txt=='Rinvm') {
 					val=1/$('invm').value
 					if(unit[i].id!=id2) unit[i].value=fmt(mathEval(val+'*m2'+tmp))
