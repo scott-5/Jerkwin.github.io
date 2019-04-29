@@ -100,13 +100,14 @@ table tr th {
 		<input type="radio" onclick="setUnit(this.id)" name="unit" id="VDW">VDW参数<br>
 		<span style='font: .6em Consolas;'>
 		所用换算系数来源于CODATA-2014, 具体数值见【理化常数】<br>
-		支持下列js函数: pow sqrt exp log; abs ceil floor; min max round random; sin cos tan; asin acos atan atan2</span>
-		<table id="TabLen">
-		<tr><td>
-			<input type="box" name="Length" onInput="setVal(this.name,this.id)" id="L_m"> 米(m)<br>
-			<input type="box" name="Length" onInput="setVal(this.name,this.id)" id="L_km"> 千米(km)<br>
-			<input type="box" name="Length" onInput="setVal(this.name,this.id)" id="L_cm"> 厘米(cm)<br>
-			<input type="box" name="Length" onInput="setVal(this.name,this.id)" id="L_mm"> 毫米(mm)<br>
+		支持下列js函数: pow sqrt exp log; abs ceil floor; min max round random; sin cos tan; asin acos atan atan2<br>
+		<strong id='inputValue'></strong> </span>
+		<table id="TabLen" style="display: none;">
+		<tbody><tr><td>
+			<input type="box" name="Length" oninput="setVal(this.name,this.id)" id="L_m"> 米(m)<br>
+			<input type="box" name="Length" oninput="setVal(this.name,this.id)" id="L_km"> 千米(km)<br>
+			<input type="box" name="Length" oninput="setVal(this.name,this.id)" id="L_cm"> 厘米(cm)<br>
+			<input type="box" name="Length" oninput="setVal(this.name,this.id)" id="L_mm"> 毫米(mm)<br>
 		</td></tr>
 		<tr><td>
 			<input type="box" name="Length" onInput="setVal(this.name,this.id)" id="L_um"> 微米(&mu;m)<br>
@@ -2639,6 +2640,8 @@ function setVDW(name, id) {
 	var f=Math.pow(2, 1./6.)
 	val=mathEval($(id).value)
 
+	$('inputValue').innerHTML='输入框: '+$(id).value+' = '+mathEval($(id).value)
+
 	if(id=='V_sgm1' || id=='V_re1' || id=='V_eps1') {
 		if(id=='V_sgm1') { V_sgm1=val; V_re1=f*V_sgm1; V_eps1=mathEval($('V_eps1').value) }
 		if(id=='V_re1')  { V_re1=val;  V_sgm1=val/f;   V_eps1=mathEval($('V_eps1').value) }
@@ -2752,6 +2755,7 @@ function setVal(name, id) {
 
 	unit=document.getElementsByName(name)
 
+	$('inputValue').innerHTML='输入框: '+$(id).value+' = '+mathEval($(id).value)
 	if(name!='Energy') {
 		val=mathEval($(id).value+'*'+id); // 转换为基本单位
 		for(i=0; i<unit.length; i++) {
