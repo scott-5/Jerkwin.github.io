@@ -2755,7 +2755,7 @@ function setVal(name, id) {
 
 	unit=document.getElementsByName(name)
 
-	$('inputValue').innerHTML='输入框: '+$(id).value+' = '+mathEval($(id).value)
+	$('inputValue').innerHTML='输入表达式: '+$(id).value+' = '+mathEval($(id).value)
 	if(name!='Energy') {
 		val=mathEval($(id).value+'*'+id); // 转换为基本单位
 		for(i=0; i<unit.length; i++) {
