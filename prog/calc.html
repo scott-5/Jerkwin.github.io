@@ -100,7 +100,7 @@ table tr th {
 		<input type="radio" onclick="setUnit(this.id)" name="unit" id="VDW">VDW参数<br>
 		<span style='font: .6em Consolas;'>
 		所用换算系数来源于CODATA-2014, 具体数值见【理化常数】<br>
-		支持下列js函数: pow sqrt exp log; abs ceil floor; min max round random; sin cos tan; asin acos atan atan2<br>
+		支持下列js函数: ** pow sqrt exp log; abs ceil floor; min max round random; sin cos tan; asin acos atan atan2<br>
 		<strong id='inputValue'></strong> </span>
 		<table id="TabLen" style="display: none;">
 		<tbody><tr><td>
@@ -137,8 +137,8 @@ table tr th {
 		</td></tr>
 		<tr><td>
 			<input type="box" name="Mass" onInput="setVal(this.name,this.id)" id="M_amu"> 原子质量(amu/Dalton)<br>
-			<input type="box" name="Mass" onInput="setVal(this.name,this.id)" id="M_emas"> 电子质量(emas)<br>
-			<input type="box" name="Mass" onInput="setVal(this.name,this.id)" id="M_pmas"> 质子质量(epro)<br>
+			<input type="box" name="Mass" onInput="setVal(this.name,this.id)" id="M_emas"> 电子质量(me)<br>
+			<input type="box" name="Mass" onInput="setVal(this.name,this.id)" id="M_pmas"> 质子质量(mp)<br>
 		</td></tr>
 		<tr><td>
 			<input type="box" name="Mass" onInput="setVal(this.name,this.id)" id="M_eV"> 电子伏(eV)<br>
@@ -191,12 +191,15 @@ table tr th {
 		</td></tr>
 		<tr><td>
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Hatr"> 哈垂(Hartree)<br>
-			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Ee2Bhr"> 静电势能(e<sup>2</sup>/Bohr)<br>
 		</td></tr>
 		<tr><td>
+			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Ee2Bhr"> 静电势能(e<sup>2</sup>/Bohr)<br>
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Ee2nm"> 静电势能(e<sup>2</sup>/nm)<br>
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Ee2A"> 静电势能(e<sup>2</sup>/&#197;)<br>
+		</td></tr>
+		<tr><td>
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Emd"> MD常用单位(amu-&#197;<sup>2</sup>/fs<sup>2</sup>)<br>
+			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Emd2"> MD常用单位(amu-nm<sup>2</sup>/ps<sup>2</sup>)<br>
 		</td></tr>
 		<tr><td>
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="K"> 热力学温度(K)<br>
@@ -213,6 +216,9 @@ table tr th {
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="PeV"> 拍电子伏(PeV)<br>
 		</td></tr>
 		<tr><td>
+			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Em"> 米(m)<br>
+			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Ecm"> 厘米(cm)<br>
+			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Emm"> 毫米(mm)<br>
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Eum"> 微米(&mu;m)<br>
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Enm"> 纳米(nm)<br>
 			<input type="box" name="Energy" onInput="setVal(this.name, this.id)" id="Eang"> 埃(&#197;)<br>
@@ -260,7 +266,15 @@ table tr th {
 			<input type="box" name="Force" onInput="setVal(this.name,this.id)" id="F_mpc"> MOPAC单位(kcal/mol-&#197;)<br>
 			<input type="box" name="Force" onInput="setVal(this.name,this.id)" id="F_md"> MD常见单位(kJ/mol-&#197;)<br>
 			<input type="box" name="Force" onInput="setVal(this.name,this.id)" id="F_gmx"> GROMACS单位(kJ/mol-nm)<br>
-			<input type="box" name="Force" onInput="setVal(this.name,this.id)" id="F_mdv"> MD常用单位(amu-&#197;/fs<sup>2</sup>)<br>
+			<input type="box" name="Force" onInput="setVal(this.name,this.id)" id="F_amu1"> MD常用单位(amu-&#197;/fs<sup>2</sup>)<br>
+			<input type="box" name="Force" onInput="setVal(this.name,this.id)" id="F_amu2"> MD常用单位(amu-nm/ps<sup>2</sup>)<br>
+		</td></tr>
+		<tr><td>
+			<input type="box" name="Force" onInput="setVal(this.name,this.id)" id="F_Pam"> 压强面积单位(Pa-m<sup>2</sup>)<br>
+			<input type="box" name="Force" onInput="setVal(this.name,this.id)" id="F_MPaA"> 压强面积单位(MPa-&#197;<sup>2</sup>)<br>
+			<input type="box" name="Force" onInput="setVal(this.name,this.id)" id="F_MPanm"> 压强面积单位(MPa-nm<sup>2</sup>)<br>
+			<input type="box" name="Force" onInput="setVal(this.name,this.id)" id="F_GPaA"> 压强面积单位(GPa-&#197;<sup>2</sup>)<br>
+			<input type="box" name="Force" onInput="setVal(this.name,this.id)" id="F_GPanm"> 压强面积单位(GPa-nm<sup>2</sup>)<br>
 		</td></tr>
 		</table>
 
@@ -298,8 +312,8 @@ table tr th {
 			<input type="checkbox" name="TP" onClick="setTP(this.name,this.id)" id="chk_TP" > 使用温度/压强计算(理想气体)<br>
 		</td></tr>
 		<tr><td>
-			<input type="box" name="Conc" onInput="setTP(this.name,this.id)" id="C_K" value="298.15"> 温度(K)
-			&nbsp; <input type="radio" name="TP" id="rdo_K" checked> 固定<br>
+			<input type="box" name="Conc" onInput="setTP(this.name,this.id)" id="C_K" value="298.15"> 温度(K)&nbsp;
+			<input type="radio" name="TP" id="rdo_K" checked> 固定<br>
 			<input type="box" name="Conc" onInput="setTP(this.name,this.id)" id="C_Pa" value="101325"> 压强(Pa)
 			<input type="radio" name="TP" id="rdo_Pa"> 固定<br>
 		</td></tr>
