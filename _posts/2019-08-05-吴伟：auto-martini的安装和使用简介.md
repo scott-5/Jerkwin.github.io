@@ -34,7 +34,7 @@
 
 ### 说明
 
-- `--sdf`和`--smi`: 输入文件, 指定其中一个就可以. 可以使用[openbabel]()将pdb或其他格式的文件转化为sdf或者smi文件.
+- `--sdf`和`--smi`: 输入文件, 指定其中一个就可以. 可以使用[openbabel](http://openbabel.org/wiki/Main_Page)将pdb或其他格式的文件转化为sdf或者smi文件.
 
 - `--mol`: 必须选项, 输出文件中残基的名称
 
