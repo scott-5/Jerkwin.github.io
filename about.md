@@ -25,6 +25,10 @@ layout: page
 * GitHub : <https://GitHub.com/Jerkwin>
 * Coding : <https://Coding.net/u/Jerkwin>
 
+如果需要查看推送的文章, 请关注个人公众号
+
+![](/pic/rc/wechat.jpg)
+
 <hr>
 
 ### 留言
