@@ -7,7 +7,8 @@
  - gmx
 ---
 
-- 2019-07-31 10:14:58
+- 2019-07-31 10:14:58 初稿
+- 2019-09-19 10:07:02 修订
 
 ## 缘起
 
@@ -1639,7 +1640,7 @@
 </tr>
 </table>
 
-## PB(极性)能量, Polar solvation enrgy
+### PB(极性)能量, Polar solvation enrgy
 
 计算方法: 水相能量减去真空中的能量, PB=Esol-Evac
 
@@ -2838,7 +2839,7 @@
 </tr>
 </table>
 
-## SA(非极性)能量, APolar solvation energy
+### SA(非极性)能量, APolar solvation energy
 
 计算方法: 每个原子的溶剂可及表面积乘以表面张力, 加上常量
 
@@ -3895,4 +3896,372 @@
 
 ![](/pic/gmx/gmx_mmpbsa_show.png)
 
-![](/pic/gmx/gmx_mmpbsa_binding.png)
+## 收敛性测试
+
+对于分解后的各个能量, 只有PB能量对选项的设置比较敏感, 使用默认参数得到的值未必是收敛的. 因此最好进行收敛性测试, 确定每个选项的最佳设置.
+
+计算PB能量时, 有三个选项影响很大, `cfac`, `fadd`, `df`. 下面列出了这三个选项取不同值时, 所得的PB能量.
+
+<table id='tab-9'><caption>不同设置对1EBZ第一帧PB能量的影响&emsp;&emsp;<input type='button' id='tab-9_tog' value='折叠表格' onclick="togtab('tab-9', this.value)"></caption><tr>
+  <th rowspan="1" colspan="1" style="text-align:center;">df</th>
+  <th rowspan="1" colspan="1" style="text-align:center;">fadd</th>
+  <th rowspan="1" colspan="1" style="text-align:center;">cfac</th>
+  <th rowspan="1" colspan="1" style="text-align:center;">dPB</th>
+  <th rowspan="1" colspan="1" style="text-align:center;">PBcom</th>
+  <th rowspan="1" colspan="1" style="text-align:center;">PBpro</th>
+  <th rowspan="1" colspan="1" style="text-align:center;">PBlig</th>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.125</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">10</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">3</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">286.890</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5433.068</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5583.091</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-136.867</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.2</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">10</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">3</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">289.313</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5471.557</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5622.779</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-138.091</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.25</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">10</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">3</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">292.329</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5505.595</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5658.472</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-139.451</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">10</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">3</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">330.673</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5858.081</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-6030.070</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-158.685</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.6</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">10</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">3</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">337.288</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-6047.515</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-6223.224</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-161.579</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.7</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">10</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">3</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">358.489</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-6207.564</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-6393.435</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-172.618</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.8</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">10</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">3</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">328.954</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-6198.508</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-6366.897</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-160.565</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.9</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">10</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">3</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">328.954</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-6198.508</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-6366.897</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-160.565</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">1</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">10</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">3</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">328.954</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-6198.508</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-6366.897</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-160.565</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.125</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">10</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">2</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">286.890</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5433.074</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5583.097</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-136.867</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.125</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">1.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">286.807</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5433.602</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5583.554</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-136.856</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.125</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">2</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">286.808</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5433.556</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5583.508</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-136.856</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.125</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">3</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">286.808</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5433.548</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5583.500</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-136.856</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.2</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">1.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">289.638</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5474.439</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5625.939</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-138.138</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="8" style="text-align:center;">基于每帧的网格设置</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.2</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">10</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">3</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">289.526</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5471.557</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5622.779</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-138.304</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">10</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">3</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">333.012</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5858.081</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-6030.070</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-161.023</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="8" style="text-align:center;">df 影响</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.12</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">1.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">286.626</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5429.042</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5578.939</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-136.728</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.13</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">1.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">286.953</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5434.188</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5584.351</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-136.789</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.14</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">1.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">287.2</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5440.064</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5590.183</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-137.081</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.15</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">1.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">287.629</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5444.356</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5594.904</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-137.081</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.2</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">1.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">290.160</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5474.426</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5626.27</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-138.316</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.25</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">1.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">293.828</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5500.399</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5653.894</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-140.332</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.3</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">1.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">295.971</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5549.837</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5704.235</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-141.573</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.35</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">1.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">300.274</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5613.973</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5772.673</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-141.573</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">0.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">1.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">326.286</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5758.149</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5923.278</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-161.158</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="9" style="text-align:center;">fadd 影响</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">2</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">1.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">290.160</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5474.426</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5626.27</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-138.316</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">2</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">10</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">1.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">290.076</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5470.877</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5622.549</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-138.403</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">2</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">15</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">1.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">289.859</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5467.796</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5619.252</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-138.403</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">2</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">20</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">1.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">290.447</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5473.721</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5625.765</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-138.403</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">2</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">25</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">1.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">289.960</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5472.684</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5624.241</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-138.403</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="9" style="text-align:center;">cfac 影响</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">2</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">1.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">290.160</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5474.426</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5626.27</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-138.316</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">2</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">2</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">290.150</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5474.377</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5626.221</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-138.306</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">2</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">2.5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">290.149</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5474.358</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5626.202</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-138.304</td>
+</tr>
+<tr>
+  <td rowspan="1" colspan="1" style="text-align:center;">2</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">5</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">3</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">290.148</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5474.384</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-5626.229</td>
+  <td rowspan="1" colspan="1" style="text-align:center;">-138.304</td>
+</tr>
+</table>
+
+可见, 网格大小和格点间距对最终结果的影响很大. 对此, 引用一下我咨询专家时的答复.
+
+#### 邮件1
+
+有一条分子动力学模拟得到的轨迹, 是蛋白和配体的, 含有很多帧. 如果计算蛋白和配体之间的PB作用能, 我需要分别计算蛋白+配体, 蛋白, 配体三个体系的PB能量, 然后做差值获得PB相互作用能. 在计算每个体系的时候都要设置网格大小, 而且使用APBS的话, 还需要设置两套网格, 粗糙网格和细密网格.
+
+我的第一个问题是, 只算一帧构型的PB相互作用能的话, 对这三个体系是不是 __必须__ 使用相同的网格大小和格点间距, 还是可以对每个体系使用独立的, 只与其自身坐标有关的网格大小和格点间距? 不考虑计算效率的话, 哪种方法更正确?
+
+如果前一个问题的答案是, 对每帧的三个体系必须使用相同网格大小和格点间距, 那我下面的问题是, 如果我要算很多帧构型的PB相互作用能, 那所有这些帧是不是也要使用相同的网格大小和格点间距, 也就是说我们需要对整条轨迹使用相同的网格大小和格点间距? 是否这样得到的结果更自洽?
+
+> 我没有很细致的检验过APBS的细节，不过我觉得/感觉，如果 网格取得充分大（粗网格能cover两倍的分子大小以上，对于溶剂化能的计算细网格能cover整个分子那我认为应该是够了 ---- 而有的只关心反应活性部位的电场计算，那细网格只要包含比活性部位大一点就行了），格点间距取得足够小（比如0.2 A 应该够了），并且如果你每次算的是 分子的 solvation energy （这样它内部已经解了两次 方程），那么我觉的每次计算（三个体系）应该不需要使用同样的网格，就是说可以各自独立的采用粗网格和细网格，因为这时我们“认为”单个体系APBS计算是准确的。 你可以计算试试看。  这样的话，那么对一帧的计算还是整条轨迹多帧的计算应该都没关系，可独立计算。不过，感觉上对多帧的同一个体系比如复合物，最好采用一样的网格精度，以减少网格精度上到带来互相间的计算差别。
+
+> 当然，对于一帧中的三个体系的计算，我觉得，如果你每次计算都采用同一套网格来计算，并且网格大小满足 我上面讲的覆盖关系，那么这样当然会略为减少网格选取的不同（坐标系平移，转动，网格尺寸大小）带来数值误差，我估计这个偏差较小（如果像上面说的计算正确的话），但这样就是计算量大（因为你计算单体和复合体时用的是一样大的网格系统）。
+
+> 这些建议你要设计实验来验证一下
+
+#### 邮件2
+
+选择了一个含200个氨基酸残基的蛋白, 含90个原子的配体的体系进行了一些测试, 结果如下:
+
+(见上表)
+
+大致可以看到, 影响最大的是格点间距, 其他粗细网格的增加值影响小, 如您所言, 只要能覆盖即可. 此外, 使用整体一致的网格还是单独的网格对这个体系影响也很小,.
+
+对太大的蛋白, 我们没法使用很小的网格, 所以我检验了一下, 在网格大小固定, 格点间距不太大的情况下, PB相互作用能大致与格点间距的三次方成正比. 我想问下, 这个关系是否正确, 还是理论上有其他更正确的关系式? 如果有的话, 这种关系式对格点间距适用范围的最大值如何确定? 如果这些问题都能解决的话, 我们就可以做外推得到格点间距为零时的PB相互作用能, 这样就可以避免格点间距设置的影响了.
+
+> 你前面的观察应该合理的。
+
+> 后半部分你说 “PB相互作用能大致与格点间距的三次方成正比”，这个应该不对，因为如果这样，格点为零，则PB能为0，当然不是。可能的话也是“PB相互作用能的误差大致与格点间距的三次方成正比”，但这个我的印象里也没有看到有人这么说（当然我关于APBS的文章读的很少）。一般来说是这样，一个软件的计算误差由它的算法决定，对于普通线性有限元来说，它的“解的误差”（L2 norm）与网格尺寸（大致可认为类似于格点间距）成平方关系（二阶），有限差分方法或有限体方法的误差也与具体算法格式（方法）有关，一般的方法对一般光滑问题的解的误差也能达到二阶精度，达到三阶需要更精细一点的方法，但有些问题的有限差分方法的解随着格点间距的减小并不能总是保证一致的精度阶，有时候随着格点间距减小误差甚至会变得更大。 你用的APBS的方法应该是用其中的有限差分方法，其实可能应该说有限体方法更恰当。APBS的计算里面还有奇异电荷分配的问题，还有粗细网格同时用的问题，所以具体的误差阶我没有研究过，不知道它是几阶，大致的三阶也是有可能的。不过就算是这样，你要用这个关系也挺麻烦，因为每次计算你想得到精确值就要多计算若干次得到准确的三阶估计才能用。
+
+## 一些资料
+
+- [MMPBSA](https://www.chufang.cf/2019/07/16/gmx_pbsa/)
+- [计算MMPBSA的新脚本——gmxmmpbsa使用说明](https://www.chufang.cf/2019/07/20/gmx_pbsa_Jerkwim/)
