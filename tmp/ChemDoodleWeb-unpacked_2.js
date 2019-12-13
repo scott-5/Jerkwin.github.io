@@ -24619,6 +24619,10 @@ ChemDoodle.RESIDUE = (function() {
 			var line = lines[i + 2];
 			var tokens = line.split(/\s+/g);
 			molecule.atoms[i] = new structures.Atom(isNaN(tokens[0]) ? tokens[0] : SYMBOLS[parseInt(tokens[0]) - 1], parseFloat(tokens[1]), parseFloat(tokens[2]), parseFloat(tokens[3]));
+
+//jicun
+			molecule.atoms[i].altLabel=tokens[4];
+
 		}
 		if (this.deduceCovalentBonds) {
 			new c.informatics.BondDeducer().deduceCovalentBonds(molecule, 1);

@@ -26474,7 +26474,7 @@ ChemDoodle.RESIDUE = (function(undefined) {
 			molecule.atoms[i] = new structures.Atom(isNaN(tokens[0]) ? tokens[0] : SYMBOLS[parseInt(tokens[0]) - 1], parseFloat(tokens[1]), parseFloat(tokens[2]), parseFloat(tokens[3]));
 
 //jicun
-			molecule.atoms[i].altLabel='AA';
+			molecule.atoms[i].altLabel=tokens[4];
 
 		}
 		if (this.deduceCovalentBonds) {
