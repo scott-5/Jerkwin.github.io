@@ -30,7 +30,7 @@
 	<br><span class='meta'>视图: <input type='radio' name='group2' onclick='setProj1(true)'>投影 <input type='radio' name='group2' onclick='setProj1(false)' checked=''>正交&nbsp;&nbsp;&nbsp;&nbsp;速度: <input type='range' id='spd1' min='1' max='500' onchange='setSpeed1()'/><br>模型: <input type='radio' name='model' onclick='setModel1(&#39;Ball and Stick&#39;)' checked=''>球棍 <input type='radio' name='model' onclick='setModel1(&#39;van der Waals Spheres&#39;)'>范德华球 <input type='radio' name='model' onclick='setModel1(&#39;Stick&#39;)'>棍状 <input type='radio' name='model' onclick='setModel1(&#39;Wireframe&#39;)'>线框 <input type='radio' name='model' onclick='setModel1(&#39;Line&#39;)'>线型&nbsp;&nbsp; <input type='checkbox' onclick='Mol1.specs.atoms_displayLabels_3D=this.checked;Mol1.repaint()'>名称<br>左键: 转动&nbsp;&nbsp; 滚轮: 缩放&nbsp;&nbsp; 双击: 自动旋转开关&nbsp;&nbsp; Alt+左键: 移动</span><br><figurecaption>Fig.1</figurecaption></figure>
 
 	<div style='width:100%; height:90%; text-align:center'>
-	<img id='img' style='max-width:50%; max-height:50%' src="./img/Alanine.png"><br>
+	<img id='img' style='max-width:50%; max-height:50%' src="/tmp/img/Alanine.png"><br>
 	<span id='title' ></span>
 	</div>
 
@@ -227,7 +227,7 @@ function loadAA(id) {
 
 Fmol=norm(trim(AA[id].xyz))
   Mol1.loadMolecule(ChemDoodle.readXYZ(Fmol));Mol1.startAnimation();Mol1.stopAnimation();
-$('img').src='./img/'+AA[id].en+'.png'
+$('img').src='/tmp/img/'+AA[id].en+'.png'
 $('title').innerHTML=id
 }
 
