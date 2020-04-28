@@ -13,7 +13,7 @@
 - 原始文档: Ross Walker and Sishi Tang, [TUTORIAL B4: Simulating a pharmaceutical compound using antechamber and the Generalized Amber Force Field](http://ambermd.org/tutorials/basic/tutorial4b/index.htm)
 - 2018-01-03 15:52:14 翻译: 李睿; 修订: 李继存
 
-![](/pic/amb/amb_b4.png)
+![](https://jerkwin.github.io/pic/amb/amb_b4.png)
 
 antechamber是AMBER自带的一组工具, 可用于准备有机分子的`prep`输入文件, LEaP可以读取这种输入文件并将其用于创建`prmtop`和`inpcrd`文件. antechamber程序可以与GAFF(general AMBER force field)联合使用, 非常适于设置涉及有机药物分子或其他有机分子的模拟. 在本教程中, 我们将使用antechamber为BMS的HIV逆转录酶(HIV-RT)抑制剂Sustiva(efavirenz, 中文名[依法韦仑](https://zh.wikipedia.org/wiki/%E4%BE%9D%E6%B3%95%E9%9F%A6%E4%BB%91))创建leap输入文件, 然后我们将对Sustiva与HIV-RT的复合物进行模拟.
 
@@ -22,7 +22,7 @@ antechamber是AMBER自带的一组工具, 可用于准备有机分子的`prep`�
 - 编写: Ross Walker and Sishi Tang
 - 2018-01-03 15:52:14 翻译: 李睿; 修订: 李继存
 
-![](/pic/amb/amb_b4_sustiva.png)
+![](https://jerkwin.github.io/pic/amb/amb_b4_sustiva.png)
 
 ## 简介
 
@@ -43,7 +43,7 @@ Antechamber工具集设计用来快速地生成拓扑文件, 用于AMBER模拟�
 
 在本教程中我们将使用Antechamber工具集和LEaP来创建处方药Sustiva(Efavirenz, 依法韦仑)的拓扑文件和坐标文件. [依法韦仑](https://zh.wikipedia.org/wiki/%E4%BE%9D%E6%B3%95%E9%9F%A6%E4%BB%91)是人免疫缺陷病毒类型1(HIV-1, 艾滋病病毒)的特异性非核苷类逆转录酶(RT, reverse transcriptase)抑制剂, 由Bristol Myers Squibb公司市场化, 用于控制人类HIV感染的过程. Sustiva的化学名称为(S)-6-chloro-(cyclopropylethynyl)-1,4-dihydro-4-(trifluoromethyl)-2H-3,1-benzoxazin-2-one, 化学式为C<sub>14</sub>H<sub>9</sub>ClF<sub>3</sub>NO<sub>2</sub>, 二维结构如下:
 
-![](/pic/amb/amb_b4_sustiva_2d.png)
+![](https://jerkwin.github.io/pic/amb/amb_b4_sustiva_2d.png)
 
 [sustiva.pdb](http://ambermd.org/tutorials/basic/tutorial4b/files/sustiva.pdb)是Sustiva的3D结构, 我们将根据它来构建拓扑和坐标文件. 这个文件是从RT-sustiva复合物的PDB文件(PDB编号: [IFKO](http://www.rcsb.org/pdb/explore/explore.do?structureId=1FKO))中抽取出来的. PDB文件中与Sustiva的坐标相应的残基名称为`EFZ`(代表Efavirenz).
 
@@ -405,7 +405,7 @@ HIV逆转录酶是异质二聚体, 由p51和p66两个亚基组成. 它是个很�
 
 你可以使用VMD查看截取的RT-sustiva复合物的结构([1FKO_sus.pdb](http://ambermd.org/tutorials/basic/tutorial4b/files/1FKO_sus.pdb))
 
-![](/pic/amb/amb_b4_RT.png)
+![](https://jerkwin.github.io/pic/amb/amb_b4_RT.png)
 
 类似先前的操作, 我们将以上操作命令写入`tleap`输入文件([`tleap2.in`](http://ambermd.org/tutorials/basic/tutorial4b/files/tleap2.in)), 并执行生成RT-sustiva复合物的所有文件:
 
@@ -557,7 +557,7 @@ HIV逆转录酶是异质二聚体, 由p51和p66两个亚基组成. 它是个很�
 <span style="color:#A2F">savepdb</span> complex complex.pdb<span style="color:#080;font-style:italic">  # 保存为pdb格式</span>
 </pre></div>
 
-![](/pic/amb/amb_b4_err.png)
+![](https://jerkwin.github.io/pic/amb/amb_b4_err.png)
 
 ### 4. 部分MD模拟
 

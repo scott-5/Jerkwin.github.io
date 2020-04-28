@@ -231,7 +231,7 @@
 
 计算方法: 直接累加
 
-![](/pic/gmx/gmx_mmpbsa_mm.png)
+![](https://jerkwin.github.io/pic/gmx/gmx_mmpbsa_mm.png)
 
 <table id='tab-2'><caption>MM能量分解计算结果对比&emsp;&emsp;<input type='button' id='tab-2_tog' value='折叠表格' onclick="togtab('tab-2', this.value)"></caption><tr>
   <th rowspan="1" colspan="1" style="text-align:center;">Term</th>
@@ -3894,7 +3894,7 @@
 
 ## 能量分解图示
 
-![](/pic/gmx/gmx_mmpbsa_show.png)
+![](https://jerkwin.github.io/pic/gmx/gmx_mmpbsa_show.png)
 
 ## 收敛性测试
 

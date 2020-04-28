@@ -168,10 +168,10 @@ Office这种存储方式和电子书的`epub`格式类似, `epub`实际也是打
 
 打开Google Scholar, 点击`Settings`, 选中`Bibliography manager`下面的第二个按钮, 并改为`EndNote`
 
-![](/pic/gsch_1.png)
+![](https://jerkwin.github.io/pic/gsch_1.png)
 
-![](/pic/gsch_2.png)
+![](https://jerkwin.github.io/pic/gsch_2.png)
 
-![](/pic/gsch_3.png)
+![](https://jerkwin.github.io/pic/gsch_3.png)
 
 开启此项服务后搜文献时, 论文下面会多出一个`Import into EndNote`的按钮, 点击一下就可以下载enw文件, 直接导入EndNote, 这样的做法简单多了.

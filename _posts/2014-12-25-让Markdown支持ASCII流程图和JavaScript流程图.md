@@ -121,7 +121,7 @@ Color codes
 <span style="color: #BB6622; font-weight: bold">\-</span>------------+-------------/
 </pre></div>
 </td></tr></table>
-![Fig. 1](/pic/flc-1.png)
+![Fig. 1](https://jerkwin.github.io/pic/flc-1.png)
 
 含中文的测试, 虽然网上提到方法使ditta支持中文, 但字体有点丑, 折腾Java也没有效果.
 
@@ -167,7 +167,7 @@ Color codes
 结束
 </pre></div>
 </td></tr></table>
-![Fig. 3](/pic/flc-3.png)
+![Fig. 3](https://jerkwin.github.io/pic/flc-3.png)
 
 js的流程图
 

@@ -36,7 +36,7 @@
 
 要将Python脚本编译成可执行程序, 我们可以使用[`py2exe`](http://www.py2exe.org/). 首先安装好Python 2.x环境和py2exe, 然后修改`acpype.py`脚本中的错误
 
-![](/pic/GMX_acpype.png)
+![](https://jerkwin.github.io/pic/GMX_acpype.png)
 
 再准备一个`setup.py`脚本
 

@@ -26,17 +26,17 @@ Taggie暂时只支持pdf文件, 且需配合Everything, Chrome, PDF-XChangeViewe
 
 __注意__ 若在工具栏右键时只出现`锁定/解锁所有命令栏`
 
-![](/pic/2016/taggie_1.png)
+![](https://jerkwin.github.io/pic/2016/taggie_1.png)
 
 请先点击`锁定/解锁所有命令栏`, 将工具栏解锁. 这样再次在工具栏右键就会出现需要的菜单项了.
 
-![](/pic/2016/taggie_2.png)
+![](https://jerkwin.github.io/pic/2016/taggie_2.png)
 
 选中`自定义`, 在其`命令`选项卡下, 依次点击`文件 | 复制完整文件名称 | 属性`, 将其`快捷键`设为`Alt+n`.
 
-![](/pic/2016/taggie_3.png)
+![](https://jerkwin.github.io/pic/2016/taggie_3.png)
 
-![](/pic/2016/taggie_4.png)
+![](https://jerkwin.github.io/pic/2016/taggie_4.png)
 
 ## 使用方法
 
@@ -48,7 +48,7 @@ __注意__ 若在工具栏右键时只出现`锁定/解锁所有命令栏`
 2. 双击运行`taggie.exe`. 程序会在后台运行.
 3. 打开`taggie.html`(默认应使用Chrome浏览器). 初始显示内容为最后一次的搜索结果.
 
-![](/pic/2016/taggie_5.png)
+![](https://jerkwin.github.io/pic/2016/taggie_5.png)
 
 建议将Everything和Taggie设置为开机启动, 这样就不用每次手动运行它们了.
 
@@ -58,7 +58,7 @@ __注意__ 若在工具栏右键时只出现`锁定/解锁所有命令栏`
 
 第一次启动搜索时, Chrome可能会提示`外部协议请求`,
 
-![](/pic/2016/taggie_6.png)
+![](https://jerkwin.github.io/pic/2016/taggie_6.png)
 
 请勾选`记住我对所有此类链接的选择`, 然后`启动应用`即可.
 
@@ -73,7 +73,7 @@ __注意__ 若在工具栏右键时只出现`锁定/解锁所有命令栏`
 
 使用PDF-XChangeViewer打开pdf文件后, 按下快捷键`Alt+z`会弹出taggie窗口
 
-![](/pic/2016/taggie_7.png)
+![](https://jerkwin.github.io/pic/2016/taggie_7.png)
 
 在此窗口中可以设置当前pdf文件的标题, 作者, 杂志, DOI, 标签.
 
@@ -87,7 +87,7 @@ __注意__ 若在工具栏右键时只出现`锁定/解锁所有命令栏`
 
 感谢 文博 录制下图.
 
-![](/pic/2016/taggie_8.gif)
+![](https://jerkwin.github.io/pic/2016/taggie_8.gif)
 
 ## 其他功能
 

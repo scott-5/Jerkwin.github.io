@@ -48,7 +48,7 @@ src中最重要的是包含了查看页面所需要的签名sig, 有了它你才
 可惜的是有些书Google很可能没有把所有的页面都放到网上, 即便你试了他所有的服务器也不可能得到相应的页面.
 如果你拿程序把Google各国的服务器都扫描一遍, 更有可能的是Google探测到你在自动发送请求, 把你的IP给封了, 让你无法连接到Google Book
 
-![](/pic/GoogleBook.png)
+![](https://jerkwin.github.io/pic/GoogleBook.png)
 
 当然, 避免的方法不是没有, 你可以换IP, 可以使用代理, 使用VPN, 只要骗过Google就可以了.
 

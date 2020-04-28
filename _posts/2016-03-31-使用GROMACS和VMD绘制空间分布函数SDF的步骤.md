@@ -13,11 +13,11 @@
 
 体系：油水+表活剂体系，如下图：
 
-![](/pic/SDF_sys.png)
+![](https://jerkwin.github.io/pic/SDF_sys.png)
 
 目标：计算表活剂头基C原子附近水分子的SDF，类似于下图：
 
-![](/pic/SDF_exam.png)
+![](https://jerkwin.github.io/pic/SDF_exam.png)
 
 计算步骤：
 
@@ -59,23 +59,23 @@ __注意__: 使用`gmx spatial`计算空间分布函数时, 在模拟过程中�
 2. 选择`Graphics`下的`representations`.
 3. 在弹出的对话框中，`Drawing method`选`cpk`，使画出的分子更漂亮。图（以所有表活剂作为中心分子建一个`group`，以体系中所有水建一个`group`的结果）如下：
 
-	![](/pic/SDF_cpk.png)
+	![](https://jerkwin.github.io/pic/SDF_cpk.png)
 
 4. 点`Create Rep`，新建一个`Representation`.
 5. 选新建的`Representation`后，`Drawing method`选`isosurface`. 先画正的部分，即在`isovalue`中输入一个正的值如`0.02`。在`Coloring method`中选择`ColorID`，为这个面指定颜色。图（表活剂包裹在里面）如下：
 
-	![](/pic/SDF_pos.png)
+	![](https://jerkwin.github.io/pic/SDF_pos.png)
 
-	![](/pic/SDF_iso40.png)
+	![](https://jerkwin.github.io/pic/SDF_iso40.png)
 
-	![](/pic/SDF_iso25.png)
+	![](https://jerkwin.github.io/pic/SDF_iso25.png)
 
 	【李继存 注】等值面的具体数值要根据自己的计算结果确定, 选择一个有代表性且较光滑的等值面即可. 由于示例数据尚未收敛, 所以结果看起来并不好.
 
 6. 点`Create Rep`，再新建一个`Representation`.
 7. 选新建的`Representation`后，`Drawing method`选`isosurface`. 再画负的部分，即在`isovalue`中输入一个负值如`-0.02`。在`Coloring method`中选择`ColorID`，为这个面指定颜色。如下图所示：
 
-	![](/pic/SDF_neg.png)
+	![](https://jerkwin.github.io/pic/SDF_neg.png)
 
 	【李继存 注】对SDF, 由于不会出负值, 所以此步骤可忽略.
 
@@ -94,4 +94,4 @@ __注意__: 使用`gmx spatial`计算空间分布函数时, 在模拟过程中�
 
 最终结果
 
-![](/pic/SDF_COO.png)
+![](https://jerkwin.github.io/pic/SDF_COO.png)

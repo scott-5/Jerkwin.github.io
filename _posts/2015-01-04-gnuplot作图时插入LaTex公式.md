@@ -24,7 +24,7 @@ gnuplot的终端可以直接输出LaTex文件, 其中文字和画图部分是分
 
 根据我的测试, 采用第二种方法的最后一个命令, 速度最快.
 
-![Fig. 1](/pic/erf.png)
+![Fig. 1](https://jerkwin.github.io/pic/erf.png)
 
 另外, 利用gnuplot的svg终端, 再利用mathjax也可以实现. 详细的作法可以参考下面的资料.
 

@@ -37,7 +37,7 @@
 
 下面的示例是苯分子每个碳原子上的 2pz 轨道的线性叠加, 组合系数全为1, 可以看作是苯分子的大派键.
 
-![PhOrb](/pic/PhOrb.png)
+![PhOrb](https://jerkwin.github.io/pic/PhOrb.png)
 
 <input type="button" value="gen" onClick="genCoor()" style="width:100px; height:30px" /> <br/>
 

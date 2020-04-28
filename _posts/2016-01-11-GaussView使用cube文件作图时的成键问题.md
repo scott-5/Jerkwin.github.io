@@ -18,7 +18,7 @@
 
 所以, 现在的问题就是看看Fchk中是如何保存原子成键信息的. 使用GaussView打开一个测试文件, 成键情况如下:
 
-![](/pic/Fchk.png)
+![](https://jerkwin.github.io/pic/Fchk.png)
 
 查看Fchk文件中的内容, 发现成键信息保存在下面的文本中
 

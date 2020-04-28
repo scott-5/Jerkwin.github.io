@@ -16,7 +16,7 @@
 
 下面我们介绍一下TPPMKTOP所用的原子类型指认算法, 并以下面的分子为例说明一下TPPMKTOP的原理.
 
-![](/pic/GMX_tpp-1.png)
+![](https://jerkwin.github.io/pic/GMX_tpp-1.png)
 
 <figure><script>var Mol1=new ChemDoodle.TransformCanvas3D('Mol-1',642,396);Mol1.specs.shapes_color='#fff';Mol1.specs.backgroundColor='black';Mol1.specs.set3DRepresentation('Ball and Stick');Mol1.specs.projectionPerspective_3D=false;Mol1.specs.compass_display=true;
 /*//Mol1.specs.atoms_resolution_3D=15;
@@ -101,11 +101,11 @@ TPPMKTOP会试着将数据库中的每一个模式与分子的化学结构进行
 
 为理解这一过程的细节, 让我们来看下核心数据库. TPPMKTOP处理完我们的分子后, 在最终的itp文件中, 1号碳原子指认的原子类型为`acetal opls_193`(缩醛). 为什么? 在SMARTS数据库中, 有两个记录与原子1的化学环境匹配, 第一个为(绿色)
 
-![](/pic/GMX_tpp-2.png)
+![](https://jerkwin.github.io/pic/GMX_tpp-2.png)
 
 `[CHX4]`对应于脂肪碳原子, 只含一个氢, 且为4价. 第二个匹配模式(绿色)为
 
-![](/pic/GMX_tpp-3.png)
+![](https://jerkwin.github.io/pic/GMX_tpp-3.png)
 
 这一记录意味着`C-O-[CH](C)-O`模式的第三个原子应定义为196号原子类型. 这一SMARTS模式对应于下面这种片段: 一个脂肪碳原子一端与氧相连, 另一端依次连着只含一个氢的脂肪碳原子, 连接了两个碳的氧原子, 一个脂肪碳原子. 选择是基于两个匹配模式的条件得分优先级(越大越好): 196号原子类型得分150, 140号得分只有100. 因此, 程序会选择196号原子类型. 在数据库内部的记录中, 196号原子类型对应于`opls_193`.
 

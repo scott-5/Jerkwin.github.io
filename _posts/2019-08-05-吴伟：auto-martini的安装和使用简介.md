@@ -46,7 +46,7 @@
 
 使用Gaussview画出想要的小分子
 
-![](/pic/gmx/auto-martini_1.png)
+![](https://jerkwin.github.io/pic/gmx/auto-martini_1.png)
 
 可以直接保存为sdf文件, 但好像Gaussview生成的sdf文件在`auto-martini`中使用会出错(未详细考察), 所以我们保存为pdb文件, 再用`openbabel`转换为sdf文件.
 
@@ -56,11 +56,11 @@
 
 会得到如下结果
 
-![](/pic/gmx/auto-martini_2.png)
+![](https://jerkwin.github.io/pic/gmx/auto-martini_2.png)
 
 同时生成gro文件
 
-![](/pic/gmx/auto-martini_3.png)
+![](https://jerkwin.github.io/pic/gmx/auto-martini_3.png)
 
 ## 注意事项
 

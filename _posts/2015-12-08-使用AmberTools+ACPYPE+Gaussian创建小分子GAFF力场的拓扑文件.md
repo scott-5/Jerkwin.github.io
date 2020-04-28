@@ -18,7 +18,7 @@
 
 点击[这里](/prog/amber14.zip)下载AmberTools+ACPYPE, 下载后解压到某一目录(路径中不要包含中文字符), 然后新建环境变量`AMBERHOME`并将其设置为amber14的路径即可.
 
-![](/pic/GMX_amberhome.png)
+![](https://jerkwin.github.io/pic/GMX_amberhome.png)
 
 具体操作如下:
 
@@ -34,7 +34,7 @@
 
 使用AmberTools+ACPYPE+Gaussian创建小分子GAFF力场拓扑文件的整个流程如下:
 
-![](/pic/GMX_proc.png)
+![](https://jerkwin.github.io/pic/GMX_proc.png)
 
 创建过程的大致步骤是先利用Gaussian得到RESP电荷, 然后利用AmberTools得到AMBER的参数文件. 由于GROMACS和AMBER参数文件的格式很不一样，所以最后需要使用ACPYPE将AMBER参数文件转换为GROMACS可识别的.gro和.top文件. 具体步骤说明如下:
 
@@ -65,39 +65,39 @@ Mol1.loadMolecule(ChemDoodle.readXYZ(Fmol));Mol1.startAnimation();Mol1.stopAnima
 
 点击`Calculate`->`Gaussian Calculation Setup`, 打开输入文件编译界面
 
-![](/pic/GMX_g09.png)
+![](https://jerkwin.github.io/pic/GMX_g09.png)
 
 先将计算类型修改为优化,
 
-![](/pic/GMX_opt.png)
+![](https://jerkwin.github.io/pic/GMX_opt.png)
 
 设定优化使用的方法, 基组, 以及体系的电荷, 自旋多重度
 
-![](/pic/GMX_bs.png)
+![](https://jerkwin.github.io/pic/GMX_bs.png)
 
 标题段可改可不改
 
-![](/pic/GMX_tit.png)
+![](https://jerkwin.github.io/pic/GMX_tit.png)
 
 `Link 0`部分可设定计算时所用的内存和核数. Windows下Gaussian最多可使用1 GB内存, 我的电脑是四核的, 这里我设置使用2个核
 
-![](/pic/GMX_mem.png)
+![](https://jerkwin.github.io/pic/GMX_mem.png)
 
 `General`部分设置使用二次收敛的SCF方法以确保收敛, 选择忽略对称性, 不将连接信息写到输入文件中. 其实这些设置影响不大, 不改一般也没事.
 
-![](/pic/GMX_scf.png)
+![](https://jerkwin.github.io/pic/GMX_scf.png)
 
 最后, `Add. Inp.`部分添加静电势输出文件的名称, 并在``中添加计算静电势的关键词
 
-![](/pic/GMX_add.png)
+![](https://jerkwin.github.io/pic/GMX_add.png)
 
 点击`Submit..`保存为.gjf文件, 并输出直角坐标和附加输入
 
-![](/pic/GMX_gjf.png)
+![](https://jerkwin.github.io/pic/GMX_gjf.png)
 
 打开产生的输入文件, 内容如下:
 
-![](/pic/GMX_file.png)
+![](https://jerkwin.github.io/pic/GMX_file.png)
 
 有关输入文件中关键词的解释, 见参考资料中的博文.
 
