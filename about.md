@@ -9,11 +9,11 @@ layout: page
 >
 >这就是有限的生命与无限的宇宙
 >
->Two things fill the mind with ever-increasing wonder and reverence, 
+>Two things fill the mind with ever-increasing wonder and reverence,
 >
->the more often and the more intensely one reflects on them: 
+>the more often and the more intensely one reflects on them:
 >
->the finite lives and the infinite cosmos.  
+>the finite lives and the infinite cosmos.
 
 这里存留我学习思考的痕迹
 
@@ -23,11 +23,8 @@ layout: page
 
 * 个人邮箱: <Jerkwin@Gmail.com>
 * GitHub : <https://GitHub.com/Jerkwin>
-* Coding : <https://Coding.net/u/Jerkwin>
 
 如果需要查看推送的文章, 请关注个人公众号
-
-![](/pic/rc/wechat.jpg)
 
 <hr>
 
