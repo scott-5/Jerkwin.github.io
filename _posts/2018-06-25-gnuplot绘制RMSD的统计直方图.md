@@ -45,7 +45,7 @@
 </pre></div>
 </td></tr></table>
 
-![](https://jerkwin.github.io/pic/2016/rmsd_gpl_1.png)
+![](https://jerkwin.github.io/pic/rmsd_gpl_1.png)
 
 还有另一种简单点的作法, 使用下面的`boxxyerrorbars`方法.
 
@@ -73,7 +73,7 @@
 </pre></div>
 </td></tr></table>
 
-![](https://jerkwin.github.io/pic/2016/rmsd_gpl_2.png)
+![](https://jerkwin.github.io/pic/rmsd_gpl_2.png)
 
 <table class="highlighttable"><th colspan="2" style="text-align:left">gnuplot</th><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height:125%"> 1
  2
@@ -109,7 +109,7 @@
 </pre></div>
 </td></tr></table>
 
-![](https://jerkwin.github.io/pic/2016/rmsd_gpl_3.png)
+![](https://jerkwin.github.io/pic/rmsd_gpl_3.png)
 
 ## 网络资料
 
