@@ -14,7 +14,7 @@ Sobereva曾给过一个tcl脚本, 用于解决VMD不能读入GROMACS轨迹速度
 
 下面模拟的是C20和C60分子的相撞过程, 播放轨迹时对每个原子根据速度大小进行着色.
 
-![](https://jerkwin.github.io/pic/2016/C20-C60.gif)
+![](https://jerkwin.github.io/pic/C20-C60.gif)
 
 ### 使用方法
 
